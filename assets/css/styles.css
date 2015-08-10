@@ -1,0 +1,138 @@
+body
+{
+  margin: 0;
+  /*background-image: url(../images/background/sea.jpg);*/
+  background-color: #FFFFE0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+.nav-backgrounds
+{
+  background-color: #1D1D1D;
+
+}
+.logins
+{
+  background-color: rgba(228, 245, 250, 0.8);
+  box-shadow: 0px 0px 30px gray;
+  border-radius: 10px;
+
+
+}
+.centerdiv
+{
+    margin-top: 200px;
+    margin-bottom: 100px;
+    padding: 10px;
+}
+.footer-style
+{
+  height: 30px;
+  margin-top: 310px;
+  text-align: center;
+  background-color: #1D1D1D;
+  border-color: #1D1D1D;
+  color: white;
+}
+.p-body
+{
+  border-radius: 10px;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  box-shadow: 0px 0px 20px gray;
+  min-height:600px;
+  background-color: rgba(228, 245, 250, 0.8);
+
+}
+.input-background
+{
+  background-color: rgb(248, 247, 199);
+  font-size:15px;
+  height: 30px;
+}
+h4, h3, h1, .input-background, label, h2, h5, h6
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.table_color
+{
+	background-color: rgb(243, 239, 158);
+}
+.bordered
+{
+  border-right: 2px;
+  border-color: black;S
+}
+.p-head
+{
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+.paragraph
+{
+  text-align: justify;
+  text-indent: 40px;
+  padding: 20px;
+}
+.nav-back
+{
+height:130px;
+padding:0;
+background-image: url(../images/background/background.png);
+background-position: center;
+background-attachment: fixed;
+background-size: cover;
+background-blend-mode: color-burn;
+}
+.car
+{
+  padding: 20px;
+}
+.imagesize
+{
+  max-height: 600px;
+  min-height: 600px;
+  width: 100%;
+
+  box-shadow: 0px 0px 30px black;
+}
+.grad
+{
+    /*height: 80px;
+    background: -webkit-linear-gradient(#3E8F3E, white, white);
+    background: -o-linear-gradient(#3E8F3E, white, white);
+    background: -moz-linear-gradient(#3E8F3E, white, white);
+    background: linear-gradient(#3E8F3E, #3E8F3E, white,white);
+    border-top-right-radius: 10px;
+    border-top-left-radius:  10px;*/
+    /*margin: 0;
+    background-image: url(../images/background/yellowgreen.jpg);
+    background-color: #eee;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;*/
+  background: #8C4600;
+  border-right: #522B04 2px solid;
+  padding-right: 2px;
+  border-top: #A06021 2px solid;
+  border-left: #A06021 2px solid;
+  padding-top: 2px;
+  border-bottom: #522B04 2px solid;
+  border-top-right-radius: 10px;
+  border-top-left-radius:  10px;
+}
+.touris-image
+{
+  width: 100%;
+  height: 300px;
+}
+.modal-style
+{
+  background: #8C4600;
+  border-bottom: #522B04 2px solid;
+  border-top-right-radius: 4px;
+  border-top-left-radius:  4px;
+}
