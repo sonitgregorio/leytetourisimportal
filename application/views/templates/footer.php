@@ -13,11 +13,10 @@
       } );
 
 
-      $(document).ready(function()
+      $(document).ready(function(){
           $('.carousel').carousel({
               interval: 2000
-              cycle: true;
-            })
+            });
 
            $('#orig').submit(function() {
             $.post( "/login/origpost", $("#orig" ).serialize(), function(data){

@@ -14,7 +14,7 @@
                             <div class="input-group">
                               <input type="text" class="form-control" name="origin" placeholder="Origin..." required>
                               <span class="input-group-btn">
-                                <button class="btn btn-default" id="show">Go!</button>
+                                <button class="btn btn-success">Go!</button>
                               </span>
                             </div>
                           </div>
@@ -58,7 +58,7 @@
                                <?php $this->load->view('tourist/images') ?>
 
                         </div>
-                       
+
                       </div>
                      <div role="tabpanel col-md-12" class="tab-pane" id="hotel" style="background-color:#FFFFE0;">
                         <br />
@@ -66,7 +66,7 @@
                                <?php $this->load->view('tourist/hotels') ?>
 
                         </div>
-                       
+
                       </div>
 
                   </div>
@@ -75,5 +75,6 @@
           </div>
 
       </div>
+
     </div>
   </div>

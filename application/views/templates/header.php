@@ -10,7 +10,9 @@
     <link href="../assets/css/bootstrap-theme.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/jquery.dataTables.min.css">
+    <link rel="icon" type="image/png" href="../assets/images/background/ico.png" sizes="128x128" />
     <title>Leyte Tourism Portal</title>
+
 
   </head>
   <body>

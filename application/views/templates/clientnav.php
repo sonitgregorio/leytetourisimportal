@@ -10,6 +10,7 @@
     <span class="icon-bar"></span>
   </button>
   <a class="navbar-brand" href="/">LTP</a>
+
 </div>
 
  <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,40 +96,45 @@
                           </div>
                          </div>
 
-                         
-                          
+
+
                           <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">E-mail <small style="color:red">*</small></label>  
+                          <label for="touristspotname" class="col-sm-4 control-label">E-mail <small style="color:red">*</small></label>
                           <div class="col-sm-8">
                                 <input type="email" class="form-control input-background" name="email" placeholder="example@yahoo.com" required>
                             </div>
                           </div>
-                          
-                        
+
+
                           <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Contact <small style="color:red">*</small></label>  
+                          <label for="touristspotname" class="col-sm-4 control-label">Contact <small style="color:red">*</small></label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control input-background" name="contact" placeholder="09*********" required>
                             </div>
                           </div>
-                          
-                          
+
+
                           <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Username <small style="color:red">*</small></label>  
+                          <label for="touristspotname" class="col-sm-4 control-label">Username <small style="color:red">*</small></label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control input-background" name="username" placeholder="Username" required>
                             </div>
                           </div>
-                          
-                          
+
+
                           <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>  
+                          <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>
                             <div class="col-sm-8">
                                 <input type="password" class="form-control input-background" name="password" placeholder="Password" required>
                             </div>
                           </div>
-                          
-                          
+                          <!-- <div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
+  aria-valuemin="0" aria-valuemax="100" style="width:100%">
+    100% Complete (warning)
+  </div>
+</div> -->
+
                         <br />
                         <div class="pull-right">
                             <button type="submit" class="btn btn-primary" name="button">Submit</button>
