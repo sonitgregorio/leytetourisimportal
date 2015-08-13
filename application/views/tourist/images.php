@@ -24,7 +24,3 @@
 <div class="col-md-4">
 	<img src="../assets/background/43.jpg" alt="" class="col-md-3"style="padding:0;width:170px; height:200px; margin:30px"/>
 </div>
-
-
-
-

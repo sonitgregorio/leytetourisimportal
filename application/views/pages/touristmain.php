@@ -5,6 +5,7 @@
 
 
 <div class="col-md-12 car">
+  
   <div id="myCarousel" class="carousel slide">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

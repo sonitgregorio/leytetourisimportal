@@ -15,7 +15,9 @@
               $this->session->set_flashdata('message', $alerts . 'Required Password.</div>');
               redirect('/');
             }else{
-              echo '1';
+              $this->session->set_userdata('username', $username);
+              $this->session->set_userdata('password', $password);
+              redirect('/home');
 
             }
       }
@@ -92,10 +94,18 @@
       function citytourist()
 
       {
-         $data['param'] = "tourist";
+        $data['param'] = "tourist";
         $this->load->view("templates/header");
         $this->load->view('templates/clientnav', $data);
         $this->load->view("tourist/citytouristspot");
+        $this->load->view("templates/footer");
+      }
+      function home()
+      {
+        $data['param'] = "home";
+        $this->load->view("templates/header");
+        $this->load->view('templates/usernav', $data);
+        $this->load->view("home/homepage");
         $this->load->view("templates/footer");
       }
   }

@@ -7,10 +7,19 @@
   {
     //Load Main page..
     function index(){
-      $data['param'] = "home";
-      $this->load->view('templates/header');
-      $this->load->view('templates/clientnav', $data);
-      $this->load->view('pages/touristmain');
-      $this->load->view('templates/footer.php');
+      if ($this->session->userdata('username') != "") {
+        $data['param'] = "home";
+        $this->load->view('templates/header');
+        $this->load->view('templates/clientnav', $data);
+        $this->load->view('pages/touristmain');
+        $this->load->view('templates/footer.php');
+      }else{
+        $data['param'] = "tourist";
+        $this->load->view("templates/header");
+        $this->load->view('templates/usernav', $data);
+        $this->load->view("tourist/citytouristspot");
+        $this->load->view("templates/footer");
+      }
+
     }
   }
