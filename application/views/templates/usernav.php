@@ -39,7 +39,7 @@
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
-              <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout</a>
+              <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
           </div>
         </form>
   </ul>

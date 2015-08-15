@@ -12,12 +12,11 @@
         </div>
         <div class="col-md-9">
           <div class="panel logins p-body" style="margin-top:0;box-shadow:none;background-color: #FFFFE0">
-            <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;">Announcement</h4></div>
+            <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Announcement</h4></div>
               <div class="panel-body">
-
                     <div class="col-md-12">
                       <form class="form" action="index.html" method="post">
-                          <textarea name="name" rows="5" cols="100" style="width:100%;resize:none" class="form-control" placeholder="Enter Your Announcement Here...."></textarea>
+                          <textarea name="name" rows="5" cols="100" style="width:100%;resize:none;font-size:20px;" class="form-control" placeholder="Enter Your Announcement Here...."></textarea>
                       </form>
                       <button class="btn btn-success pull-right" type="button" name="button" style="margin-top:10px">Post</button>
                           <br /><br />
