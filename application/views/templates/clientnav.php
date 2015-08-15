@@ -29,10 +29,10 @@
 
    ?>
   <ul class="nav navbar-nav">
-    <li class="<?php echo $home ?>" ><a href="/"><b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = <?php echo $tourist; ?>><a href="/tourist-list"><b>Tourist Destination</b></a></li>
-    <li><a href="/tourist"><b>About</b></a></li>
-    <li><a href="/tourist"><b>FAQ</b></a></li>
+    <li class="<?php echo $home ?>" ><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+    <li class = <?php echo $tourist; ?>><a href="/tourist-list"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <li><a href="/tourist"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;<b>About</b></a></li>
+    <li><a href="/tourist"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
 
 
   </ul>

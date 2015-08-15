@@ -68,3 +68,4 @@ $route['tourist']         = 'login/tourist';
 $route['reservation']     = 'login/reservation';
 $route['citytourist']     = 'login/citytourist';
 $route['home']            = 'login/home';
+$route['logout']            = 'login/logout';

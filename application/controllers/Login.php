@@ -108,4 +108,11 @@
         $this->load->view("home/homepage");
         $this->load->view("templates/footer");
       }
+      function logout()
+      {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('password');
+        redirect('/');
+
+      }
   }

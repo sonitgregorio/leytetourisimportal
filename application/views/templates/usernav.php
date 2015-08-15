@@ -29,17 +29,17 @@
 
    ?>
   <ul class="nav navbar-nav">
-    <li class="<?php echo $home ?>" ><a href="/home"><b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = <?php echo $tourist; ?>><a href="/tourist-list"><b>Settings</b></a></li>
-    <li><a href="/tourist"><b>Photo Gallery</b></a></li>
-    <li><a href="/tourist"><b>Activities</b></a></li>
+    <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+    <li class = <?php echo $tourist; ?>><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
+    <li><a href="#"><b>Activities</b></a></li>
 
 
   </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
-              <button class="btn btn-success" type="submit" class="btn btn-default">Logout</button>
+              <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout</a>
           </div>
         </form>
   </ul>

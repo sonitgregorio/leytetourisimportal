@@ -7,17 +7,17 @@
   {
     //Load Main page..
     function index(){
-      if ($this->session->userdata('username') != "") {
+      if (empty($this->session->userdata('username'))) {
         $data['param'] = "home";
         $this->load->view('templates/header');
         $this->load->view('templates/clientnav', $data);
         $this->load->view('pages/touristmain');
         $this->load->view('templates/footer.php');
       }else{
-        $data['param'] = "tourist";
+        $data['param'] = "home";
         $this->load->view("templates/header");
         $this->load->view('templates/usernav', $data);
-        $this->load->view("tourist/citytouristspot");
+        $this->load->view("home/homepage");
         $this->load->view("templates/footer");
       }
 
