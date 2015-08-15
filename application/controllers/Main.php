@@ -6,14 +6,18 @@
   class Main extends CI_Controller
   {
     //Load Main page..
-    function index(){
-      if (empty($this->session->userdata('username'))) {
+    function index()
+    {
+      if(empty($this->session->userdata('username')))
+       {
         $data['param'] = "home";
         $this->load->view('templates/header');
         $this->load->view('templates/clientnav', $data);
         $this->load->view('pages/touristmain');
         $this->load->view('templates/footer.php');
-      }else{
+      }
+      else
+      {
         $data['param'] = "home";
         $this->load->view("templates/header");
         $this->load->view('templates/usernav', $data);
