@@ -4,7 +4,7 @@
         <div class="col-md-3">
           <div class="col-md-12" >
               <img src="../assets/images/background/nav.jpg" class="thumbnail touris-image" style="width:200px;height:200px "/>
-              <label for=""><h5>Tourist:</h5></label><h4> Mac Arthur Park</h4>
+              <label for=""><h5>Name:</h5></label><h4> Joe Mar Dosal</h4>
               <label for=""><h5>Address:</h5><h4>Palo, Leyte Philippines</h4></label><br />
               <label for=""><h5>Contact No:</h5><h4>325-3252</h4></label><br />
               <label for=""><h5>Email No:</h5><h4>mcarthur@yahoo.com</h4></label><br />
