@@ -19,12 +19,16 @@
       $tourist = "";
       $home = "";
       $settings = "";
+      $gallery = "";
       if ($param) {
         if ($param == "settings") {
           $settings = "active";
 
-        }elseif ($param = "home") {
+        }elseif ($param == "home") {
             $home = "active";
+        }
+        elseif ($param == "gallery") {
+            $gallery = "active";
         }
       }
 
@@ -32,7 +36,7 @@
   <ul class="nav navbar-nav">
     <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
     <li class = <?php echo $settings; ?>><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
-    <li><a href="#"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
+    <li class="<?php echo $gallery ?>"><a href="/gallery"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
     <li><a href="#"><b>Activities</b></a></li>
 
 

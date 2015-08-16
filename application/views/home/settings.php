@@ -47,19 +47,19 @@
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Old Pasword</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" value="" class="form-control">
+                                <input type="password" name="name" value="sonitgregorio" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-sm-3 control-label">New Pasword</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" value="" class="form-control">
+                                <input type="password" name="name" value="sonitgregorio" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Confirm Pasword</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" value="" class="form-control">
+                                <input type="password" name="name" value="sonitgregorio" class="form-control">
                             </div>
                           </div>
                           <button class="btn btn-success pull-right" type="button" name="button" style="margin-top:10px">Save</button>

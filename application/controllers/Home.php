@@ -22,5 +22,13 @@
         $this->load->view('home/settings');
         $this->load->view('templates/footer.php');
     }
+    function gallery()
+    {
+        $data['param'] = "gallery";
+        $this->load->view('templates/header');
+        $this->load->view('templates/usernav', $data);
+        $this->load->view('home/gallery');
+        $this->load->view('templates/footer.php');
+    }
 
   }
