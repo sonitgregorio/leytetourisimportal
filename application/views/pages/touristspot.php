@@ -1,5 +1,5 @@
 <div class="col-md-12" >
-  <div class="panel logins p-body">
+  <div class="panel logins p-body" style="min-height">
     <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Leyte Tourist Destination</strong></h3></div>
     <div class="panel-body">
         <?php if ($this->session->userdata('username') == "admin"): ?>
@@ -15,19 +15,17 @@
                 </div>
               </div>
 
-            <div class="col-md-6">
+            <div class="col-md-10">
                       <label>Tourist Destination</label>
-                          <input type="text" class="form-control" name="name" value="">
+                          <input type="text" class="form-control" name="name" value="" style="width:40%">
                       <label>Contact</label>
-                          <input type="text" class="form-control" name="name" value="">
+                          <input type="text" class="form-control" name="name" value=""  style="width:40%">
                       <label>Address</label>
-                          <input type="text" class="form-control" name="name" value="">
-                          <button type="submit" class="btn btn-success pull-right" style="margin-top:10px"  name="button">Save</button>
-
-
-                    </div>
-
+                          <input type="text" class="form-control" name="name" value="" style="width:40%">
+                          <button type="submit" class="btn btn-success" style="margin-top:10px"  name="button">Save</button>
+                          <br /><br />
             </div>
+
           </form>
         <?php endif; ?>
 
@@ -43,5 +41,7 @@
             <?php  } ?>
                <br />
       </div>
+      </div>
     </div>
   </div>
+</div>
