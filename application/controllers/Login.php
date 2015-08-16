@@ -15,10 +15,13 @@
               $this->session->set_flashdata('message', $alerts . 'Required Password.</div>');
               redirect('/');
             }else{
-              $this->session->set_userdata('username', $username);
-              $this->session->set_userdata('password', $password);
-              redirect('/home');
-
+              if ($username == "admin" AND $password == "admin") {
+                  redirect('/admin');
+              }else{
+                $this->session->set_userdata('username', $username);
+                $this->session->set_userdata('password', $password);
+                redirect('/home');
+              }
             }
       }
       function signup()

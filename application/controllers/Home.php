@@ -30,5 +30,13 @@
         $this->load->view('home/gallery');
         $this->load->view('templates/footer.php');
     }
+    function admin()
+    {
+        $data['param'] = "home";
+        $this->load->view('templates/header');
+        $this->load->view('templates/usernav', $data);
+        $this->load->view('admin/adminhome');
+        $this->load->view('templates/footer.php');
+    }
 
   }
