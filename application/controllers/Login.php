@@ -15,12 +15,13 @@
               $this->session->set_flashdata('message', $alerts . 'Required Password.</div>');
               redirect('/');
             }else{
+              $this->session->set_userdata('username', $username);
+              $this->session->set_userdata('password', $password);
+
               if ($username == "admin" AND $password == "admin") {
                   redirect('/admin');
               }else{
-                $this->session->set_userdata('username', $username);
-                $this->session->set_userdata('password', $password);
-                redirect('/home');
+                  redirect('/home');
               }
             }
       }
@@ -76,7 +77,12 @@
       {
         $data['param'] = "tourist";
         $this->load->view("templates/header");
-        $this->load->view('templates/clientnav', $data);
+        if ($this->session->userdata('username') == "admin") {
+            $data['param'] = "touristmanagement";
+            $this->load->view('templates/adminnav', $data);
+        }else{
+            $this->load->view('templates/clientnav', $data);
+        }
         $this->load->view("pages/touristspot");
         $this->load->view("templates/footer");
       }
