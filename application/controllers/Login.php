@@ -86,26 +86,41 @@
         $this->load->view("pages/touristspot");
         $this->load->view("templates/footer");
       }
-      function tourist()
+      function tourist($spots)
       {
         $data['param'] = "tourist";
+        $data['spots'] = $spots;
         $this->load->view("templates/header");
-        $this->load->view('templates/clientnav', $data);
+        if ($this->session->userdata('username') == "admin") {
+            $data['param'] = "touristmanagement";
+            $this->load->view('templates/adminnav', $data);
+        }else{
+            $this->load->view('templates/clientnav', $data);
+        }
+
         $this->load->view("tourist/tourist");
         $this->load->view("templates/footer");
       }
       function origpost(){
         echo $this->input->post('origin');
         $data['origin'] = $this->input->post('origin');
+        $data['spots'] = $this->input->post('spots');
         $this->load->view('tourist/map', $data);
 
       }
-      function citytourist()
+      function citytourist($destination)
 
       {
+
+        $data['destination'] = $destination;
         $data['param'] = "tourist";
         $this->load->view("templates/header");
-        $this->load->view('templates/clientnav', $data);
+        if ($this->session->userdata('username') == "admin") {
+            $data['param'] = "touristmanagement";
+            $this->load->view('templates/adminnav', $data);
+        }else{
+            $this->load->view('templates/clientnav', $data);
+        }
         $this->load->view("tourist/citytouristspot");
         $this->load->view("templates/footer");
       }

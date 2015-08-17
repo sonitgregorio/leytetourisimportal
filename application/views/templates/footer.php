@@ -27,6 +27,14 @@
 
             });
          });
+
+         $('.origs').submit(function() {
+          $.post( "/login/origpost", $(this).serialize(), function(data){
+          //  alert(data);
+            $('#ors').html(data);
+
+          });
+       });
      });
 </script>
 

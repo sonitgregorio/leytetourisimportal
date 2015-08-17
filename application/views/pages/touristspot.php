@@ -29,16 +29,28 @@
           </form>
         <?php endif; ?>
 
-            <?php for ($i=1; $i <= 11; $i++) { ?>
-              <div class="col-md-4" style="text-align:center;margin-bottom:20px">
-                  <a href="/citytourist"><img src="../assets/images/background/nav.jpg" class="thumbnail touris-image" /></a>
-                  <a class="btn btn-info" href="/citytourist">Palo Leyte</a>
-                  <?php if ($this->session->userdata('username') == "admin"): ?>
-                      <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                  <?php endif; ?>
-              </div>
+        <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+            <a href="/citytourist"><img src="../assets/images/background/palo.jpg" class="thumbnail touris-image" /></a>
+            <a class="btn btn-info" href="/citytourist/palo">Palo Leyte</a>
+            <?php if ($this->session->userdata('username') == "admin"): ?>
+                <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+            <?php endif; ?>
+        </div>
+        <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+              <a href="/citytourist"><img src="../assets/images/background/palompon.jpg" class="thumbnail touris-image" /></a>
+              <a class="btn btn-info" href="/citytourist">Palompon Leyte</a>
+              <?php if ($this->session->userdata('username') == "admin"): ?>
+                  <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+              <?php endif; ?>
+          </div>
+          <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+              <a href="/citytourist"><img src="../assets/images/background/sogod.jpg" class="thumbnail touris-image" /></a>
+              <a class="btn btn-info" href="/citytourist">Sogod Southern Leyte</a>
+              <?php if ($this->session->userdata('username') == "admin"): ?>
+                  <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+              <?php endif; ?>
+          </div>
 
-            <?php  } ?>
                <br />
       </div>
       </div>

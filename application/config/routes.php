@@ -60,15 +60,15 @@ Route Login Form
 Routes for the pages included in the system
  */
 
-$route['verify_login']    = 'login/verify_login';
-$route['signup']          = 'login/signup';
-$route['forgot']          = 'login/forgot';
-$route['tourist-list']    = 'login/touristspot';
-$route['tourist']         = 'login/tourist';
-$route['reservation']     = 'login/reservation';
-$route['citytourist']     = 'login/citytourist';
-$route['home']            = 'home/themain';
-$route['logout']          = 'login/logout';
-$route['settings']        = 'home/settings';
-$route['gallery']         = 'home/gallery';
-$route['admin']           = 'home/admin';
+$route['verify_login']           = 'login/verify_login';
+$route['signup']                 = 'login/signup';
+$route['forgot']                 = 'login/forgot';
+$route['tourist-list']           = 'login/touristspot';
+$route['tourist/(:any)']         = 'login/tourist/$1';
+$route['reservation']            = 'login/reservation';
+$route['citytourist/(:any)']     = 'login/citytourist/$1';
+$route['home']                   = 'home/themain';
+$route['logout']                 = 'login/logout';
+$route['settings']               = 'home/settings';
+$route['gallery']                = 'home/gallery';
+$route['admin']                  = 'home/admin';
