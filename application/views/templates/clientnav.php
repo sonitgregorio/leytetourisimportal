@@ -40,8 +40,8 @@
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
               <!-- <button class="btn btn-success" type="submit" class="btn btn-default">Login</button> -->
-              <a class="btn btn-success" data-toggle="modal" data-target="#login">Login</a>
-              <a class="btn btn-info" data-toggle="modal" data-target="#myModal">Sign Up</a>
+              <a class="btn btn-success loging" data-type="1" data-toggle="modal" data-target="#login">Login</a>
+              <a class="btn btn-info loging" data-type="2" data-toggle="modal" data-target="#myModal">Sign Up</a>
           </div>
         </form>
 
@@ -51,7 +51,7 @@
 </div><!--.container-fluid -->
 </nav>
 
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:5%">
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-style">
@@ -59,68 +59,10 @@
         <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong>User Registration</strong></h4></h4>
       </div>
           <div class="modal-body">
-              <div class="panel-body">
-                <form class="form-horizontal" action="/verify_login" method="post">
-                        <?php
-                           echo $this->session->flashdata('message');
-                         ?>
-                         <div class="form-group">
-                            <label for="touristspotname" class="col-sm-4 control-label">First Name <small style="color:red">*</small></label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control input-background" name="fname" placeholder="Juan" required>
-                            </div>
-                          </div>
-                        <div class="form-group">
-                             <label for="touristspotname" class="col-sm-4 control-label">Middle Name <small style="color:red">*</small></label>
-                             <div class="col-sm-8">
-                                <input type="text" class="form-control input-background" name="mname" placeholder="Lango" required>
-                             </div>
-                        </div>
-                         <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Last Name <small style="color:red">*</small></label>
-                          <div class="col-sm-8">
-                                <input type="text" class="form-control input-background" name="lname" placeholder="Tamad">
-                          </div>
-                         </div>
-
-
-
-                          <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">E-mail <small style="color:red">*</small></label>
-                          <div class="col-sm-8">
-                                <input type="email" class="form-control input-background" name="email" placeholder="example@yahoo.com" required>
-                            </div>
-                          </div>
-
-
-                          <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Contact <small style="color:red">*</small></label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control input-background" name="contact" placeholder="09*********" required>
-                            </div>
-                          </div>
-
-
-                          <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Username <small style="color:red">*</small></label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control input-background" name="username" placeholder="Username" required>
-                            </div>
-                          </div>
-
-
-                          <div class="form-group">
-                          <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>
-                            <div class="col-sm-8">
-                                <input type="password" class="form-control input-background" name="password" placeholder="Password" required>
-                            </div>
-                          </div>
-                        <br />
-                        <div class="pull-right">
-                            <button type="submit" class="btn btn-primary" name="button">Submit</button>
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
+              <div class="panel-body" id="user_reg">
+                <?php
+                  $this->load->view('templates/user_reg')
+                ?>
               </div>
           </div>
       </div>
@@ -128,30 +70,18 @@
   </div>
 
 
-
-
   <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:10%">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header modal-style">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong>User Registration</strong></h4></h4>
+          <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong>User Login</strong></h4></h4>
         </div>
             <div class="modal-body">
-                <div class="panel-body">
-                  <form class="form" action="/verify_login" method="post">
-                      <div class="col-md-12">
-                          <div class="form-group">
-                            <label for="">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Username">
-                          </div>
-                          <div class="form-group">
-                            <label for="">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
-                          </div>
-                          <button class="btn btn-success" type="submit" class="btn btn-default">Login</button>
-                      </div>
-                    </form>
+                <div class="panel-body" id="lo">
+                  <?php
+                    $this->load->view('templates/user_login');
+                   ?>
                 </div>
             </div>
         </div>
