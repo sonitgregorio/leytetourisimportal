@@ -39,32 +39,19 @@
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
-
-            <label><?php
-                echo $this->session->flashdata('message');
-               ?></label>
-
-              <!-- <a href=""><small>Forgot Password?</small></a> -->
-              <div class="form-group">
-
-                <input type="text" class="form-control" name="username" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-              </div>
-
-              <button class="btn btn-success" type="submit" class="btn btn-default">Login</button>
+              <!-- <button class="btn btn-success" type="submit" class="btn btn-default">Login</button> -->
+              <a class="btn btn-success" data-toggle="modal" data-target="#login">Login</a>
               <a class="btn btn-info" data-toggle="modal" data-target="#myModal">Sign Up</a>
-
           </div>
-  </form>
+        </form>
+
   </ul>
 
 </div><!--.navbar-collapse -->
 </div><!--.container-fluid -->
 </nav>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:5%">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-style">
@@ -128,13 +115,6 @@
                                 <input type="password" class="form-control input-background" name="password" placeholder="Password" required>
                             </div>
                           </div>
-                          <!-- <div class="progress">
-  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
-  aria-valuemin="0" aria-valuemax="100" style="width:100%">
-    100% Complete (warning)
-  </div>
-</div> -->
-
                         <br />
                         <div class="pull-right">
                             <button type="submit" class="btn btn-primary" name="button">Submit</button>
@@ -146,4 +126,60 @@
       </div>
     </div>
   </div>
+
+
+
+
+  <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:10%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-style">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong>User Registration</strong></h4></h4>
+        </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                  <form class="form" action="/verify_login" method="post">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                          </div>
+                          <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                          </div>
+                          <button class="btn btn-success" type="submit" class="btn btn-default">Login</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

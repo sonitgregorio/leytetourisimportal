@@ -3,7 +3,7 @@
         <div class="panel-heading p-head"><h3 style="color:#df3a01;"><strong>User Login</strong></h3></div>
           <div class="panel-body">
             <form action="/verify_login" method="post">
-            
+
                     <label for="touristspotname"><h4>Username</h4></label>
                   <input type="text" class="form-control input-background" name="username" placeholder="Username">
                     <label for="touristspotname"><h4>Password</h4></label>
