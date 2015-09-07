@@ -1,9 +1,6 @@
 <script>
-
-
-
       $(document).ready(function(){
-          $('#example').DataTable();
+        $('#example').DataTable();
 
           $('.carousel').carousel({
               interval: 2000
@@ -29,9 +26,8 @@
               alert(data);
               $('#user_reg').html(data);
          });
-
        });
-
+       
        $('.login_submit').submit(function(){
          $.post("/login/verify_login", $(this).serialize(), function(data){
             if (data == '2')
@@ -42,6 +38,7 @@
             {
                 $('#lo').html(data);
             }
+
          });
        });
 
