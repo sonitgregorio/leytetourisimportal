@@ -1,6 +1,14 @@
 <?php
   class Login extends CI_Controller
   {
+      function faildemessage()
+      {
+            return '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
+      }
+      function successMessage()
+      {
+          return'<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
+      }
       function verify_login()
       {
             $suc = '<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
@@ -8,21 +16,21 @@
 
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            if ($username == "") {
-                   $this->session->set_flashdata('message', $alerts . 'Required Username.</div>');
-                   redirect('/');
-            }elseif ($password == "") {
+            if ($username == "")
+            {
+              $this->session->set_flashdata('message', $alerts . 'Required Username.</div>');
+              $this->load->view('templates/user_login');
+              $this->load->view('templates/script.php');
+            }elseif ($password == "")
+            {
               $this->session->set_flashdata('message', $alerts . 'Required Password.</div>');
-              redirect('/');
-            }else{
+              $this->load->view('templates/user_login');
+              $this->load->view('templates/script.php');
+            }else
+            {
               $this->session->set_userdata('username', $username);
               $this->session->set_userdata('password', $password);
-
-              if ($username == "admin" AND $password == "admin") {
-                  redirect('/admin');
-              }else{
-                  redirect('/home');
-              }
+              header('location: www.leytetourismportal.com');
             }
       }
       function signup()
@@ -111,7 +119,6 @@
       function citytourist($destination)
 
       {
-
         $data['destination'] = $destination;
         $data['param'] = "tourist";
         $this->load->view("templates/header");
@@ -137,6 +144,46 @@
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('password');
         redirect('/');
+      }
+      function register_users()
+      {
+        $password = $this->input->post('password');
+        $username = $this->input->post('username');
+        $firstname = $this->input->post('fname');
+        $middlename = $this->input->post('mname');
+        $lastname = $this->input->post('lname');
+        $usertype = $this->input->post('usertype');
+        $email = $this->input->post('email');
+        $contact = $this->input->post('contact');
 
+
+        $data = array('firstname'   =>  $firstname,
+                      'middlename'  =>  $middlename,
+                      'lastname'    =>  $lastname,
+                      'email'       =>  $email,
+                      'contact'     =>  $contact,
+                      'username'    =>  $username,
+                      'usertype'    =>  $usertype);
+
+        if ($password != $this->input->post('confirmpassword'))
+        {
+          $this->session->set_flashdata('message', $this->faildemessage() .  '<span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;<strong>Your Confirm Password does not match with your Password.</strong></div>');
+          $this->load->view('templates/user_reg', $data);
+        }
+        else
+        {
+          if ($this->registration->existuser($username) >= 1)
+          {
+            $this->session->set_flashdata('message', $this->faildemessage() .  '<span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;<strong>Username Already Exist.</strong></div>');
+            $this->load->view('templates/user_reg', $data);
+          }
+          else
+          {
+            $this->registration->insert_users($data);
+            $this->session->set_flashdata('message','<div class="alert alert-success">' . $this->successMessage() .  'Registration Success.</div>');
+            $this->load->view('templates/user_reg');
+          }
+        }
+        $this->load->view('templates/script.php');
       }
   }

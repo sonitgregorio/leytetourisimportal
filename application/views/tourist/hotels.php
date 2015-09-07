@@ -1,6 +1,5 @@
 	<div class="col-md-4" style="text-align:center">
 		<a href=""><img src="../assets/images/background/oriental1.jpg" class="thumbnail" alt="" style="padding:0;width:100%; height:200px;"/></a>
-
 		<form class="form-horizontal origs" method="post" onsubmit="return false">
 			  	<input type="hidden" name="origin" value="<?php echo "Oriental Hotel Palo Leyte" ?>">
 				  <input type="hidden" name="spots" value="<?php echo "MacArthur Park, Palo Leyte" ?>">
