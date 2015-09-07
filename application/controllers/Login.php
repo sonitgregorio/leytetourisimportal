@@ -21,16 +21,19 @@
               $this->session->set_flashdata('message', $alerts . 'Required Username.</div>');
               $this->load->view('templates/user_login');
               $this->load->view('templates/script.php');
-            }elseif ($password == "")
+            }
+            elseif ($password == "")
             {
               $this->session->set_flashdata('message', $alerts . 'Required Password.</div>');
               $this->load->view('templates/user_login');
               $this->load->view('templates/script.php');
-            }else
+            }
+            else
             {
+              echo '2';
               $this->session->set_userdata('username', $username);
               $this->session->set_userdata('password', $password);
-              header('location: www.leytetourismportal.com');
+            //  header('location: www.leytetourismportal.com');
             }
       }
       function signup()

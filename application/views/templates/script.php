@@ -1,10 +1,10 @@
 <script>
-      $(document).ready(function() {
-              $('#example').DataTable();
-      } );
+
 
 
       $(document).ready(function(){
+          $('#example').DataTable();
+
           $('.carousel').carousel({
               interval: 2000
             });
@@ -34,16 +34,16 @@
 
        $('.login_submit').submit(function(){
          $.post("/login/verify_login", $(this).serialize(), function(data){
-            alert(data);
-            //document.location = '/';
+            if (data == '2')
+            {
+                document.location = '/';
+            }
+            else
+            {
+                $('#lo').html(data);
+            }
          });
        });
 
-      // $(document).on("click", ".loging", function(){
-      //     var ty = $(this).data('type');
-      //     alert(ty);
-      // });
-
-
-     });
+  });
 </script>

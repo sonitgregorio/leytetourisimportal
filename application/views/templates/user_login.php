@@ -1,6 +1,6 @@
 <form class="form login_submit" action="/verify_login" method="post" onsubmit="return false">
     <?php
-         echo $this->session->flashdata('message');
+        echo $this->session->flashdata('message');
      ?>
     <div class="col-md-12">
         <div class="form-group">

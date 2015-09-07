@@ -61,6 +61,7 @@
           <div class="modal-body">
               <div class="panel-body" id="user_reg">
                 <?php
+
                   $this->load->view('templates/user_reg')
                 ?>
               </div>
