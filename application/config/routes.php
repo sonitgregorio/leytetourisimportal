@@ -72,3 +72,6 @@ $route['logout']                 = 'login/logout';
 $route['settings']               = 'home/settings';
 $route['gallery']                = 'home/gallery';
 $route['admin']                  = 'home/admin';
+
+//Route Tourist Destination
+$route['insert_destination']    = 'tourist/insert_tourdest';

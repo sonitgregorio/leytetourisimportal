@@ -1,7 +1,6 @@
 <div class="col-md-12" >
   <div class="panel logins p-body">
       <div class="panel-body">
-
         <div class="col-md-12">
           <div class="panel logins p-body" style="margin-top:0;box-shadow:none;background-color: #FFFFE0">
             <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Announcement</h4></div>
@@ -28,7 +27,6 @@
                             </p>
                           <hr style="background: #8C4600;height:2px;">
                     </div>
-
               </div>
             </div>
         </div>

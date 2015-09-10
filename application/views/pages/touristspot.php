@@ -3,15 +3,15 @@
     <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Leyte Tourist Destination</strong></h3></div>
     <div class="panel-body">
         <?php if ($this->session->userdata('usertype') == "4"): ?>
-            <form class="form" action="index.html" method="post">
-              <div class="col-md-2">
+            <form class="form" action="/insert_destination" method="post" enctype="multipart/form-data" >
+              <div class="col-md-2" style="padding:10px">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                       <div>
-                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
-                </div>
+                    </div>
               </div>
 
             <div class="col-md-10">
@@ -35,21 +35,6 @@
                 <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
             <?php endif; ?>
         </div>
-        <!-- <div class="col-md-4" style="text-align:center;margin-bottom:20px">
-              <a href="/citytourist"><img src="../assets/images/background/palompon.jpg" class="thumbnail touris-image" /></a>
-              <a class="btn btn-info" href="/citytourist">Palompon Leyte</a>
-              <?php if ($this->session->userdata('username') == "admin"): ?>
-                  <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-              <?php endif; ?>
-          </div>
-          <div class="col-md-4" style="text-align:center;margin-bottom:20px">
-              <a href="/citytourist"><img src="../assets/images/background/sogod.jpg" class="thumbnail touris-image" /></a>
-              <a class="btn btn-info" href="/citytourist">Sogod Southern Leyte</a>
-              <?php if ($this->session->userdata('username') == "admin"): ?>
-                  <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-              <?php endif; ?>
-          </div> -->
-
                <br />
       </div>
       </div>

@@ -442,7 +442,7 @@ class CI_Upload {
 			}
 
 			return FALSE;
-		}
+		} 
 
 		// Set the uploaded data as class variables
 		$this->file_temp = $_file['tmp_name'];
