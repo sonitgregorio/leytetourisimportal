@@ -2,15 +2,14 @@
   <div class="panel logins p-body" style="min-height">
     <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Leyte Tourist Destination</strong></h3></div>
     <div class="panel-body">
-        <?php if ($this->session->userdata('username') == "admin"): ?>
+        <?php if ($this->session->userdata('usertype') == "4"): ?>
             <form class="form" action="index.html" method="post">
               <div class="col-md-2">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                       <div>
-                        <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-
                       </div>
                 </div>
               </div>
@@ -32,11 +31,11 @@
         <div class="col-md-4" style="text-align:center;margin-bottom:20px">
             <a href="/citytourist"><img src="../assets/images/background/palo.jpg" class="thumbnail touris-image" /></a>
             <a class="btn btn-info" href="/citytourist/palo">Palo Leyte</a>
-            <?php if ($this->session->userdata('username') == "admin"): ?>
+            <?php if ($this->session->userdata('usertype') == "4"): ?>
                 <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
             <?php endif; ?>
         </div>
-        <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+        <!-- <div class="col-md-4" style="text-align:center;margin-bottom:20px">
               <a href="/citytourist"><img src="../assets/images/background/palompon.jpg" class="thumbnail touris-image" /></a>
               <a class="btn btn-info" href="/citytourist">Palompon Leyte</a>
               <?php if ($this->session->userdata('username') == "admin"): ?>
@@ -49,7 +48,7 @@
               <?php if ($this->session->userdata('username') == "admin"): ?>
                   <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
               <?php endif; ?>
-          </div>
+          </div> -->
 
                <br />
       </div>
