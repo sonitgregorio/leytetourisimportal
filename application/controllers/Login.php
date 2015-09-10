@@ -12,7 +12,7 @@
       function verify_login()
       {
             $suc = '<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
-            $alerts = '<div class="alert alert-danger"style="padding:6px"><button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
+            $alerts = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
 
             $username = $this->input->post('username');
             $password = $this->input->post('password');
@@ -30,10 +30,19 @@
             }
             else
             {
-              echo '2';
-              $this->session->set_userdata('username', $username);
-              $this->session->set_userdata('password', $password);
-            //  header('location: www.leytetourismportal.com');
+              $x = $this->registration->getAccount($username, $password);
+              if ($x['id'] == 0)
+              {
+                  $this->session->set_flashdata('message', $alerts . '<strong>Invalid Username or Password.</strong></div>');
+                  $this->load->view('templates/user_login');
+                  $this->load->view('templates/script.php');
+              }
+              else
+              {
+                echo '2';
+                $this->session->set_userdata('usertype', $x['usertype']);
+                $this->session->set_userdata('uid', $x['id']);
+              }
             }
       }
       function signup()
@@ -88,10 +97,14 @@
       {
         $data['param'] = "tourist";
         $this->load->view("templates/header");
-        if ($this->session->userdata('username') == "admin") {
+        if ($this->session->userdata('usertype') == "4")
+        {
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
-        }else{
+        }
+        else
+        {
+            echo "<script>alert('1')</script>";
             $this->load->view('templates/clientnav', $data);
         }
         $this->load->view("pages/touristspot");
@@ -102,17 +115,21 @@
         $data['param'] = "tourist";
         $data['spots'] = $spots;
         $this->load->view("templates/header");
-        if ($this->session->userdata('username') == "admin") {
+        if ($this->session->userdata('usertype') == "4")
+        {
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
-        }else{
+        }
+        else
+        {
             $this->load->view('templates/clientnav', $data);
         }
 
         $this->load->view("tourist/tourist");
         $this->load->view("templates/footer");
       }
-      function origpost(){
+      function origpost()
+      {
         echo $this->input->post('origin');
         $data['origin'] = $this->input->post('origin');
         $data['spots'] = $this->input->post('spots');
@@ -120,15 +137,17 @@
 
       }
       function citytourist($destination)
-
       {
         $data['destination'] = $destination;
         $data['param'] = "tourist";
         $this->load->view("templates/header");
-        if ($this->session->userdata('username') == "admin") {
+        if ($this->session->userdata('usertype') == "4")
+        {
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
-        }else{
+        }
+        else
+        {
             $this->load->view('templates/clientnav', $data);
         }
         $this->load->view("tourist/citytouristspot");
@@ -159,13 +178,13 @@
         $email = $this->input->post('email');
         $contact = $this->input->post('contact');
 
-
         $data = array('firstname'   =>  $firstname,
                       'middlename'  =>  $middlename,
                       'lastname'    =>  $lastname,
                       'email'       =>  $email,
                       'contact'     =>  $contact,
                       'username'    =>  $username,
+                      'password'    =>  $password,
                       'usertype'    =>  $usertype);
 
         if ($password != $this->input->post('confirmpassword'))

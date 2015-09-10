@@ -18,4 +18,8 @@
     {
         $this->db->insert('tbl_users', $data);
     }
+    function getAccount($username, $password)
+    {
+        return $this->db->query("SELECT * FROM tbl_users WHERE username = '$username' AND password = '$password'")->row_array();
+    }
   }

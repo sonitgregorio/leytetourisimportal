@@ -23,11 +23,11 @@
 
        $('#form_submits').submit(function(){
          $.post("/login/register_users", $(this).serialize(), function(data){
-              alert(data);
+              // alert(data);
               $('#user_reg').html(data);
          });
        });
-       
+
        $('.login_submit').submit(function(){
          $.post("/login/verify_login", $(this).serialize(), function(data){
             if (data == '2')
