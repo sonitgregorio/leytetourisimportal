@@ -3,7 +3,9 @@
     <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Leyte Tourist Destination</strong></h3></div>
     <div class="panel-body">
         <?php if ($this->session->userdata('usertype') == "4"): ?>
+          <div class="col-md-10">
             <form class="form" action="/insert_destination" method="post" enctype="multipart/form-data" >
+
               <div class="col-md-2" style="padding:10px">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
@@ -14,28 +16,52 @@
                     </div>
               </div>
 
-            <div class="col-md-10">
+            <div class="col-md-4">
+              <?php
+                  echo $this->session->flashdata('message');
+               ?>
                       <label>Tourist Destination</label>
-                          <input type="text" class="form-control" name="name" value="" style="width:40%">
+                          <input type="text" class="form-control" name="city" value="" required >
                       <label>Contact</label>
-                          <input type="text" class="form-control" name="name" value=""  style="width:40%">
+                          <input type="text" class="form-control" name="contact" value=""   required >
                       <label>Address</label>
-                          <input type="text" class="form-control" name="name" value="" style="width:40%">
-                          <button type="submit" class="btn btn-success" style="margin-top:10px"  name="button">Save</button>
+                          <input type="text" class="form-control" name="address" value=""  required>
+                      <button type="submit" class="btn btn-success" style="margin-top:10px"  name="button">Save</button>
                           <br /><br />
+            </div>
+            <div class="col-md-6">
+
             </div>
 
           </form>
-        <?php endif; ?>
+          </div>
 
-        <div class="col-md-4" style="text-align:center;margin-bottom:20px">
-            <a href="/citytourist"><img src="../assets/images/background/palo.jpg" class="thumbnail touris-image" /></a>
-            <a class="btn btn-info" href="/citytourist/palo">Palo Leyte</a>
-            <?php if ($this->session->userdata('usertype') == "4"): ?>
-                <a href="#" class="btn btn-danger">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-            <?php endif; ?>
-        </div>
-               <br />
+        <?php endif; ?>
+        <?php foreach ($this->registration->select_city() as $key => $value):
+            extract($value);
+          ?>
+          <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+            <figure class="uk-overlay uk-overlay-hover thumbnail">
+                <a href="/citytourist"><img src="<?php echo "../assets/images/touristdestination/".$filename ?> ?>" class="touris-image" style="height:300px"/></a>
+                <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $city ?></figcaption>
+            </figure>
+
+
+
+                <?php if ($this->session->userdata('usertype') == "4"): ?>
+                  <div class="btn-group" style="width:100%;margin:top:10px">
+                    <a class="btn btn-info col-md-6" href="/citytourist/palo"><?php echo $city; ?></a>
+                    <a href="#" class="btn btn-danger col-md-6">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                  </div>
+                <?php else: ?>
+                      <a class="btn btn-info btn-block" href="/citytourist/palo"><?php echo $city ?></a>
+                <?php endif; ?>
+
+
+          </div>
+        <?php endforeach; ?>
+
+          <br />
       </div>
       </div>
     </div>
