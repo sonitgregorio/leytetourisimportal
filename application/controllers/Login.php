@@ -124,15 +124,13 @@
         {
             $this->load->view('templates/clientnav', $data);
         }
-
         $this->load->view("tourist/tourist");
         $this->load->view("templates/footer");
       }
       function origpost()
       {
-        echo $this->input->post('origin');
-        $data['origin'] = $this->input->post('origin');
-        $data['spots'] = $this->input->post('spots');
+        $data['origin'] = $this->input->post('spots');
+        $data['destination'] = $this->input->post('origin');
         $this->load->view('tourist/map', $data);
 
       }

@@ -1,9 +1,11 @@
 <div class="col-md-12">
   <?php
-   $spots;
+      //Get tourist spot data.
+      $touristspotdata = $this->registration->get_tourist_data($spots);
+      extract($touristspotdata);
    ?>
   <div class="panel logins p-body">
-    <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>MacArthur Park, Palo Leyte</strong></h3></div>
+    <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong><?php echo $tourist.", " . $city; ?></strong></h3></div>
       <div class="panel-body">
           <div class="col-md-5">
             <div class="panel logins">
@@ -16,7 +18,7 @@
                           <div class="col-lg-9">
                             <div class="input-group">
                               <input type="text" class="form-control" name="origin" placeholder="Origin..." required>
-                              <input type="hidden" name="spots" value="<?php echo $spots ?>">
+                              <input type="hidden" name="spots" value="<?php echo $tourist.", " . $city ?> ?>">
                               <span class="input-group-btn">
                                 <button class="btn btn-success">Go!</button>
                               </span>
@@ -26,11 +28,10 @@
                   </div>
                 </form>
                 <div id="ors">
-
                     <?php
-                     $origin = array('origin' => 'Tacloban City');
-                     $this->load->view('tourist/map', $origin);
-                      ?>
+                      $origin = array('origin' => $city, 'destination' => $tourist.", " . $city);
+                      $this->load->view('tourist/map', $origin);
+                    ?>
                 </div>
               </div>
             </div>
@@ -39,7 +40,7 @@
           <!-- Content of the Tourist spot and for the reservation using tab bootstrap -->
           <div class="col-md-7" style="padding:0">
             <div class="panel logins">
-                <div class="panel-heading grad"  style="color:#FFFF00;"><h4>Information About MacArthur Park</h4></div>
+                <div class="panel-heading grad"  style="color:#FFFF00;"><h4>Information About <?php echo $tourist ?></h4></div>
                 <div class="panel-body">
                   <div>
 
@@ -54,7 +55,10 @@
                     <div class="tab-content">
                       <div role="tabpanel col-md-12" class="tab-pane active" id="information"  style="background-color:#FFFFE0;">
                           <br />
-                          <?php $this->load->view('tourist/information') ?>
+                          <?php
+                           $data['information'] = $information;
+                              $this->load->view('tourist/information', $data);
+                          ?>
                       </div>
                       <div role="tabpanel col-md-12" class="tab-pane" id="images" style="background-color:#FFFFE0;">
                         <br />
@@ -67,7 +71,7 @@
                      <div role="tabpanel col-md-12" class="tab-pane" id="hotel" style="background-color:#FFFFE0;">
                         <br />
                         <div class="col-md-12" style="background-color: #FFFFE0" >
-                          <?php if ($this->session->userdata('username') == "admin"): ?>
+                          <?php if ($this->session->userdata('usertype') == "4"): ?>
                               <form class="form" action="index.html" method="post">
                                 <div class="col-md-4">
                                       <div class="fileinput fileinput-new" data-provides="fileinput">

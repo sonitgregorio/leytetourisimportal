@@ -58,4 +58,10 @@
         $this->db->where('city', $destination);
         return $this->db->get('tbl_touristspot')->result_array();
     }
+    function get_tourist_data($spots)
+    {
+        return $this->db->query("SELECT a.tourist, a.address, a.contact, a.information, b.city
+                          FROM tbl_touristspot a, tbl_city b
+                          WHERE a.id = '$spots' AND a.city = b.id")->row_array();
+    }
   }
