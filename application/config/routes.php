@@ -66,6 +66,8 @@ $route['forgot']                 = 'login/forgot';
 $route['tourist-list']           = 'login/touristspot';
 $route['tourist/(:any)']         = 'login/tourist/$1';
 $route['reservation']            = 'login/reservation';
+
+//CITY TOURIST DESTINATION
 $route['citytourist/(:any)']     = 'login/citytourist/$1';
 $route['home']                   = 'home/themain';
 $route['logout']                 = 'login/logout';
@@ -75,3 +77,4 @@ $route['admin']                  = 'home/admin';
 
 //Route Tourist Destination
 $route['insert_destination']    = 'tourist/insert_tourdest';
+$route['insert_spot']           = 'tourist/insert_spot';

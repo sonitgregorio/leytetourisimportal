@@ -36,4 +36,26 @@
     {
         return $this->db->get('tbl_city')->result_array();
     }
+    function insert_spot($data)
+    {
+        $this->db->insert('tbl_touristspot', $data);
+    }
+    function check_spot($spot, $address)
+    {
+        $this->db->where('tourist', $spot);
+        $this->db->where('address', $address);
+        return $this->db->get('tbl_touristspot')->num_rows();
+    }
+    function getPlace($dest)
+    {
+        $this->db->where('id', $dest);
+        $this->db->select('city');
+        $x = $this->db->get('tbl_city')->row_array();
+        return $x['city'];
+    }
+    function get_spots($destination)
+    {
+        $this->db->where('city', $destination);
+        return $this->db->get('tbl_touristspot')->result_array();
+    }
   }
