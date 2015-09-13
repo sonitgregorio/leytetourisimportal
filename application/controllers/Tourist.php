@@ -80,4 +80,10 @@ class Tourist extends CI_Controller
         $this->session->set_flashdata('data', $data);
         redirect('/citytourist/' . $city);
     }
+    function insert_hotel()
+    {
+        echo $data = array('tabpane' => $this->input->post('tabpane'));
+        $this->session->set_flashdata('data', $data);
+        redirect('/tourist/'.$this->input->post('spots'));
+    }
 }
