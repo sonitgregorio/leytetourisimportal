@@ -82,7 +82,38 @@ class Tourist extends CI_Controller
     }
     function insert_hotel()
     {
-        echo $data = array('tabpane' => $this->input->post('tabpane'));
+
+        $hotel = $this->input->post('hotel');
+        $contact = $this->input->post('contact');
+        $address = $this->input->post('address');
+        $tourist = $this->input->post('spots');
+
+        $config['upload_path']          = './assets/images/hotels/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['encrypt_name']         = TRUE;
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('picture'))
+        {
+            $this->session->set_flashdata('message', $this->faildemessage() . 'Unable To Upload Picture.</div>');
+        }
+        else
+        {
+            $checkexist = $this->registration->check_hotel($hotel, $address);
+            if ($checkexist <= 0)
+            {
+              $data = array('hotel' => $hotel, 'contact' => $contact, 'tourist' => $tourist,
+              'address' => $address, 'filename' =>  $this->upload->data('file_name'));
+              $this->registration->insert_hotel($data);
+              $this->session->set_flashdata('message', $this->successMessage() . 'Hotel Added.</div>');
+            }
+            else
+            {
+              $this->session->set_flashdata('message', $this->faildemessage() . 'Hotel Already Exist.</div>');
+            }
+        }
+
+        $data = array('tabpane' => $this->input->post('tabpane'));
         $this->session->set_flashdata('data', $data);
         redirect('/tourist/'.$this->input->post('spots'));
     }

@@ -76,14 +76,14 @@
                         <div class="col-md-12" style="background-color: #FFFFE0" >
                           <?php
                             if ($this->session->userdata('usertype') == "4"):
-
+                              echo $this->session->flashdata('message');
                           ?>
-                              <form class="form" action="/insert_hotel" method="post">
+                              <form class="form" action="/insert_hotel" method="post" enctype="multipart/form-data">
                                 <div class="col-md-4">
                                       <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                                         <div>
-                                          <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                          <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
                                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                         </div>
                                   </div>
@@ -92,17 +92,21 @@
                                         <label>Hotel Name</label>
                                             <input type="hidden" name="spots" value="<?php echo $spots ?>">
                                             <input type="hidden" name="tabpane" value="hotel">
-                                            <input type="text" class="form-control" name="name" value="<?php echo $tabpane ?>" style="width:100%">
+                                            <input type="text" class="form-control" name="hotel" value="" required style="width:100%">
                                         <label>Contact</label>
-                                            <input type="text" class="form-control" name="name" value=""  style="width:100%">
+                                            <input type="text" class="form-control" name="contact" value="" required  style="width:100%">
                                         <label>Address</label>
-                                            <input type="text" class="form-control" name="name" value="" style="width:100%">
+                                            <input type="text" class="form-control" name="address" value="" required style="width:100%">
                                             <button type="submit" class="btn btn-success" style="margin-top:10px"  name="button">Save</button>
                                             <br /><br />
                               </div>
                             </form>
                           <?php endif; ?>
-                               <?php $this->load->view('tourist/hotels') ?>
+
+                               <?php
+                                  $hot = array('tourist' => $spots);
+                                  $this->load->view('tourist/hotels', $hot) ;
+                               ?>
                         </div>
                       </div>
                   </div>

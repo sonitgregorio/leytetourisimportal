@@ -64,4 +64,19 @@
                           FROM tbl_touristspot a, tbl_city b
                           WHERE a.id = '$spots' AND a.city = b.id")->row_array();
     }
+    function check_hotel($hotel, $address)
+    {
+        $this->db->where('hotel', $hotel);
+        $this->db->where('address', $address);
+        return $this->db->get('tbl_hotel')->num_rows();
+    }
+    function insert_hotel($data)
+    {
+        $this->db->insert('tbl_hotel', $data);
+    }
+    function getHot($tour)
+    {
+        $this->db->where('tourist', $tour);
+        return $this->db->get('tbl_hotel')->result_array();
+    }
   }
