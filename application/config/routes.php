@@ -79,3 +79,4 @@ $route['admin']                  = 'home/admin';
 $route['insert_destination']    = 'tourist/insert_tourdest';
 $route['insert_spot']           = 'tourist/insert_spot';
 $route['insert_hotel']          = 'tourist/insert_hotel';
+$route['manage_hotel']          = 'home/manage_hotel';

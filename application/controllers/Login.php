@@ -104,7 +104,6 @@
         }
         else
         {
-            echo "<script>alert('1')</script>";
             $this->load->view('templates/clientnav', $data);
         }
         $this->load->view("pages/touristspot");
@@ -163,6 +162,7 @@
       {
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('password');
+        $this->session->unset_userdata('usertype');
         redirect('/');
       }
       function register_users()

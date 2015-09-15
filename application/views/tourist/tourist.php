@@ -17,7 +17,7 @@
       <div class="panel-body">
           <div class="col-md-5">
             <div class="panel logins">
-              <div class="panel-heading grad" style="color:#FFFF00;"><strong><h4>Map</h4></strong></div>
+              <div class="panel-heading grad" style="color:#FFFF00;"><strong><h4><i class="fa fa-map fa-fw"></i>&nbsp;Map</h4></strong></div>
               <div class="panel-body">
                 <form class="form-horizontal" id = "orig" method="post" onsubmit="return false">
                   <div class="form-group">
@@ -52,9 +52,9 @@
                   <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                      <li role="presentation" class="<?php  echo $tabpane == 'information' ?  'active' : '' ?>"><a href="#information" aria-controls="home" role="tab" data-toggle="tab">Information</a></li>
-                      <li role="presentation" class="<?php  echo $tabpane == 'images' ?  'active' : '' ?>"><a href="#images" aria-controls="profile" role="tab" data-toggle="tab">Images</a></li>
-                      <li role="presentation" class="<?php  echo $tabpane == 'hotel' ?  'active' : '' ?>"><a href="#hotel" aria-controls="messages" role="tab" data-toggle="tab">Hotels</a></li>
+                      <li role="presentation" class="<?php  echo $tabpane == 'information' ?  'active' : '' ?>"><a href="#information" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil fa-fw"></i>&nbsp;Information</a></li>
+                      <li role="presentation" class="<?php  echo $tabpane == 'images' ?  'active' : '' ?>"><a href="#images" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span>&nbsp;Images</a></li>
+                      <li role="presentation" class="<?php  echo $tabpane == 'hotel' ?  'active' : '' ?>"><a href="#hotel" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-hotel fa-fw"></i>&nbsp;Hotels</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">

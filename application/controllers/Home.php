@@ -10,7 +10,14 @@
       {
         $data['param'] = "home";
         $this->load->view("templates/header");
-        $this->load->view('templates/usernav', $data);
+        if ($this->session->userdata('usertype') == '3')
+        {
+          $this->load->view('templates/usernav', $data);
+        }
+        else
+        {
+
+        }
         $this->load->view("home/homepage");
         $this->load->view("templates/footer");
       }
@@ -37,6 +44,14 @@
         $this->load->view('templates/adminnav', $data);
         $this->load->view('admin/adminhome');
         $this->load->view('templates/footer.php');
+    }
+    function manage_hotel()
+    {
+      $data['param'] = "manage_hotel";
+      $this->load->view('templates/header');
+      $this->load->view('templates/usernav', $data);
+      $this->load->view('hotel/manage_hotel');
+      $this->load->view('templates/footer.php');
     }
 
   }

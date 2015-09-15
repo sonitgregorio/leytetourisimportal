@@ -76,7 +76,7 @@
       <div class="modal-content">
         <div class="modal-header modal-style">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong>User Login</strong></h4></h4>
+          <h4 class="modal-title" id="myModalLabel"><h4 style="color:#FFFF00;"><strong><i class="fa fa-lock fa-fw"></i>&nbsp;User Login</strong></h4></h4>
         </div>
             <div class="modal-body">
                 <div class="panel-body" id="lo">
