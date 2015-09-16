@@ -20,7 +20,7 @@
       $home = "";
       $settings = "";
       $gallery = "";
-      $manage_hotel = "";
+      $manage_tourist = "";
       if ($param) {
         if ($param == "settings") {
           $settings = "active";
@@ -31,9 +31,9 @@
         elseif ($param == "gallery") {
             $gallery = "active";
         }
-        elseif ($param == "manage_hotel")
+        elseif ($param == "manage_tourist")
         {
-            $manage_hotel = "active";
+            $manage_tourist = "active";
         }
       }
 
@@ -42,7 +42,7 @@
     <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
     <li class = <?php echo $settings; ?>><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
     <li class="<?php echo $gallery ?>"><a href="/gallery"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
-    <li><a href="/manage_hotel" class="<?php echo $manage_hotel ?>"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Hotel</b></a></li>
+    <li class="<?php echo $manage_tourist ?>"><a href="/manage_tourist"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Tourist Spot</b></a></li>
 
 
   </ul>

@@ -45,12 +45,12 @@
         $this->load->view('admin/adminhome');
         $this->load->view('templates/footer.php');
     }
-    function manage_hotel()
+    function manage_tourist()
     {
-      $data['param'] = "manage_hotel";
+      $data['param'] = "manage_tourist";
       $this->load->view('templates/header');
       $this->load->view('templates/usernav', $data);
-      $this->load->view('hotel/manage_hotel');
+      $this->load->view('tourist/manage_tourist');
       $this->load->view('templates/footer.php');
     }
 

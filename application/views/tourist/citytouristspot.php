@@ -20,7 +20,9 @@
           <div class="col-md-3">
             <label for="">Select Image</label>
                 <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
-                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width:100%; height: 200px;"></div>
+                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width:100%; height: 200px;">
+                      <!-- <img src="" alt="" /> -->
+                  </div>
                   <div>
                     <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
                     <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
