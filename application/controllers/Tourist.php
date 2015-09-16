@@ -78,7 +78,14 @@ class Tourist extends CI_Controller
         }
         $data['destination'] = $city;
         $this->session->set_flashdata('data', $data);
-        redirect('/citytourist/' . $city);
+        if ($this->session->userdata('usertype') != '4')
+        {
+          redirect('/manage_tourist');
+        }
+        else
+        {
+          redirect('/citytourist/' . $city);
+        }
     }
     function insert_hotel()
     {
@@ -116,5 +123,14 @@ class Tourist extends CI_Controller
         $data = array('tabpane' => $this->input->post('tabpane'));
         $this->session->set_flashdata('data', $data);
         redirect('/tourist/'.$this->input->post('spots'));
+    }
+    function insert_tourist_info()
+    {
+        $tourist_name = $this->input->post('tourist_name');
+        $contact = $this->input->post('contact');
+        $address = $this->input->post('address');
+        $city = $this->input->post('city');
+        $info = $this->input->post('information');
+
     }
 }

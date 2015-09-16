@@ -1,4 +1,4 @@
-<form class="form" action="index.html" method="post">
+<form class="form" action="/insert_spot" method="post" enctype="multipart/form-data">
   <div class="col-md-12">
         <div class="fileinput fileinput-new" data-provides="fileinput">
           <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
@@ -12,22 +12,28 @@
   </div>
   <div class="col-md-12">
     <label for="">Tourist Name</label>
-    <input type="text" class="form-control" name="name" value="">
+    <input type="text" class="form-control" name="touristspot" value="">
     <label for="">City</label>
     <select class="form-control" name="city">
+        <?php
+            foreach ($this->registration->select_city() as $key => $value):
+            extract($value);
+        ?>
 
+          <option value="<?php echo $id ?>"><?php echo $city ?></option>
+        <?php endforeach; ?>
     </select>
   </div>
   <div class="col-md-12">
     <label for="">Contact</label>
-    <input type="text" class="form-control" name="name" value="">
+    <input type="text" class="form-control" name="contact" value="">
     <label for="">Address</label>
-    <input type="text" class="form-control" name="name" value="">
+    <input type="text" class="form-control" name="address" value="">
   </div>
 
   <div class="col-md-12">
     <label for="">Information</label>
-    <textarea name="name" class="form-control" style="width:100%;height:150px;resize:none"></textarea>
+    <textarea name="description" class="form-control" style="width:100%;height:150px;resize:none"></textarea>
     <br />
     <button type="submit" class="btn btn-success pull-right" name="button">Save</button>
     <br />    <br />

@@ -12,9 +12,10 @@
                     <div class="col-md-12 tab-pane active" role="tabpanel" id="information" style="background-color:#FFFFE0;">
                       <br/>
                         <?php
+                            echo $this->session->flashdata('message');
                             $this->load->view('tourist/setting_tourist');
                          ?>
-                    </div>  
+                    </div>
                     <div class="col-md-12 tab-pane" role="tabpanel" id="images" style="background-color:#FFFFE0;">
                     </div>
                 </div>
