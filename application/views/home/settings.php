@@ -32,6 +32,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="" class="col-sm-3 control-label">Username</label>
+                <div class="col-sm-9">
+                  <input type="text" name="username" value="<?php echo $in['username'] ?>" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="" class="col-sm-3 control-label">Contact</label>
                 <div class="col-sm-9">
                   <input type="text" name="contact" value="<?php echo $in['contact'] ?>" class="form-control">
@@ -51,26 +57,27 @@
               <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-lock"></span>&nbsp;Change Password</h4></div>
                 <div class="panel-body">
                       <div class="col-md-12">
-                        <form class="form-horizontal" action="index.html" method="post">
+                        <?php echo $this->session->flashdata('message') ?>
+                        <form class="form-horizontal" action="/change_pass" method="post">
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Old Pasword</label>
                             <div class="col-sm-9">
-                                <input type="password" name="name" value="sonitgregorio" class="form-control">
+                                <input type="password" name="oldpass" value="" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-sm-3 control-label">New Pasword</label>
                             <div class="col-sm-9">
-                                <input type="password" name="name" value="sonitgregorio" class="form-control">
+                                <input type="password" name="password" value="" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Confirm Pasword</label>
                             <div class="col-sm-9">
-                                <input type="password" name="name" value="sonitgregorio" class="form-control">
+                                <input type="password" name="confirmpass" value="" class="form-control">
                             </div>
                           </div>
-                          <button class="btn btn-success pull-right" type="button" name="button" style="margin-top:10px">Save</button>
+                          <button class="btn btn-success pull-right" type="submit" name="button" style="margin-top:10px">Save</button>
                         </form>
                             <br /><br />
                             <hr style="background: #8C4600;height:2px;">

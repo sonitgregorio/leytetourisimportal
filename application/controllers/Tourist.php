@@ -206,10 +206,29 @@ class Tourist extends CI_Controller
     function update_setts()
     {
 
-      $data = array('firstname' => $this->input->post('firstname'), 'middlename' => $this->input->post('middlename'),
-                    'lastname' => $this->input->post('lastname'), 'contact' => $this->input->post('contact'),
-                     'email' =>$this->input->post('email'));
-      $this->registration->update_setts($data, $this->session->userdata('uid')));
-      redirect('/settings');
+        $data = array('firstname' => $this->input->post('firstname'), 'middlename' => $this->input->post('middlename'),
+                      'lastname' => $this->input->post('lastname'), 'contact' => $this->input->post('contact'),
+                       'email' =>$this->input->post('email'), 'username' => $this->input->post('username'));
+        $this->registration->update_setts($data, $this->session->userdata('uid'));
+        redirect('/settings');
+    }
+    function change_pass()
+    {
+        $x = $this->registration->get_info($this->session->userdata('uid'));
+        if ($x['password'] != $this->input->post('oldpass'))
+        {
+            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Old Password.</div>');
+        }
+        elseif ($this->input->post('password') != $this->input->post('confirmpass'))
+        {
+            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Old Confirm Password.</div>');
+        }
+        else
+        {
+          $data = array('password' => $this->input->post('password'));
+          $this->registration->update_pass($data, $this->session->userdata('uid'));
+          $this->session->set_flashdata('message', $this->successMessage() . 'Password Updated.</div>');
+        }
+        redirect('/settings');
     }
 }

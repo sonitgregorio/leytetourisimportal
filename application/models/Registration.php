@@ -148,4 +148,9 @@
         $this->db->where('id', $id);
         $this->db->update('tbl_users', $data);
     }
+    function update_pass($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_users', $data);
+    }
   }
