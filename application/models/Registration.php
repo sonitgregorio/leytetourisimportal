@@ -116,4 +116,31 @@
         $this->db->where('id', $id);
         $this->db->delete('tbl_gallery');
     }
+    function post_announce($an)
+    {
+        date_default_timezone_set('Asia/Manila');
+        $data = array('uid' => $this->session->userdata('uid'),
+                      'announcement' => $an,
+                      'dte' => Date('Y-m-d'),
+                      'tme' => Date('h:i:s'));
+        $this->db->insert('tbl_announcement', $data);
+    }
+    function get_annou()
+    {
+        return $this->db->query("SELECT a.*, b.firstname, b.lastname FROM tbl_announcement a, tbl_users b WHERE a.uid = b.id ORDER by id desc")->result_array();
+    }
+    function get_info($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->get('tbl_users')->row_array();
+    }
+    function insert_prof($data)
+    {
+        $this->db->insert('tbl_profile', $data);
+    }
+    function getprof($id)
+    {
+      $x = $this->db->query("SELECT * FROM tbl_profile WHERE uid = '$id' ORDER by id DESC LIMIT 1")->row_array();
+      return $x['filename'];
+    }
   }

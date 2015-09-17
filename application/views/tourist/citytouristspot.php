@@ -19,7 +19,7 @@
           </div>
           <div class="col-md-3">
             <label for="">Select Image</label>
-                <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
+              <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
                   <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width:100%; height: 200px;">
                       <!-- <img src="" alt="" /> -->
                   </div>

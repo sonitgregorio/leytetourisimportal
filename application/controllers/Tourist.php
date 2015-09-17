@@ -179,4 +179,28 @@ class Tourist extends CI_Controller
         $this->registration->del_gal($id);
         redirect('/gallery');
     }
+    function post_announce()
+    {
+        $this->registration->post_announce($this->input->post('announce'));
+        redirect('/home');
+    }
+    function upload_profile()
+    {
+      $config['upload_path']          = './assets/images/profpic/';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['encrypt_name']         = TRUE;
+      $this->load->library('upload', $config);
+      if ( ! $this->upload->do_upload('picture'))
+      {
+          $this->session->set_flashdata('message', $this->faildemessage() .  $this->upload->display_errors().'</div>');
+      }
+      else
+      {
+          $spot = $this->registration->get_spot();
+          $data = array('uid' => $this->input->post('uid'), 'filename' =>  $this->upload->data('file_name'));
+          $this->registration->insert_prof($data);
+          $this->session->set_flashdata('message', $this->successMessage() . 'Picture Uploaded.</div>');
+      }
+      redirect('/home');
+    }
 }

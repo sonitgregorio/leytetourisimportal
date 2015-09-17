@@ -83,3 +83,5 @@ $route['manage_tourist']        = 'home/manage_tourist';
 $route['insert_tourist_info']   = 'tourist/insert_tourist_info';
 $route['upload_pic']            = 'tourist/upload_pic';
 $route['del_gal/(:any)']        = 'tourist/del_gal/$1';
+$route['post_announce']         = 'tourist/post_announce';
+$route['upload_profile']        = 'tourist/upload_profile';

@@ -8,6 +8,7 @@
     //Load Main page..
     function index()
     {
+    
       if(empty($this->session->userdata('username')))
        {
         $data['param'] = "home";
