@@ -6,8 +6,7 @@
               <div>
                 <ul class="nav nav-tabs" role="tablist">
                   <li role="presentation" class="<?php // echo $tabpane == 'information' ?  'active' : '' ?> active"><a href="#information" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil fa-fw"></i>&nbsp;Information</a></li>
-                  <li role="presentation" class="<?php  //echo $tabpane == 'images' ?  'active' : '' ?>"><a href="#images" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span>&nbsp;Images</a></li>
-                </ul>
+                  </ul>
                 <div class="tab-content">
                     <div class="col-md-12 tab-pane active" role="tabpanel" id="information" style="background-color:#FFFFE0;">
                       <br/>

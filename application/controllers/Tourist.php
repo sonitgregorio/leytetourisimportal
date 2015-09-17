@@ -25,7 +25,7 @@ class Tourist extends CI_Controller
         $this->load->library('upload', $config);
         if ( ! $this->upload->do_upload('picture'))
         {
-            $this->session->set_flashdata('message', $this->faildemessage() . 'Unable To Upload Picture.</div>');
+            $this->session->set_flashdata('message', $this->faildemessage() .  $this->upload->display_errors().'</div>');
         }
         else
         {
@@ -59,7 +59,19 @@ class Tourist extends CI_Controller
         $this->load->library('upload' , $config);
         if ( ! $this->upload->do_upload('picture'))
         {
-            $this->session->set_flashdata('message', $this->faildemessage() . 'Unable To Upload Picture.</div>');
+          //  $this->session->set_flashdata('message', $this->faildemessage() . $this->upload->display_errors().'</div>');
+
+              if ($this->registration->checking_t() > 0)
+              {
+                $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+                'city' => $city, 'information' => $desc);
+                $this->registration->update_spot($data);
+                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+              }
+              else
+              {
+
+              }
         }
         else
         {
@@ -67,15 +79,26 @@ class Tourist extends CI_Controller
             if ($checkexist <= 0)
             {
                 $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-                'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
+                'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
+                 'owned' => $this->session->userdata('uid'));
                 $this->registration->insert_spot($data);
                 $this->session->set_flashdata('message', $this->successMessage() . 'Tourist Spot Added.</div>');
             }
             else
             {
-                $this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
+              $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+              'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
+              $this->registration->update_spot($data);
+                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+                //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
             }
         }
+
+
+
+
+
+
         $data['destination'] = $city;
         $this->session->set_flashdata('data', $data);
         if ($this->session->userdata('usertype') != '4')
@@ -131,6 +154,29 @@ class Tourist extends CI_Controller
         $address = $this->input->post('address');
         $city = $this->input->post('city');
         $info = $this->input->post('information');
-
+    }
+    function upload_pic()
+    {
+        $config['upload_path']          = './assets/images/gallery/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['encrypt_name']         = TRUE;
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('picture'))
+        {
+            $this->session->set_flashdata('message', $this->faildemessage() .  $this->upload->display_errors().'</div>');
+        }
+        else
+        {
+            $spot = $this->registration->get_spot();
+            $data = array('descr' => $this->input->post('descr'), 'spot' => $spot, 'filename' =>  $this->upload->data('file_name'));
+            $this->registration->insert_gallery($data);
+            $this->session->set_flashdata('message', $this->successMessage() . 'Picture Uploaded.</div>');
+        }
+        redirect('/gallery');
+    }
+    function del_gal($id)
+    {
+        $this->registration->del_gal($id);
+        redirect('/gallery');
     }
 }

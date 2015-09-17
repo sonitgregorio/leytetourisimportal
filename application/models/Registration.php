@@ -44,6 +44,7 @@
     {
         $this->db->where('tourist', $spot);
         $this->db->where('address', $address);
+        $this->db->where('owned', $this->session->userdata('uid'));
         return $this->db->get('tbl_touristspot')->num_rows();
     }
     function getPlace($dest)
@@ -78,5 +79,41 @@
     {
         $this->db->where('tourist', $tour);
         return $this->db->get('tbl_hotel')->result_array();
+    }
+    function get_tourist_info($id)
+    {
+        $this->db->where('owned', $id);
+        return $this->db->get('tbl_touristspot')->row_array();
+    }
+    function checking_t()
+    {
+        $this->db->where('owned', $this->session->userdata('uid'));
+        return $this->db->get('tbl_touristspot')->row_array();
+    }
+    function update_spot($data)
+    {
+        $this->db->where('owned', $this->session->userdata('uid'));
+        $this->db->update('tbl_touristspot', $data);
+    }
+    function get_spot()
+    {
+        $this->db->where('owned', $this->session->userdata('uid'));
+        $x = $this->db->get('tbl_touristspot')->row_array();
+        return $x['id'];
+    }
+    function insert_gallery($data)
+    {
+        $this->db->insert('tbl_gallery', $data);
+    }
+    function get_gallery()
+    {
+        $x = $this->get_spot();
+        $this->db->where('spot', $x);
+        return $this->db->get('tbl_gallery')->result_array();
+    }
+    function del_gal($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_gallery');
     }
   }

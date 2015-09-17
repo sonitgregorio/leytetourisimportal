@@ -47,9 +47,6 @@
                    <a href="/tourist/<?php echo $id ?>"><img src="<?php echo "../assets/images/touristspot/".$filename ?> ?>" class="touris-image" style="height:300px"/></a>
                    <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $tourist ?></figcaption>
                </figure>
-
-
-
                    <?php if ($this->session->userdata('usertype') == "4"): ?>
                      <div class="btn-group" style="width:100%;margin:top:10px">
                        <a class="btn btn-info col-md-6" href="/tourist/<?php echo $id ?>"><?php echo $tourist ?>&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></a>
@@ -58,17 +55,8 @@
                    <?php else: ?>
                          <a class="btn btn-info btn-block" href="/tourist/<?php echo $id ?>"><?php echo $tourist ?></a>
                    <?php endif; ?>
-
-
              </div>
       <?php endforeach; ?>
-
-                <!-- <div class="col-md-4" style="text-align:center;margin-bottom:20px">
-                    <a href="/tourist/palocathedral"><img src="../assets/images/background/palo.jpg" class="thumbnail touris-image" /></a>
-                    <a class="btn btn-info" href="/tourist/palocathedral" style="margin-top:-10px;">Palo Cathedral</a>
-                </div> -->
-
-
                <br />
       </div>
     </div>
