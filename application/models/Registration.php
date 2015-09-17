@@ -140,7 +140,12 @@
     }
     function getprof($id)
     {
-      $x = $this->db->query("SELECT * FROM tbl_profile WHERE uid = '$id' ORDER by id DESC LIMIT 1")->row_array();
-      return $x['filename'];
+        $x = $this->db->query("SELECT * FROM tbl_profile WHERE uid = '$id' ORDER by id DESC LIMIT 1")->row_array();
+        return $x['filename'];
+    }
+    function update_setts($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_users', $data);
     }
   }

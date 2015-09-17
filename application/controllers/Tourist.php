@@ -203,4 +203,13 @@ class Tourist extends CI_Controller
       }
       redirect('/home');
     }
+    function update_setts()
+    {
+
+      $data = array('firstname' => $this->input->post('firstname'), 'middlename' => $this->input->post('middlename'),
+                    'lastname' => $this->input->post('lastname'), 'contact' => $this->input->post('contact'),
+                     'email' =>$this->input->post('email'));
+      $this->registration->update_setts($data, $this->session->userdata('uid')));
+      redirect('/settings');
+    }
 }
