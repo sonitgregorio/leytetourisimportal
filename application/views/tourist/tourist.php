@@ -68,7 +68,11 @@
                       <div role="tabpanel col-md-12" class="tab-pane <?php echo $tabpane == 'images' ? 'active' : '' ?>"  id="images" style="background-color:#FFFFE0;">
                         <br />
                         <div class="col-md-12" style="background-color: #FFFFE0" >
-                               <?php $this->load->view('tourist/images') ?>
+
+                               <?php
+                                $data['sp'] = $spots;
+                                $this->load->view('tourist/images', $data);
+                                ?>
                         </div>
                       </div>
                      <div role="tabpanel col-md-12" class="tab-pane <?php echo $tabpane == 'hotel' ? 'active' : '' ?>" id="hotel" style="background-color:#FFFFE0;">

@@ -16,7 +16,7 @@
         }
         else
         {
-
+          $this->load->view('templates/adminnav', $data);
         }
         $this->load->view("home/homepage");
         $this->load->view("templates/footer");

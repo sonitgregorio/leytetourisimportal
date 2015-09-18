@@ -7,6 +7,7 @@
 
     function getAlltype()
     {
+        $this->db->where('id !=', 4);
         return $this->db->get('tbl_usertype')->result_array();
     }
     function existuser($username)
@@ -22,10 +23,9 @@
     {
         return $this->db->query("SELECT * FROM tbl_users WHERE username = '$username' AND password = '$password'")->row_array();
     }
-    function check_city($city, $address)
+    function check_city($city)
     {
         $this->db->where('city', $city);
-        $this->db->where('address', $address);
         return $this->db->get('tbl_city')->num_rows();
     }
     function insert_city($data)
@@ -152,5 +152,10 @@
     {
         $this->db->where('id', $id);
         $this->db->update('tbl_users', $data);
+    }
+    function get_galleries($id)
+    {
+        $this->db->where('spot', $id);
+        return $this->db->get('tbl_gallery')->result_array();
     }
   }

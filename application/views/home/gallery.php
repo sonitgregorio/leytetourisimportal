@@ -23,11 +23,11 @@
           <?php foreach ($this->registration->get_gallery() as $v): ?>
             <div class="col-md-4" style="text-align:center;margin-bottom:20px">
               <figure class="uk-overlay uk-overlay-hover thumbnail">
-                  <a href="/tourist/<?php echo $v['id'] ?>"><img src="<?php echo "../assets/images/gallery/".$v['filename'] ?> ?>" class="touris-image" style="height:300px"/></a>
+                  <a href="#" class="res" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['descr'] ?>'><img src="<?php echo "../assets/images/gallery/".$v['filename'] ?> ?>" class="touris-image" style="height:300px"/></a>
                   <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['descr'] ?></figcaption>
               </figure>
                 <div class="btn-group" style="width:100%;margin:top:10px">
-                  <a class="btn btn-info col-md-6" href="/view_gal/<?php echo $v['id'] ?>">View&nbsp;<span class="glyphicon glyphicon-open"></span></a>
+                  <a class="btn btn-info col-md-6 res" href="#" data-param='<?php echo $v['filename'] ?>'>View&nbsp;<span class="glyphicon glyphicon-open"></span></a>
                   <a href="/del_gal/<?php echo $v['id'] ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                 </div>
 
