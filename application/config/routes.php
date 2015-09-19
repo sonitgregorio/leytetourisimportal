@@ -87,3 +87,8 @@ $route['post_announce']         = 'tourist/post_announce';
 $route['upload_profile']        = 'tourist/upload_profile';
 $route['update_setts']          = 'tourist/update_setts';
 $route['change_pass']           = 'tourist/change_pass';
+
+//Hotel Routes
+$route['manage_rooms']			= 'hotel/manage_rooms';
+$route['insert_room']			= 'hotel/insert_room';
+$route['view_room/(:any)']		= 'hotel/view_room/$1';

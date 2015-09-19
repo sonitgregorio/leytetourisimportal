@@ -14,6 +14,10 @@
         {
           $this->load->view('templates/usernav', $data);
         }
+        elseif($this->session->userdata('usertype') == '1')
+        {
+          $this->load->view('templates/hotelnav', $data);
+        }
         else
         {
           $this->load->view('templates/adminnav', $data);

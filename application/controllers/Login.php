@@ -39,8 +39,7 @@
               }
               else
               {
-                $this->session->set_userdata('usertype', $x['usertype']);
-                $this->session->set_userdata('uid', $x['id']);
+                $this->session->set_userdata(array('usertype' => $x['usertype'], 'uid' => $x['id']));
                 echo '2';
               }
             }
