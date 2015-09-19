@@ -49,5 +49,16 @@
          e.preventDefault();
        });
 
+
+        $('.room').click(function(e){
+         $img = $(this).data('param');
+         $descr = $(this).data('param1');
+         $path = '/assets/images/roomsgal/' + $img;
+         $('#img').attr('src', $path);
+         $('.descr').html($descr);
+         $('#resizeimage').modal('show');
+         e.preventDefault();
+       });
+
   });
 </script>

@@ -15,32 +15,10 @@
 
  <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-  <?php
-      // $tourist = "";
-      // $home = "";
-      // $settings = "";
-      // $gallery = "";
-      // $touristmanagement = "";
-      // if ($param) {
-      //   if ($param == "settings") {
-      //     $settings = "active";
-      //   }
-      //   elseif ($param == "home") {
-      //       $home = "active";
-      //   }
-      //   elseif ($param == "gallery") {
-      //       $gallery = "active";
-      //   }
-      //   elseif ($param == "touristmanagement") {
-      //       $touristmanagement = "active";
-      //   }
-      // }
-
-   ?>
     <ul class="nav navbar-nav">
       <li class = "<?php echo $param == 'home' ? 'active' : '' ?>"><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
       <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Manage Rooms</b></a></li> 
-      <li class =><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Manage Rooms</b></a></li> 
+      <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Hotel Information</b></a></li> 
       <li class =><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
     </ul>
   <ul class="nav navbar-nav navbar-right">

@@ -60,35 +60,38 @@ Route Login Form
 Routes for the pages included in the system
  */
 
-$route['verify_login']           = 'login/verify_login';
-$route['signup']                 = 'login/signup';
-$route['forgot']                 = 'login/forgot';
-$route['tourist-list']           = 'login/touristspot';
-$route['tourist/(:any)']         = 'login/tourist/$1';
-$route['reservation']            = 'login/reservation';
+$route['verify_login']           		 = 'login/verify_login';
+$route['signup']                		 = 'login/signup';
+$route['forgot']                		 = 'login/forgot';
+$route['tourist-list']          		 = 'login/touristspot';
+$route['tourist/(:any)']        		 = 'login/tourist/$1';
+$route['reservation']           		 = 'login/reservation';
 
 //CITY TOURIST DESTINATION
-$route['citytourist/(:any)']     = 'login/citytourist/$1';
-$route['home']                   = 'home/themain';
-$route['logout']                 = 'login/logout';
-$route['settings']               = 'home/settings';
-$route['gallery']                = 'home/gallery';
-$route['admin']                  = 'home/admin';
+$route['citytourist/(:any)']    		 = 'login/citytourist/$1';
+$route['home']                  		 = 'home/themain';
+$route['logout']                		 = 'login/logout';
+$route['settings']              		 = 'home/settings';
+$route['gallery']               		 = 'home/gallery';
+$route['admin']                 		 = 'home/admin';
 
 //Route Tourist Destination
-$route['insert_destination']    = 'tourist/insert_tourdest';
-$route['insert_spot']           = 'tourist/insert_spot';
-$route['insert_hotel']          = 'tourist/insert_hotel';
-$route['manage_tourist']        = 'home/manage_tourist';
-$route['insert_tourist_info']   = 'tourist/insert_tourist_info';
-$route['upload_pic']            = 'tourist/upload_pic';
-$route['del_gal/(:any)']        = 'tourist/del_gal/$1';
-$route['post_announce']         = 'tourist/post_announce';
-$route['upload_profile']        = 'tourist/upload_profile';
-$route['update_setts']          = 'tourist/update_setts';
-$route['change_pass']           = 'tourist/change_pass';
+$route['insert_destination']  		  = 'tourist/insert_tourdest';
+$route['insert_spot']          		  = 'tourist/insert_spot';
+$route['insert_hotel']         		  = 'tourist/insert_hotel';
+$route['manage_tourist']      		  = 'home/manage_tourist';
+$route['insert_tourist_info'] 		  = 'tourist/insert_tourist_info';
+$route['upload_pic']          		  = 'tourist/upload_pic';
+$route['del_gal/(:any)']      		  = 'tourist/del_gal/$1';
+$route['post_announce']       		  = 'tourist/post_announce';
+$route['upload_profile']      		  = 'tourist/upload_profile';
+$route['update_setts']        		  = 'tourist/update_setts';
+$route['change_pass']        		  = 'tourist/change_pass';
 
 //Hotel Routes
-$route['manage_rooms']			= 'hotel/manage_rooms';
-$route['insert_room']			= 'hotel/insert_room';
-$route['view_room/(:any)']		= 'hotel/view_room/$1';
+$route['manage_rooms']					= 'hotel/manage_rooms';
+$route['insert_room']					= 'hotel/insert_room';
+$route['view_room/(:any)']				= 'hotel/view_room/$1';
+$route['upload_image_room']				= 'hotel/upload_image_room';
+$route['del_room_gal/(:any)/(:any)']	= 'hotel/del_room_gal/$1/$2';
+$route['update_room']					= 'hotel/update_room';	

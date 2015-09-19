@@ -10,14 +10,15 @@
           <?php 
             echo $this->session->flashdata('message');
            ?>
-      <form class = "form" method="post" action="/insert_room" enctype="multipart/form-data">
+      <form class = "form" method="post" action="/update_room" enctype="multipart/form-data">
+        <input type="hidden" name='roomid' value="<?php echo $id ?>">
         <div class="col-md-12">
                   <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
                         <img src="../assets/images/rooms/<?php echo $x['filename'] ?>" class="img">
                     </div>
                     <div>
-                      <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture" required></span>
+                      <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
                       <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                     </div>
                   </div>
@@ -45,14 +46,21 @@
         </div>
       <div class="panel-body">
         <div class="col-md-12">
-     <!--  <?php foreach ($this->room->get_room() as $key => $v): ?>
+            <?php 
+              $uid = $this->session->userdata('uid');
+              $roomid = $id;
+              foreach ($this->room->get_room_gal($uid, $roomid) as $key => $v): ?>
         <div class="col-md-4" style="text-align:center;margin-bottom:20px">
           <figure class="uk-overlay uk-overlay-hover thumbnail">
-              <a href="/view_room/<?php echo $v['id'] ?>"><img src="<?php echo "../assets/images/rooms/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
-              <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['roomno'] ?></figcaption>
+              <a href="#"  class="room" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['description'] ?>'><img src="<?php echo "../assets/images/roomsgal/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
+              <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['description'] ?></figcaption>
           </figure>
+           <div class="btn-group" style="width:100%;margin:top:10px">
+                       <button class="btn btn-info col-md-6 room" href="#" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['description'] ?>'>View&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></button>
+                       <a href="/del_room_gal/<?php echo $v['id'] . '/' . $id ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+            </div>
         </div>
-      <?php endforeach ?> -->
+      <?php endforeach ?> 
         </div>
       </div>
   </div>
@@ -67,7 +75,9 @@
          <h4 class="modal-title descr" id="myModalLabel">Upload Image</h4>
       </div>
 
-      <form class="form" method="post" action=''>
+      <form class="form" method="post" action="/upload_image_room"  enctype="multipart/form-data">
+        <?php echo $this->session->flashdata('messages') ?>
+          <input type="hidden" name="roomid" value="<?php echo $id ?>">
          <div class="modal-body">
           <center>
              <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -77,7 +87,7 @@
                         <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="pictures" required></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
-                      <input ctype="text" placeholder="DESCRIPTION" class="form-control col-md-6" style="margin-top:10px" required>
+                      <input ctype="text" name="descr" placeholder="DESCRIPTION" class="form-control col-md-6" style="margin-top:10px" required>
               </div>            </center>
          </div>
          <div class="modal-footer">

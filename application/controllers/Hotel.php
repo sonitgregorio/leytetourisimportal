@@ -21,7 +21,6 @@
 		function insert_room()
 		{
 			$this->load->model('room');
-
 			$config['upload_path']          = './assets/images/rooms/';
 	        $config['allowed_types']        = 'gif|jpg|png';
 	        $config['encrypt_name']         = TRUE;
@@ -60,5 +59,60 @@
         	$this->load->view('templates/hotelnav', $data);
         	$this->load->view("hotel/view_room", $pa);
         	$this->load->view("templates/footer");
+		}
+		function upload_image_room()
+		{
+			$this->load->model('room');
+			$config['upload_path']          = './assets/images/roomsgal/';
+	        $config['allowed_types']        = 'gif|jpg|png';
+	        $config['encrypt_name']         = TRUE;
+	        $this->load->library('upload', $config);
+	        if ( ! $this->upload->do_upload('pictures'))
+	        {
+	            $this->session->set_flashdata('messages', $this->faildemessage() . $this->upload->display_errors().'</div>');
+	        }
+	        else
+	        {
+	            	$data = array('roomid'			=> $this->input->post('roomid'),
+								  'description' 	=> $this->input->post('descr'),
+								  'uid' 			=> $this->session->userdata('uid'),
+								  'filename' 		=>  $this->upload->data('file_name'));
+	                $this->room->insert_room_gal($data);
+	                $this->session->set_flashdata('messages', $this->successMessage() . 'Successfuly Uploaded.</div>');
+	    	}       
+	            redirect('/view_room/'.$this->input->post('roomid'));
+		}
+		function del_room_gal($id, $roomid)
+		{
+			$this->load->model('room');
+			$this->room->del_room_gal($id);
+			redirect('/view_room/' . $roomid);
+		}
+		function update_room()
+		{
+			$this->load->model('room');
+			$config['upload_path']          = './assets/images/rooms/';
+	        $config['allowed_types']        = 'gif|jpg|png';
+	        $config['encrypt_name']         = TRUE;
+	        $this->load->library('upload', $config);
+	        if ( ! $this->upload->do_upload('picture'))
+	        {
+	        	$data = array('roomno'	=> $this->input->post('roomno'),
+							  'description' 	=> $this->input->post('descr'),
+							  'rate' 			=> $this->input->post('rate'),
+							  'uid' 			=> $this->session->userdata('uid'));
+                $this->room->update_room($data, $this->input->post('roomid'));
+	        }
+	        else
+	        {
+            	$data = array('roomno'	=> $this->input->post('roomno'),
+							  'description' 	=> $this->input->post('descr'),
+							  'rate' 			=> $this->input->post('rate'),
+							  'uid' 			=> $this->session->userdata('uid'),
+							  'filename' 		=>  $this->upload->data('file_name'));
+                $this->room->update_room($data, $this->input->post('roomid'));
+	        }
+	          $this->session->set_flashdata('message', $this->successMessage() . 'Room Updated.</div>');
+			  redirect('/view_room/'.$this->input->post('roomid'));
 		}
 	}
