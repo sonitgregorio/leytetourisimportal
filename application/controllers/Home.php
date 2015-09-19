@@ -6,11 +6,9 @@
   class Home extends CI_Controller
   {
     //Load Main page..
-    function themain()
-      {
-        $data['param'] = "home";
-        $this->load->view("templates/header");
-        if ($this->session->userdata('usertype') == '3')
+    function menus($data)
+    {
+       if ($this->session->userdata('usertype') == '3')
         {
           $this->load->view('templates/usernav', $data);
         }
@@ -22,6 +20,12 @@
         {
           $this->load->view('templates/adminnav', $data);
         }
+    }
+    function themain()
+      {
+        $data['param'] = "home";
+        $this->load->view("templates/header");
+        $this->menus($data);
         $this->load->view("home/homepage");
         $this->load->view("templates/footer");
       }
@@ -29,7 +33,7 @@
     {
         $data['param'] = "settings";
         $this->load->view('templates/header');
-        $this->load->view('templates/usernav', $data);
+        $this->menus($data);
         $this->load->view('home/settings');
         $this->load->view('templates/footer.php');
     }

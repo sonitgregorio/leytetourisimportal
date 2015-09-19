@@ -17,6 +17,7 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
     <ul class="nav navbar-nav">
       <li class = "<?php echo $param == 'home' ? 'active' : '' ?>"><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+      <li class = "<?php echo $param == 'settings' ?  'active' : '' ?>"><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li> 
       <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Manage Rooms</b></a></li> 
       <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Hotel Information</b></a></li> 
       <li class =><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 

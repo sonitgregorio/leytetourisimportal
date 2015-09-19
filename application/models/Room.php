@@ -42,4 +42,14 @@
 			$this->db->update('tbl_hotel_room', $data);
 
 		}
+		function hotel_info($id)
+		{
+			$this->db->where('owned', $id);
+			return $this->db->get('tbl_hotel')->row_array();
+		}
+		 function checking_t()
+	    {
+	        $this->db->where('owned', $this->session->userdata('uid'));
+	        return $this->db->get('tbl_hotel')->row_array();
+	    }
 	}

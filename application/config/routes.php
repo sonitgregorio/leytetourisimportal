@@ -94,4 +94,5 @@ $route['insert_room']					= 'hotel/insert_room';
 $route['view_room/(:any)']				= 'hotel/view_room/$1';
 $route['upload_image_room']				= 'hotel/upload_image_room';
 $route['del_room_gal/(:any)/(:any)']	= 'hotel/del_room_gal/$1/$2';
-$route['update_room']					= 'hotel/update_room';	
+$route['update_room']					= 'hotel/update_room';
+$route['hotel_settings']				= 'hotel/hotel_settings';	

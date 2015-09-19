@@ -115,4 +115,65 @@
 	          $this->session->set_flashdata('message', $this->successMessage() . 'Room Updated.</div>');
 			  redirect('/view_room/'.$this->input->post('roomid'));
 		}
+		function hotel_settings()
+		{
+			$this->load->model('room');
+			$data['param'] = "hotel_settings";
+			$pa['id'] = $this->session->userdata('uid');
+        	$this->load->view("templates/header");
+        	$this->load->view('templates/hotelnav', $data);
+        	$this->load->view("hotel/hotel_settings", $pa);
+        	$this->load->view("templates/footer");
+		}
+		function insert_hotels()
+		{
+			$this->load->model('room');
+			$hotel = $this->input->post('touristspot');
+	        $contact = $this->input->post('contact');
+	        $pic = $this->input->post('picture');
+	        $address = $this->input->post('address');
+	        $city = $this->input->post('city');
+	        $desc = $this->input->post('description');
+
+	        $config['upload_path']          = './assets/images/touristspot/';
+	        $config['allowed_types']        = 'gif|jpg|png';
+	        $config['encrypt_name']         = TRUE;
+	        $this->load->library('upload' , $config);
+	        if ( ! $this->upload->do_upload('picture'))
+	        {
+	          //  $this->session->set_flashdata('message', $this->faildemessage() . $this->upload->display_errors().'</div>');
+
+	              if ($this->room->checking_t() > 0)
+	              {
+	                $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+	                'city' => $city, 'information' => $desc);
+	                $this->registration->update_spot($data);
+	                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+	              }
+	              else
+	              {
+
+	              }
+	        }
+	        else
+	        {
+	            $checkexist = $this->registration->check_spot($spot, $address);
+	            if ($checkexist <= 0)
+	            {
+	                $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+	                'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
+	                 'owned' => $this->session->userdata('uid'));
+	                $this->registration->insert_spot($data);
+	                $this->session->set_flashdata('message', $this->successMessage() . 'Tourist Spot Added.</div>');
+	            }
+	            else
+	            {
+	              $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+	              'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
+	              $this->registration->update_spot($data);
+	                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+	                //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
+	            }
+	        }
+		}
 	}
