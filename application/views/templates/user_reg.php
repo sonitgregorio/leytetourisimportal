@@ -43,7 +43,7 @@
           <div class="form-group">
           <label for="touristspotname" class="col-sm-4 control-label">Contact <small style="color:red">*</small></label>
             <div class="col-sm-8">
-                <input type="text" value="<?php echo $contact ?>"class="form-control input-background" name="contact" placeholder="09*********" required>
+                <input type="text" value="<?php echo $contact ?>" class="form-control input-background" name="contact" placeholder="09*********" required>
             </div>
           </div>
 

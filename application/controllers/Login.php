@@ -162,6 +162,7 @@
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('password');
         $this->session->unset_userdata('usertype');
+        $this->session->unset_userdata('uid');
         redirect('/');
       }
       function register_users()

@@ -128,14 +128,14 @@
 		function insert_hotels()
 		{
 			$this->load->model('room');
-			$hotel = $this->input->post('touristspot');
+			$hotel = $this->input->post('hotel');
 	        $contact = $this->input->post('contact');
 	        $pic = $this->input->post('picture');
 	        $address = $this->input->post('address');
 	        $city = $this->input->post('city');
 	        $desc = $this->input->post('description');
 
-	        $config['upload_path']          = './assets/images/touristspot/';
+	        $config['upload_path']          = './assets/images/hotels/';
 	        $config['allowed_types']        = 'gif|jpg|png';
 	        $config['encrypt_name']         = TRUE;
 	        $this->load->library('upload' , $config);
@@ -145,9 +145,9 @@
 
 	              if ($this->room->checking_t() > 0)
 	              {
-	                $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-	                'city' => $city, 'information' => $desc);
-	                $this->registration->update_spot($data);
+	                $data = array('hotel' => $hotel, 'contact' => $contact, 'address' => $address,
+	                'tourist' => $city, 'information' => $desc);
+	                $this->room->update_hotel($data);
 	                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
 	              }
 	              else
@@ -157,23 +157,47 @@
 	        }
 	        else
 	        {
-	            $checkexist = $this->registration->check_spot($spot, $address);
+	            $checkexist = $this->room->check_hotel($hotel, $address);
 	            if ($checkexist <= 0)
 	            {
-	                $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-	                'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
+	                $data = array('hotel' => $hotel, 'contact' => $contact, 'address' => $address,
+	                'tourist' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
 	                 'owned' => $this->session->userdata('uid'));
-	                $this->registration->insert_spot($data);
-	                $this->session->set_flashdata('message', $this->successMessage() . 'Tourist Spot Added.</div>');
+	                $this->room->insert_hotel($data);
+	                $this->session->set_flashdata('message', $this->successMessage() . 'Save!!.</div>');
 	            }
 	            else
 	            {
-	              $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-	              'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
-	              $this->registration->update_spot($data);
-	                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+	              $data = array('hotel' => $hotel, 'contact' => $contact, 'address' => $address,
+	              'tourist' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
+	               $this->room->update_hotel($data);
+	               $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
 	                //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
 	            }
 	        }
+	        redirect('/hotel_settings');
+		}
+		function ins_reservs()
+		{
+
+			$this->load->model('room');
+			$data2['hid'] = $this->input->post('hid');
+			$x = $this->room->checking_availability($this->input->post('datereserve'), $this->input->post('hid'));
+			if ($x > 0) 
+			{
+				$this->session->set_flashdata('messages', $this->faildemessage() . '<strong>This room is not available during this date' . $this->input->post('datereserve') . '</strong></div>');
+			}
+			else
+			{
+				$data = array('hid' => $this->input->post('hid'),
+					  		  'fullname' => $this->input->post('fullname'),
+					  		  'emailaddress' => $this->input->post('emailaddress'),
+					  		  'contact' => $this->input->post('contact'),
+					  		  'datereserve' => $this->input->post('datereserve'));
+				$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address</strong></div>');
+			   	$this->room->insert_r($data);
+			}
+		    $this->load->view('hotel/reservation', $data2);
+		    $this->load->view('templates/script.php');
 		}
 	}

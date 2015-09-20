@@ -11,6 +11,8 @@
       {
         extract($this->session->flashdata('data'));
       }
+
+      $c = $this->registration->get_cities($spots);
    ?>
   <div class="panel logins p-body">
     <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong><?php echo $tourist.", " . $city; ?></strong></h3></div>
@@ -93,8 +95,9 @@
                                   </div>
                                 </div>
                               <div class="col-md-8">
+                                  
                                         <label>Hotel Name</label>
-                                            <input type="hidden" name="spots" value="<?php echo $spots ?>">
+                                            <input type="hidden" name="spots" value="<?php echo $c ?>">
                                             <input type="hidden" name="tabpane" value="hotel">
                                             <input type="text" class="form-control" name="hotel" value="" required style="width:100%">
                                         <label>Contact</label>
@@ -106,9 +109,8 @@
                               </div>
                             </form>
                           <?php endif; ?>
-
                                <?php
-                                  $hot = array('tourist' => $spots);
+                                  $hot = array('tourist' => $c);
                                   $this->load->view('tourist/hotels', $hot) ;
                                ?>
                         </div>

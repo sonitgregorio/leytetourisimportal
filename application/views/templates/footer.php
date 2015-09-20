@@ -1,9 +1,7 @@
 <br /> <br/>
-</div>
   <div class="panel-footer navbar-fixed-bottom footer-style">
       Leyte Tourism Portal And Booking | &copy 2015 | Powerd by: Google
   </div>
-</div>
 
 <div class="modal" id="resizeimage" tabindex="-1" role="dialog" aria-labeledby="resizeimage">
 	<div class="modal-dialog" role="document">

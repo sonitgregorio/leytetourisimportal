@@ -35,7 +35,7 @@
   	  <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Rooms</strong></h3></div>
       <div class="panel-body">
       	<div class="col-md-12">
-		 	<?php foreach ($this->room->get_room() as $key => $v): ?>
+		 	<?php foreach ($this->room->get_room($this->session->userdata('uid')) as $key => $v): ?>
 		 		<div class="col-md-4" style="text-align:center;margin-bottom:20px">
 					<figure class="uk-overlay uk-overlay-hover thumbnail">
 							<a href="/view_room/<?php echo $v['id'] ?>"><img src="<?php echo "../assets/images/rooms/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>

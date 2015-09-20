@@ -16,9 +16,13 @@
         {
           $this->load->view('templates/hotelnav', $data);
         }
-        else
+        elseif ($this->session->userdata('usertype') == '4') 
         {
           $this->load->view('templates/adminnav', $data);
+        }
+        else
+        {
+           $this->load->view('templates/clientnav', $data);
         }
     }
     function themain()
@@ -55,11 +59,31 @@
     }
     function manage_tourist()
     {
-      $data['param'] = "manage_tourist";
-      $this->load->view('templates/header');
-      $this->load->view('templates/usernav', $data);
-      $this->load->view('tourist/manage_tourist');
-      $this->load->view('templates/footer.php');
+        $data['param'] = "manage_tourist";
+        $this->load->view('templates/header');
+        $this->load->view('templates/usernav', $data);
+        $this->load->view('tourist/manage_tourist');
+        $this->load->view('templates/footer.php');
+    }
+    function visit_hotel($id)
+    {
+        $data['param'] = "tourist";
+        $data2['hid'] = $id;
+        $this->load->model('room');
+        $this->load->view('templates/header');
+        $this->menus($data);
+        $this->load->view('hotel/visit_hotel', $data2);
+        $this->load->view('templates/footer.php');
+    }
+    function view_room($id)
+    {
+          $this->load->model('room');
+          $data['param'] = "tourist";
+          $pa['id'] = $id;
+          $this->load->view("templates/header");
+          $this->menus($data);
+          $this->load->view("hotel/view_room", $pa);
+          $this->load->view("templates/footer");
     }
 
   }

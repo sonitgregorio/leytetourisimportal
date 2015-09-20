@@ -6,6 +6,7 @@
     <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Hotel Information Management</h4></div>
       <div class="panel-body">
             <div class="col-md-12" style="padding:0">
+             <?php echo $this->session->flashdata('message') ?>
               <div>
                 <ul class="nav nav-tabs" role="tablist">
                   <li role="presentation" class="<?php // echo $tabpane == 'information' ?  'active' : '' ?> active"><a href="#information" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil fa-fw"></i>&nbsp;Information</a></li>
@@ -13,11 +14,11 @@
                 <div class="tab-content">
                     <div class="col-md-12 tab-pane active" role="tabpanel" id="information" style="background-color:#FFFFE0;">
                       <br/>
-			<form class="form" action="/insert_spot" method="post" enctype="multipart/form-data">
+			<form class="form" action="/insert_hotels" method="post" enctype="multipart/form-data">
 			  <div class="col-md-12">
 			        <div class="fileinput fileinput-new" data-provides="fileinput">
 			          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-			          <img src="<?php echo "../assets/images/touristspot/" . $data['filename'] ?>" alt="" />
+			          <img src="<?php echo "../assets/images/hotels/" . $data['filename'] ?>" alt="" />
 			          </div>
 			          <div>
 			            <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
@@ -27,7 +28,7 @@
 			  </div>
 			  <div class="col-md-12">
 			    <label for="">Hotel Name</label>
-			    <input type="text" class="form-control" name="touristspot" value="<?php echo $data['hotel'] ?>">
+			    <input type="text" class="form-control" name="hotel" value="<?php echo $data['hotel'] ?>">
 			    <label for="">City</label>
 			    <select class="form-control" name="city">
 			        <?php

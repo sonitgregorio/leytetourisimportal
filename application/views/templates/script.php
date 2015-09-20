@@ -39,6 +39,13 @@
          });
        });
 
+       $('.ins_reserv').submit(function(){
+          $.post("/hotel/ins_reservs", $(this).serialize(), function(data){
+            // alert(data);
+            $('#reserv').html(data);
+          });
+       });
+
        $('.res').click(function(e){
          $img = $(this).data('param');
          $descr = $(this).data('param1');

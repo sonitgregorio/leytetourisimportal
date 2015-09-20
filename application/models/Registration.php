@@ -158,4 +158,11 @@
         $this->db->where('spot', $id);
         return $this->db->get('tbl_gallery')->result_array();
     }
+    function get_cities($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->select('city');
+        $x = $this->db->get('tbl_touristspot')->row_array();
+        return  $x['city'];
+    }
   }

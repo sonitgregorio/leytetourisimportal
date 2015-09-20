@@ -11,6 +11,6 @@
           <label for="">Password</label>
           <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
-        <button class="btn btn-success pull-right" type="submit" class="btn btn-default">Login</button>
+        <button class="btn btn-success pull-right" type="submit">Login</button>
     </div>
   </form>
