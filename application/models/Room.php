@@ -82,4 +82,19 @@
 	    	$this->db->where('datereserve', $date);
 	    	return $this->db->get('tbl_reserve')->num_rows();
 	    }
+	    function get_reserv($id)
+	    {
+	    	$this->db->where('hid', $id);
+	    	return $this->db->get('tbl_reserve')->num_rows();
+	    }
+	    function get_all_req($id)
+	    {
+	    	$this->db->where('hid', $id);
+	    	return $this->db->get('tbl_reserve')->result_array();
+	    }
+	    function get_info_req($id)
+	    {
+	    	$this->db->where('id', $id);
+	    	return $this->db->get('tbl_reserve')->row_array();	
+	    }
 	}

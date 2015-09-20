@@ -20,7 +20,7 @@
       <li class = "<?php echo $param == 'settings' ?  'active' : '' ?>"><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li> 
       <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"><i ></i>&nbsp;<b>Manage Rooms</b></a></li> 
       <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Hotel Information</b></a></li> 
-      <li class =><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
+      <li class = "<?php echo $param == 'reservation_list' ? 'active' : '' ?>"><a href="/reservation_list"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
     </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">

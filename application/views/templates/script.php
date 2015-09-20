@@ -67,5 +67,6 @@
          e.preventDefault();
        });
 
+        $('#example').DataTable();
   });
 </script>

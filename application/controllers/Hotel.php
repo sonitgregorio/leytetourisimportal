@@ -194,10 +194,66 @@
 					  		  'emailaddress' => $this->input->post('emailaddress'),
 					  		  'contact' => $this->input->post('contact'),
 					  		  'datereserve' => $this->input->post('datereserve'));
-				$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address</strong></div>');
+				$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address Spam Folder</strong></div>');
 			   	$this->room->insert_r($data);
 			}
 		    $this->load->view('hotel/reservation', $data2);
 		    $this->load->view('templates/script.php');
+		}
+		function reservation_list()
+		{
+			$this->load->model('room');
+			$data['param'] = "reservation_list";
+			$pa['id'] = $this->session->userdata('uid');
+        	$this->load->view("templates/header");
+        	$this->load->view('templates/hotelnav', $data);
+        	$this->load->view("hotel/reservation_list", $pa);
+        	$this->load->view("templates/footer");
+		}
+		function view_requests($id)
+		{
+			$this->load->model('room');
+			$data['param'] = "reservation_list";
+			$pa['id'] = $id;
+        	$this->load->view("templates/header");
+        	$this->load->view('templates/hotelnav', $data);
+        	$this->load->view("hotel/view_request", $pa);
+        	$this->load->view("templates/footer");
+		}
+		function confirm_reserv($id)
+		{
+			
+			$this->load->model('room');
+			$x = $this->room->get_info_req($id);
+			$this->load->library('email');
+	        $this->load->helper('email');
+	        $email = 'modestoadona12@gmail.com'; //$x['emailaddress'];
+	        if (valid_email($email)) {
+	            $config['protocol'] = "smtp";
+	            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+	            $config['smtp_port'] = '465';
+	            $config['smtp_user'] = 'sonitgregorio@gmail.com';
+	            $config['smtp_pass'] = 'posterpolang';
+	            $config['mailtype'] = 'html';
+	            $config['mailpath']	= '/usr/sbin/sendmail';
+	            $config['charset'] = 'utf-8';
+	            $config['newline'] = "\r\n";
+	            $config['wordwrap'] = TRUE;
+
+	            $this->email->initialize($config);
+
+	            $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal', 'sonitgregorio@gmail.com');
+	            $this->email->to($email);
+
+	            $this->email->subject('Test Email');
+	            $this->email->message('This is a test' . $x['datereserve'] );
+	            $this->email->send();
+	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');
+	        }else{
+	            $this->session->set_flashdata('message', $alerts . 'Invalid Email.</div>');
+	        }
+          redirect('/view_req/'.$x['hid']);
+
+
 		}
 	}
