@@ -181,22 +181,44 @@
 		{
 
 			$this->load->model('room');
-			$data2['hid'] = $this->input->post('hid');
-			$x = $this->room->checking_availability($this->input->post('datereserve'), $this->input->post('hid'));
-			if ($x > 0) 
+			$data2 = array('hid' => $this->input->post('hid'),
+						  		  'fullname' => $this->input->post('fullname'),
+						  		  'emailaddress' => $this->input->post('emailaddress'),
+						  		  'contact' => $this->input->post('contact'),
+						  		  'datereserve' => $this->input->post('datereserve'),
+						  		  'check_out' => $this->input->post('check_out'),
+						  		  'no_days' => $this->input->post('no_days'));
+			// $data2['hid'] = $this->input->post('hid');
+			// $data2['datereserve'] = $this->input->post('')
+			
+			$date_in = $this->input->post('datereserve');
+			$date_out = $this->input->post('check_out');
+
+			if ($date_in > $date_out) 
 			{
-				$this->session->set_flashdata('messages', $this->faildemessage() . '<strong>This room is not available during this date' . $this->input->post('datereserve') . '</strong></div>');
+				$this->session->set_flashdata('messages', $this->faildemessage() . 'Invalid Date Specified</strong></div>');
 			}
 			else
-			{
-				$data = array('hid' => $this->input->post('hid'),
-					  		  'fullname' => $this->input->post('fullname'),
-					  		  'emailaddress' => $this->input->post('emailaddress'),
-					  		  'contact' => $this->input->post('contact'),
-					  		  'datereserve' => $this->input->post('datereserve'));
-				$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address Spam Folder</strong></div>');
-			   	$this->room->insert_r($data);
+			{	
+				$x = $this->room->checking_availability($this->input->post('datereserve'), $this->input->post('hid'));
+				if ($x > 0) 
+				{
+					$this->session->set_flashdata('messages', $this->faildemessage() . '<strong>This room is not available during this date' . $this->input->post('datereserve') . '</strong></div>');
+				}
+				else
+				{
+					$data = array('hid' => $this->input->post('hid'),
+						  		  'fullname' => $this->input->post('fullname'),
+						  		  'emailaddress' => $this->input->post('emailaddress'),
+						  		  'contact' => $this->input->post('contact'),
+						  		  'datereserve' => $this->input->post('datereserve'),
+						  		  'check_out' => $this->input->post('check_out'),
+						  		  'no_days' => $this->input->post('no_days'));
+					$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address Spam Folder</strong></div>');
+				   	$this->room->insert_r($data);
+				}
 			}
+			
 		    $this->load->view('hotel/reservation', $data2);
 		    $this->load->view('templates/script.php');
 		}
@@ -227,7 +249,7 @@
 			$x = $this->room->get_info_req($id);
 			$this->load->library('email');
 	        $this->load->helper('email');
-	        $email = 'modestoadona12@gmail.com'; //$x['emailaddress'];
+	        $email = $x['emailaddress'];
 	        if (valid_email($email)) {
 	            $config['protocol'] = "smtp";
 	            $config['smtp_host'] = 'ssl://smtp.gmail.com';
@@ -253,7 +275,5 @@
 	            $this->session->set_flashdata('message', $alerts . 'Invalid Email.</div>');
 	        }
           redirect('/view_req/'.$x['hid']);
-
-
 		}
 	}

@@ -68,5 +68,20 @@
        });
 
         $('#example').DataTable();
+
+       $('.checkin').change(function(e){
+        var check_in = new Date($('input[name=datereserve]').val());
+        var check_out = new Date($('input[name=check_out]').val());
+        var diff  = new Date(check_out - check_in );
+        var days = diff/1000/60/60/24;
+        if (days < 0) {
+          $('#groups').addClass('has-error');
+        }else{
+           $('#groups').removeClass('has-error');
+           $('input[name=no_days]').val(days);
+        }
+        e.preventDefault();
+       }); 
+
   });
 </script>
