@@ -102,3 +102,4 @@ $route['view_r/(:any)']					 = 'home/view_room/$1';
 $route['reservation_list']				 = 'hotel/reservation_list';
 $route['view_req/(:any)']				 = 'hotel/view_requests/$1';
 $route['confirm_reserv/(:any)']			 = 'hotel/confirm_reserv/$1';
+$route['cancel_reserv/(:any)']			 = 'hotel/cancel_reserv/$1';

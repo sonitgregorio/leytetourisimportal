@@ -42,7 +42,8 @@
         				<td style="color:#FFFF00;">Name</td>
         				<td style="color:#FFFF00;">Email Addres</td>
         				<td style="color:#FFFF00;">Contact</td>
-        				<td style="color:#FFFF00;">Date of Reservation</td>
+                <td style="color:#FFFF00;">Check In</td>
+                <td style="color:#FFFF00;">Check Out</td>
         				<td style="color:#FFFF00;">Action</td>
         			</tr>
         		</thead>
@@ -52,8 +53,12 @@
 		    				<td><?php echo $value['fullname'] ?></td>
 		    				<td><?php echo $value['emailaddress'] ?></td>
 		    				<td><?php echo $value['contact'] ?></td>
-		    				<td><?php echo $value['datereserve'] ?></td>
-		    				<td><a href="/confirm_reserv/<?php echo $value['id'] ?>" class="btn btn-info">Confirm</a>&nbsp;<a href="" class="btn btn-danger">Cancel</a></td>
+                <td><?php echo $value['datereserve'] ?></td>
+                <td><?php echo $value['check_out'] ?></td>
+		    				<td>
+                  <a href="/confirm_reserv/<?php echo $value['id'] ?>" class="btn btn-info">Confirm
+                  </a>&nbsp;<a href="/cancel_reserv/<?php echo $value['id'] ?>" class="btn btn-danger">Cancel</a>
+                </td>
 	    				</tr>	
         			<?php endforeach ?>
         		</tbody>

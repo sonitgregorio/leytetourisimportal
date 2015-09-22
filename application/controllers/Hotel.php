@@ -200,7 +200,7 @@
 			}
 			else
 			{	
-				$x = $this->room->checking_availability($this->input->post('datereserve'), $this->input->post('hid'));
+				$x = $this->room->checking_availability($this->input->post('datereserve'), $this->input->post('hid'), 'Pending');
 				if ($x > 0) 
 				{
 					$this->session->set_flashdata('messages', $this->faildemessage() . '<strong>This room is not available during this date' . $this->input->post('datereserve') . '</strong></div>');
@@ -213,9 +213,11 @@
 						  		  'contact' => $this->input->post('contact'),
 						  		  'datereserve' => $this->input->post('datereserve'),
 						  		  'check_out' => $this->input->post('check_out'),
-						  		  'no_days' => $this->input->post('no_days'));
+						  		  'no_days' => $this->input->post('no_days'),
+						  		  'stats' => 'Pending');
 					$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address Spam Folder</strong></div>');
 				   	$this->room->insert_r($data);
+				   	unset($data2['fullname']);
 				}
 			}
 			
@@ -244,9 +246,10 @@
 		}
 		function confirm_reserv($id)
 		{
-			
+			//echo $id;
 			$this->load->model('room');
 			$x = $this->room->get_info_req($id);
+			print_r($x);
 			$this->load->library('email');
 	        $this->load->helper('email');
 	        $email = $x['emailaddress'];
@@ -267,13 +270,51 @@
 	            $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal', 'sonitgregorio@gmail.com');
 	            $this->email->to($email);
 
-	            $this->email->subject('Test Email');
-	            $this->email->message('This is a test' . $x['datereserve'] );
+	            $this->email->subject($x['hotel']);
+	            $this->email->message('Your Reservatoin Request Has Been Confirm By' . $x['hotel'] . ', ' . $x['address'] .  'Your Check in Date is '. $x['datereserve'] . ' And your Check Out date' . $x['check_out'] . '. Estimated Amount is '. $x['rate'] * $x['no_days'] .'.');
 	            $this->email->send();
-	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');
+	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+	            $this->room->upd_room($id);
 	        }else{
-	            $this->session->set_flashdata('message', $alerts . 'Invalid Email.</div>');
+	            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
+	       		
 	        }
-          redirect('/view_req/'.$x['hid']);
+           redirect('/view_req/'. $x['hid']);
+		}
+		function cancel_reserv($id)
+		{
+			$this->load->model('room');
+			$x = $this->room->get_info_req($id);
+			print_r($x);
+			$this->load->library('email');
+	        $this->load->helper('email');
+	        $email = $x['emailaddress'];
+	        if (valid_email($email)) {
+	            $config['protocol'] = "smtp";
+	            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+	            $config['smtp_port'] = '465';
+	            $config['smtp_user'] = 'sonitgregorio@gmail.com';
+	            $config['smtp_pass'] = 'posterpolang';
+	            $config['mailtype'] = 'html';
+	            $config['mailpath']	= '/usr/sbin/sendmail';
+	            $config['charset'] = 'utf-8';
+	            $config['newline'] = "\r\n";
+	            $config['wordwrap'] = TRUE;
+
+	            $this->email->initialize($config);
+
+	            $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal', 'sonitgregorio@gmail.com');
+	            $this->email->to($email);
+
+	            $this->email->subject($x['hotel']);
+	            $this->email->message('Your Reservatoin Request Has Been Canceled ' . $x['hotel'] . ', ' . $x['address'] . '.Because This room is not available');
+	            $this->email->send();
+	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+	            $this->room->del_re($id);
+	        }else{
+	            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
+	       		
+	        }
+           redirect('/view_req/'. $x['hid']);
 		}
 	}

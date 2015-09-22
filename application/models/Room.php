@@ -76,25 +76,43 @@
 	    {
 	    	$this->db->insert('tbl_reserve', $data);
 	    }
-	    function checking_availability($date, $hid)
+	    function checking_availability($date, $hid, $stats)
 	    {
 	    	$this->db->where('hid', $hid);
 	    	$this->db->where('datereserve', $date);
+	    	$this->db->where('stats !=', $stats);
 	    	return $this->db->get('tbl_reserve')->num_rows();
 	    }
 	    function get_reserv($id)
 	    {
 	    	$this->db->where('hid', $id);
+	    	$this->db->where('stats', 'Pending');
 	    	return $this->db->get('tbl_reserve')->num_rows();
 	    }
 	    function get_all_req($id)
 	    {
 	    	$this->db->where('hid', $id);
+	    	$this->db->where('stats', 'Pending');
 	    	return $this->db->get('tbl_reserve')->result_array();
 	    }
 	    function get_info_req($id)
 	    {
+	    	return $this->db->query("SELECT a.emailaddress, a.id, a.hid, a.no_days, a.datereserve, a.check_out, a.fullname, b.rate, b.roomno, d.hotel, d.address  
+									 FROM tbl_reserve a, tbl_hotel_room b, tbl_users c, tbl_hotel d
+									 WHERE a.hid = b.id 
+									 AND a.id = '11' 
+									 AND b.uid = c.id
+									 AND c.id = d.owned")->row_array();
+	    }
+	    function upd_room($id)
+	    {
+	    	$data = array('stats' => 'Confirmed');
 	    	$this->db->where('id', $id);
-	    	return $this->db->get('tbl_reserve')->row_array();	
+	    	$this->db->update('tbl_reserve', $data);
+	    }
+	    function del_re($id)
+	    {
+	    	$this->db->where('id', $id);
+	    	$this->db->delete('tbl_reserve');
 	    }
 	}
