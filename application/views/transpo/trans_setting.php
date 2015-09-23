@@ -1,7 +1,7 @@
 <?php 
-	//$data = $this->room->hotel_info($id);
+	$data = $this->transpo->trans_info();
  ?>
- <div class="col-md-12">
+ <div class="col-md-8 col-md-offset-2">
   <div class="panel logins p-body">
     <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Transportation Management</h4></div>
       <div class="panel-body">
@@ -18,7 +18,7 @@
 			  <div class="col-md-12">
 			        <div class="fileinput fileinput-new" data-provides="fileinput">
 			          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-			          <img src="<?php //echo "../assets/images/hotels/" . $data['filename'] ?>" alt="" />
+			          <img src="<?php echo "../assets/images/transpo/" . $data['filename'] ?>" alt="" />
 			          </div>
 			          <div>
 			            <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
@@ -28,7 +28,7 @@
 			  </div>
 			  <div class="col-md-12">
 			    <label for="">Hotel Name</label>
-			    <input type="text" class="form-control" name="hotel" value="<?php //echo $data['hotel'] ?>">
+			    <input type="text" class="form-control" name="transpo" value="<?php echo $data['transpo'] ?>">
 			    <label for="">City</label>
 			    <select class="form-control" name="city">
 			        <?php
@@ -45,14 +45,14 @@
 			  </div>
 			  <div class="col-md-12">
 			    <label for="">Contact</label>
-			    <input type="text" class="form-control" name="contact" value="<?php //echo $data['contact'] ?>">
+			    <input type="text" class="form-control" name="contact" value="<?php echo $data['contact'] ?>">
 			    <label for="">Address</label>
-			    <input type="text" class="form-control" name="address" value="<?php //echo $data['address'] ?>">
+			    <input type="text" class="form-control" name="address" value="<?php echo $data['address'] ?>">
 			  </div>
 
 			  <div class="col-md-12">
 			    <label for="">Information</label>
-			    <textarea name="description" class="form-control" style="width:100%;height:150px;resize:none"><?php //echo $data['information']   ?></textarea>
+			    <textarea name="description" class="form-control" style="width:100%;height:150px;resize:none"><?php echo $data['information']   ?></textarea>
 			    <br />
 			    <button type="submit" class="btn btn-success pull-right" name="button">Save</button>
 			    <br />    <br />

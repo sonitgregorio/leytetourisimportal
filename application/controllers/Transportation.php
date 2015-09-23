@@ -91,8 +91,8 @@
 		}
 		function insert_trans()
 		{
-					$this->load->model('transpo')
-			 		$trans = $this->input->post('trans');
+					$this->load->model('transpo');
+			 		$trans = $this->input->post('transpo');
 			        $contact = $this->input->post('contact');
 			        $pic = $this->input->post('picture');
 			        $address = $this->input->post('address');
@@ -115,14 +115,18 @@
 			        }
 			        else
 			        {
-
-			        	    $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-			                'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
-			                'owned' => $this->session->userdata('uid'));
-			                $this->registration->insert_spot($data);
-			                $this->session->s
-
-
+			        	$data = array('transpo' => $trans, 'contact' => $contact, 'address' => $address,
+			    		              'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
+			                		  'owned' => $this->session->userdata('uid'));
+			        	if ($this->transpo->get_if_exist() > 0) 
+			        	{
+			        		$this->transpo->update_transpo($data);
+			        	}
+			        	else
+			        	{        		  
+			           		 $this->transpo->insert_trans($data);
+			        	}
+		        	  
 
 
 			            // $checkexist = $this->registration->check_spot($spot, $address);
@@ -143,21 +147,5 @@
 			            //     //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
 			            // }
 			        }
-
-
-
-
-
-
-			        $data['destination'] = $city;
-			        $this->session->set_flashdata('data', $data);
-			        if ($this->session->userdata('usertype') != '4')
-			        {
-			          redirect('/manage_tourist');
-			        }
-			        else
-			        {
-			          redirect('/citytourist/' . $city);
-			        }
-					}
+			}
 	}

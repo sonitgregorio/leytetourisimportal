@@ -37,9 +37,23 @@
 			$this->db->where('owned', $this->session->userdata('uid'));
 			return $this->db->get('tbl_transpo')->row_array();
 		}
-		function update_transpo($data);
+		function update_transpo($data)
 		{
 			$this->db->where('owned', $this->session->userdata('uid'));
 			$this->db->update('tbl_transpo', $data);
+		}
+		function insert_trans($data)
+		{
+			$this->db->insert('tbl_transpo', $data);
+		}
+		function get_if_exist()
+		{
+			$this->db->where('owned', $this->session->userdata('uid'));
+			return $this->db->get('tbl_transpo')->num_rows();
+		}
+		function trans_info()
+		{
+			$this->db->where('owned', $this->session->userdata('uid'));
+			return $this->db->get('tbl_transpo')->row_array();
 		}
 	}
