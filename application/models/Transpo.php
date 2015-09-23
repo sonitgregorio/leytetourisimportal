@@ -27,4 +27,19 @@
 			$this->db->where('id', $id);
 			return $this->db->get('tbl_route')->row_array();
 		}
+		function up_route($id, $data)
+		{
+			$this->db->where('id', $id);
+			$this->db->update('tbl_route', $data);
+		}
+		function checking_t()
+		{
+			$this->db->where('owned', $this->session->userdata('uid'));
+			return $this->db->get('tbl_transpo')->row_array();
+		}
+		function update_transpo($data);
+		{
+			$this->db->where('owned', $this->session->userdata('uid'));
+			$this->db->update('tbl_transpo', $data);
+		}
 	}

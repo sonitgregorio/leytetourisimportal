@@ -108,3 +108,5 @@ $route['manage_routes']					 = 'transportation/manage_routes';
 $route['add_route']						 = 'transportation/add_route';
 $route['del_route/(:any)']				 = 'transportation/del_route/$1';
 $route['edit_route/(:any)'] 			 = 'transportation/edit_route/$1';
+$route['transpo_settings']				 = 'transportation/transpo_settings';
+$route['insert_trans']					 = 'transportation/insert_trans';

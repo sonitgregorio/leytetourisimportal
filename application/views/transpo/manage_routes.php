@@ -39,7 +39,7 @@
                   <td>From</td>
                   <td>To</td>
                   <td>Rate</td>
-                  <td style="width:25%">Action</td>
+                  <td style="width:25%"?>Action</td>
                 </tr>
               </thead>
               <tbody>
@@ -52,9 +52,11 @@
                     <td><?php echo $tos ?></td>
                     <td><?php echo $rate ?></td>
                     <td>
+                    <?php if ($this->session->userdata('uid') == $owned): ?>
                        <a href="/edit_route/<?php echo $id ?>" class="btn btn-info">Edit&nbsp;<span class="glyphicon glyphicon-pencil"></span></a>
                        <a href="/del_route/<?php echo $id ?>" class="btn btn-danger" onclick="return confirm('Are You Sure?')">Delete&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
-                     </td>
+                    <?php endif ?>
+                   </td>
                   </tr>
                 <?php endforeach ?>
               </tbody>
