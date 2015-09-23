@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="padding:0;">
-      <div class="container-fluid" style="padding:2;background-color: #8C4600;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #8C4600;">
+      <div class="container-fluid" style="padding:2;background-color: #759828;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #D1002D;">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -10,7 +10,6 @@
     <span class="icon-bar"></span>
   </button>
   <a class="navbar-brand" href="/">LTP</a>
-
 </div>
 
  <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,9 +28,9 @@
 
    ?>
   <ul class="nav navbar-nav">
-    <li class="<?php echo $home ?>" ><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = "<?php echo $tourist; ?>"><a href="/tourist-list"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
-    <li><a href="/tourist"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;<b>About</b></a></li>
+    <li class="<?php echo $home ?>"  style ="color:white"><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+    <li class = "<?php echo $tourist; ?>" ><a href="/tourist-list" class="coloreds"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <li><a href="/tourist"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
     <li><a href="/tourist"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
 
 
@@ -54,9 +53,9 @@
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header modal-style">
+      <div class="modal-header backs">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="color:#FFFF00;"><strong>User Registration</strong></h4>
+        <h4 class="modal-title backs" id="myModalLabel" style="color:#FFFF00;"><strong>User Registration</strong></h4>
       </div>
           <div class="modal-body">
               <div class="panel-body" id="user_reg">
@@ -74,9 +73,9 @@
   <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:10%">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header modal-style">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="color:#FFFF00;"><strong><i class="fa fa-lock fa-fw"></i>&nbsp;User Login</strong></h4>
+        <div class="modal-header backs">
+          <button type="button" class="close backs" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title backs" id="myModalLabel" style="color:#FFFF00;"><strong><i class="fa fa-lock fa-fw"></i>&nbsp;User Login</strong></h4>
         </div>
             <div class="modal-body">
                 <div class="panel-body" id="lo">

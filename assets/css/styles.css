@@ -48,9 +48,7 @@ body
 }
 .input-background
 {
-  background-color: rgb(248, 247, 199);
-  font-size:15px;
-  height: 30px;
+  background-color: white;
 }
 h4, h3, h1, .input-background, label, h2, h5, h6
 {
@@ -122,6 +120,7 @@ background-blend-mode: color-burn;
   padding-top: 2px;
   border-bottom: #522B04 2px solid;
   border-top-right-radius: 10px;
+  background-color: #D1002D;
   border-top-left-radius:  10px;
 }
 .touris-image
@@ -135,4 +134,11 @@ background-blend-mode: color-burn;
   border-bottom: #522B04 2px solid;
   border-top-right-radius: 4px;
   border-top-left-radius:  4px;
+}
+.coloreds
+{
+  color: white;
+}
+.backs{
+  background-color: #D1002D;
 }

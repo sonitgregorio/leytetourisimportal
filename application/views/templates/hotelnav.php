@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="padding:0;">
-      <div class="container-fluid" style="padding:2;background-color: #8C4600;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #8C4600;">
+      <div class="container-fluid backs" style="padding:2;BORDER-BOTTOM: #522B04 2px solid;">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -25,7 +25,7 @@
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
-              <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+              <a class="label" type="submit"  href="/logout" style="color:gray;">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
           </div>
       </form>
   </ul>

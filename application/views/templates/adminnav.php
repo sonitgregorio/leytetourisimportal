@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="padding:0;">
-      <div class="container-fluid" style="padding:2;background-color: #8C4600;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #8C4600;">
+      <div class="container-fluid backs" style="padding:2;BORDER-BOTTOM: #522B04 2px solid;">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
