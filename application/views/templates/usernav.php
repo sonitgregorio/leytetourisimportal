@@ -40,7 +40,7 @@
    ?>
   <ul class="nav navbar-nav">
     <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = <?php echo $settings; ?>><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
+    <li class = "<?php echo $settings; ?>"><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
     <li class="<?php echo $gallery ?>"><a href="/gallery"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
     <li class="<?php echo $manage_tourist ?>"><a href="/manage_tourist"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Tourist Spot</b></a></li>
 

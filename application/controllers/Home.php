@@ -20,6 +20,10 @@
         {
           $this->load->view('templates/adminnav', $data);
         }
+        elseif ($this->session->userdata('usertype') == '2')
+        {
+          $this->load->view('templates/transpo.php', $data);
+        }
         else
         {
            $this->load->view('templates/clientnav', $data);

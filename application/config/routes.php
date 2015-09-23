@@ -103,3 +103,8 @@ $route['reservation_list']				 = 'hotel/reservation_list';
 $route['view_req/(:any)']				 = 'hotel/view_requests/$1';
 $route['confirm_reserv/(:any)']			 = 'hotel/confirm_reserv/$1';
 $route['cancel_reserv/(:any)']			 = 'hotel/cancel_reserv/$1';
+
+$route['manage_routes']					 = 'transportation/manage_routes';
+$route['add_route']						 = 'transportation/add_route';
+$route['del_route/(:any)']				 = 'transportation/del_route/$1';
+$route['edit_route/(:any)'] 			 = 'transportation/edit_route/$1';
