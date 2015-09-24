@@ -1,6 +1,7 @@
 <div class="col-md-12">
   <?php
       //Get tourist spot data.
+  echo $spots;
       $touristspotdata = $this->registration->get_tourist_data($spots);
       extract($touristspotdata);
       if (empty($this->session->flashdata('data')))
@@ -41,6 +42,7 @@
                     <?php
                       $origin = array('origin' => $city, 'destination' => $tourist.", " . $city);
                       $this->load->view('tourist/map', $origin);
+
                     ?>
                 </div>
               </div>
@@ -56,6 +58,7 @@
                     <ul class="nav nav-tabs" role="tablist">
                       <li role="presentation" class="<?php  echo $tabpane == 'information' ?  'active' : '' ?>"><a href="#information" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-pencil fa-fw"></i>&nbsp;Information</a></li>
                       <li role="presentation" class="<?php  echo $tabpane == 'images' ?  'active' : '' ?>"><a href="#images" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span>&nbsp;Images</a></li>
+                      <li role ="presentation" class=""><a href="#transpo" aria-controls="profile" role="tab" data-toggle="tab">Transportation</a></li>
                       <li role="presentation" class="<?php  echo $tabpane == 'hotel' ?  'active' : '' ?>"><a href="#hotel" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-hotel fa-fw"></i>&nbsp;Hotels</a></li>
                     </ul>
                     <!-- Tab panes -->
@@ -63,6 +66,7 @@
                       <div role="tabpanel col-md-12" class="tab-pane <?php echo $tabpane == 'information' ? 'active' : '' ?>" id="information"  style="background-color:#FFFFE0;">
                           <br />
                           <?php
+
                               $data['information'] = $information;
                               $this->load->view('tourist/information', $data);
                           ?>
@@ -74,6 +78,17 @@
                                <?php
                                 $data['sp'] = $spots;
                                 $this->load->view('tourist/images', $data);
+                                ?>
+                        </div>
+                      </div>
+                      <div role="tabpanel col-md-12" class="tab-pane <?php echo $tabpane == 'images' ? 'active' : '' ?>"  id="transpo" style="background-color:#FFFFE0;">
+                        <br />
+                        <div class="col-md-12" style="background-color: #FFFFE0" >
+
+                               <?php
+                                $datass['cids'] = $cids;
+                                $datass['spotsaa'] = $spots;
+                                $this->load->view('tourist/transport', $datass);
                                 ?>
                         </div>
                       </div>
@@ -110,7 +125,7 @@
                             </form>
                           <?php endif; ?>
                                <?php
-                                  $hot = array('tourist' => $c);
+                                  $hot = array('tourist' => $c, 'ma' => $spots);
                                   $this->load->view('tourist/hotels', $hot) ;
                                ?>
                         </div>

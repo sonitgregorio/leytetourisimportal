@@ -61,7 +61,7 @@
     }
     function get_tourist_data($spots)
     {
-        return $this->db->query("SELECT a.tourist, a.address, a.contact, a.information, b.city
+        return $this->db->query("SELECT a.tourist, a.address, b.id as cids, a.contact, a.information, b.city
                           FROM tbl_touristspot a, tbl_city b
                           WHERE a.id = '$spots' AND a.city = b.id")->row_array();
     }
@@ -164,5 +164,29 @@
         $this->db->select('city');
         $x = $this->db->get('tbl_touristspot')->row_array();
         return  $x['city'];
+    }
+    function get_transpo($cid)
+    {
+        $this->db->where('id', $cid);
+        return $this->db->get('tbl_transpo')->result_array();
+    }
+    function getspots($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->get('tbl_touristspot')->row_array();
+    }
+    function get_or($id)
+    {
+        $this->db->where('id', $id);
+    }
+    function get_trans_route($id)
+    {
+        return $this->db->query("SELECT * FROM tbl_transpo 
+                                 WHERE tbl_transpo.owned = '$id'")->row_array();
+    }
+    function get_routed($id)
+    {
+        return $this->db->query("SELECT * FROM tbl_route 
+                                 WHERE owned = '$id'")->result_array();
     }
   }

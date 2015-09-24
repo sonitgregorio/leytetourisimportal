@@ -53,7 +53,7 @@
                        <a href="#" class="btn btn-danger col-md-6">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                      </div>
                    <?php else: ?>
-                         <a class="btn btn-info btn-block" href="/tourist/<?php echo $id ?>"><?php echo $tourist ?></a>
+                         <a class="btn btn-info btn-block" href="/tourist/<?php echo $owned ?>"><?php echo $tourist ?></a>
                    <?php endif; ?>
              </div>
       <?php endforeach; ?>

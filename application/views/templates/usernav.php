@@ -1,6 +1,6 @@
 
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="padding:0;">
-      <div class="container-fluid" style="padding:2;background-color: #8C4600;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #8C4600;">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse grads" style="padding:0;">
+      <div class="container-fluid backs" style="padding:2;BORDER-BOTTOM: #522B04 2px solid;">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -39,10 +39,10 @@
 
    ?>
   <ul class="nav navbar-nav">
-    <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = "<?php echo $settings; ?>"><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
-    <li class="<?php echo $gallery ?>"><a href="/gallery"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
-    <li class="<?php echo $manage_tourist ?>"><a href="/manage_tourist"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Tourist Spot</b></a></li>
+    <li class="<?php echo $home ?>" ><a href="/home" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+    <li class = "<?php echo $settings; ?>"><a href="/settings" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
+    <li class="<?php echo $gallery ?>"><a href="/gallery" style="color:white"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
+    <li class="<?php echo $manage_tourist ?>"><a href="/manage_tourist" style="color:white"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Tourist Spot</b></a></li>
 
 
   </ul>

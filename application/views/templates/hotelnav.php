@@ -9,18 +9,18 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="/">LTP</a>
+  <a class="navbar-brand" href="/"  style="color:white">LTP</a>
 
 </div>
 
  <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
     <ul class="nav navbar-nav">
-      <li class = "<?php echo $param == 'home' ? 'active' : '' ?>"><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-      <li class = "<?php echo $param == 'settings' ?  'active' : '' ?>"><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li> 
-      <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"><i ></i>&nbsp;<b>Manage Rooms</b></a></li> 
-      <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Hotel Information</b></a></li> 
-      <li class = "<?php echo $param == 'reservation_list' ? 'active' : '' ?>"><a href="/reservation_list"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
+      <li class = "<?php echo $param == 'home' ? 'active' : '' ?>"><a href="/home"  style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+      <li class = "<?php echo $param == 'settings' ?  'active' : '' ?>"><a href="/settings"  style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li> 
+      <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"  style="color:white"><i ></i>&nbsp;<b>Manage Rooms</b></a></li> 
+      <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"  style="color:white"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Hotel Information</b></a></li> 
+      <li class = "<?php echo $param == 'reservation_list' ? 'active' : '' ?>"><a href="/reservation_list"  style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
     </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">

@@ -1,6 +1,6 @@
 
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="padding:0;">
-      <div class="container-fluid" style="padding:2;background-color: #759828;BORDER-BOTTOM: #522B04 2px solid;BACKGROUND-COLOR: #D1002D;">
+<nav class="navbar navbar-default navbar-fixed-top backsss" style="padding:0;">
+      <div class="container-fluid backs">
 <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -28,12 +28,10 @@
 
    ?>
   <ul class="nav navbar-nav">
-    <li class="<?php echo $home ?>"  style ="color:white"><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-    <li class = "<?php echo $tourist; ?>" ><a href="/tourist-list" class="coloreds"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
-    <li><a href="/tourist"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
-    <li><a href="/tourist"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
-
-
+    <li class="<?php echo $home ?>"><a href="/" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+    <li class = "<?php echo $tourist; ?>"><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <!-- <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
+    <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li> -->
   </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
@@ -49,6 +47,9 @@
 </div><!--.navbar-collapse -->
 </div><!--.container-fluid -->
 </nav>
+
+
+
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

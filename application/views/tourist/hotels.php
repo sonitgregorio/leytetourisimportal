@@ -8,8 +8,11 @@
 				<figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $hotel ?></figcaption>
 		</figure>
  	<form class="form-horizontal origs" method="post" onsubmit="return false">
+ 			<?php 
+ 					$spotsss = $this->registration->getspots($ma);
+ 			 ?>
  				<input type="hidden" name="origin" value="<?php echo $hotel . ", " . $address ?>">
- 				<input type="hidden" name="spots" value="<?php echo "MacArthur Park, Palo Leyte" ?>">
+ 				<input type="hidden" name="spots" value="<?php echo $spotsss['tourist'] . ", " . $spotsss['address'] ?>">
 			<div class="btn-group" style="width:100%;">
 	 			<button class="btn btn-success" style="width:50%">View On Map</button>
 				<a href="/visit_hotel/<?php echo $id ?>" class="btn btn-info" name="button" style="width:50%">Visit</a>

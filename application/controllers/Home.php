@@ -24,6 +24,9 @@
         {
           $this->load->view('templates/transpo.php', $data);
         }
+        elseif ($this->session->userdata('usertype') == '5') {
+          $this->load->view('templates/guestnav.php', $data);
+        }
         else
         {
            $this->load->view('templates/clientnav', $data);
@@ -88,6 +91,20 @@
           $this->menus($data);
           $this->load->view("hotel/view_room", $pa);
           $this->load->view("templates/footer");
+    }
+    function visit_trans($id)
+    {
+          $this->load->model('room');
+          $data['param'] = "tourist";
+          $pa['id'] = $id;
+          $this->load->view("templates/header");
+          $this->menus($data);
+          $this->load->view("tourist/visit_transpo.php", $pa);
+          $this->load->view("templates/footer");
+    }
+    function guest()
+    {
+
     }
 
   }

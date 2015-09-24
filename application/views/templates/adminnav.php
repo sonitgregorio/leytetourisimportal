@@ -38,7 +38,7 @@
 
    ?>
     <ul class="nav navbar-nav">
-      <li class="<?php echo $home ?>" ><a href="/admin"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+      <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
       <li class = <?php echo $touristmanagement; ?>><a href="/tourist-list"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Tourism Management</b></a></li> 
     </ul>
   <ul class="nav navbar-nav navbar-right">

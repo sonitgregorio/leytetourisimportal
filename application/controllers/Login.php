@@ -101,6 +101,9 @@
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
         }
+        elseif ($this->session->userdata('usertype') == "5") {
+         $this->load->view('templates/guestnav', $data);
+        }
         else
         {
             $this->load->view('templates/clientnav', $data);
@@ -117,6 +120,9 @@
         {
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
+        }
+         elseif ($this->session->userdata('usertype') == "5") {
+         $this->load->view('templates/guestnav', $data);
         }
         else
         {
@@ -141,6 +147,9 @@
         {
             $data['param'] = "touristmanagement";
             $this->load->view('templates/adminnav', $data);
+        }
+         elseif ($this->session->userdata('usertype') == "5") {
+         $this->load->view('templates/guestnav', $data);
         }
         else
         {

@@ -1,26 +1,32 @@
 
-<br /><br /><br />
+<div class="col-md-9">
+  <div class="panel logins p-body">
+      <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Leyte Video</strong></h3></div>
+      <div class="panel-body">
+            <div class="col-md-12">
+                  <video src="../assets/vid/leyte.mkv" controls style="width:100%;border-radius:10px"></video>
+            </div>
 
-
-
-<!-- 
-<div class="col-md-12 car">
-  
-  <div id="myCarousel" class="carousel slide">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="active item imagesize"><img src="../assets/background/4.jpg" class="imagesize thumbnail" /></div>
-      <div class="item imagesize"><img src="../assets/background/43.jpg" class="imagesize thumbnail"/></div>
-      <div class="item imagesize"><img src="../assets/background/46.jpg" class="imagesize thumbnail" /></div>
-      <div class="item imagesize"><img src="../assets/background/skim.jpg" class="imagesize thumbnail" /></div>
-    </div>
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
   </div>
 </div>
- -->
+ <div class="col-md-3">
+  <div class="panel logins p-body">
+      <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Announcements</strong></h3></div>
+      <div class="panel-body">
+            <div class="col-md-12">
+                          <?php foreach ($this->registration->get_annou() as $key => $value): ?>
+                            <hr style="background: #8C4600;height:2px;">
+                              <label for=""><strong>Name: <?php echo $value['firstname'] . " " . $value['lastname']?></strong></label>
+                              <label><small>Date: <?php echo $value['dte'] . " | " . $value['tme'] ; ?></small></label>
+                              <br /><br />
+                              <p  style="width:95%;text-align:justify;margin-left:10px;text-indent:30px;">
+                                  <?php echo $value['announcement'] ?>
+                              </p>
+                          <?php endforeach; ?>
+
+            </div>
+            
+      </div>
+  </div>
+</div>

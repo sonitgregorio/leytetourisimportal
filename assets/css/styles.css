@@ -1,12 +1,12 @@
 body
 {
   margin: 0;
-  /*background-image: url(../images/background/sea.jpg);*/
+  background-image: url(../images/background/1.jpg);
   background-color: #FFFFE0;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: top;
 }
 .nav-backgrounds
 {
@@ -98,29 +98,11 @@ background-blend-mode: color-burn;
 }
 .grad
 {
-    /*height: 80px;
-    background: -webkit-linear-gradient(#3E8F3E, white, white);
-    background: -o-linear-gradient(#3E8F3E, white, white);
-    background: -moz-linear-gradient(#3E8F3E, white, white);
-    background: linear-gradient(#3E8F3E, #3E8F3E, white,white);
-    border-top-right-radius: 10px;
-    border-top-left-radius:  10px;*/
-    /*margin: 0;
-    background-image: url(../images/background/yellowgreen.jpg);
-    background-color: #eee;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom;*/
   background: #8C4600;
-  border-right: #522B04 2px solid;
   padding-right: 2px;
-  border-top: #A06021 2px solid;
-  border-left: #A06021 2px solid;
   padding-top: 2px;
-  border-bottom: #522B04 2px solid;
   border-top-right-radius: 10px;
-  background-color: #D1002D;
+  background-color: #3EA99F;
   border-top-left-radius:  10px;
 }
 .touris-image
@@ -140,5 +122,6 @@ background-blend-mode: color-burn;
   color: white;
 }
 .backs{
-  background-color: #D1002D;
+  background-color: #3EA99F;
 }
+a:hover

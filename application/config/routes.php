@@ -104,9 +104,11 @@ $route['view_req/(:any)']				 = 'hotel/view_requests/$1';
 $route['confirm_reserv/(:any)']			 = 'hotel/confirm_reserv/$1';
 $route['cancel_reserv/(:any)']			 = 'hotel/cancel_reserv/$1';
 
+
 $route['manage_routes']					 = 'transportation/manage_routes';
 $route['add_route']						 = 'transportation/add_route';
 $route['del_route/(:any)']				 = 'transportation/del_route/$1';
 $route['edit_route/(:any)'] 			 = 'transportation/edit_route/$1';
 $route['transpo_settings']				 = 'transportation/transpo_settings';
 $route['insert_trans']					 = 'transportation/insert_trans';
+$route['visit_trans/(:any)']			 = 'home/visit_trans/$1';
