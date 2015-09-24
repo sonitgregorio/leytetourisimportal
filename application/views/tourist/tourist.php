@@ -40,7 +40,7 @@
                 </form>
                 <div id="ors">
                     <?php
-                      $origin = array('origin' => $city, 'destination' => $tourist.", " . $city);
+                      $origin = array('origin' => $city, 'destination' => $tourist);
                       $this->load->view('tourist/map', $origin);
 
                     ?>
@@ -100,15 +100,15 @@
                               echo $this->session->flashdata('message');
                           ?>
                               <form class="form" action="/insert_hotel" method="post" enctype="multipart/form-data">
-                                <div class="col-md-4">
-                                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-                                        <div>
-                                          <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
-                                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                        </div>
-                                  </div>
+                              <div class="col-md-4">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                      <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                                      <div>
+                                        <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
+                                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                      </div>
                                 </div>
+                              </div>
                               <div class="col-md-8">
                                   
                                         <label>Hotel Name</label>

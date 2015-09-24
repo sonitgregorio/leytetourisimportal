@@ -112,3 +112,5 @@ $route['edit_route/(:any)'] 			 = 'transportation/edit_route/$1';
 $route['transpo_settings']				 = 'transportation/transpo_settings';
 $route['insert_trans']					 = 'transportation/insert_trans';
 $route['visit_trans/(:any)']			 = 'home/visit_trans/$1';
+$route['user_logs']						 = 'home/user_logs';
+$route['del_tour/(:any)/(:any)']		 = 'tourist/del_tour/$1/$2';

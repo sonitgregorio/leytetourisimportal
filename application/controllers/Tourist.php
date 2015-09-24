@@ -35,6 +35,7 @@ class Tourist extends CI_Controller
                 $data = array('city' => $city, 'contact' => $contact, 'filename' =>  $this->upload->data('file_name'));
                 $this->registration->insert_city($data);
                 $this->session->set_flashdata('message', $this->successMessage() . 'City Tourist Destination Added.</div>');
+                $this->registration->logs('Tourist Destination Added');
             }
             else
             {
@@ -67,6 +68,7 @@ class Tourist extends CI_Controller
                 'city' => $city, 'information' => $desc);
                 $this->registration->update_spot($data);
                 $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+                $this->registration->logs('Added Tourist Spot');
               }
               else
               {
@@ -83,13 +85,15 @@ class Tourist extends CI_Controller
                  'owned' => $this->session->userdata('uid'));
                 $this->registration->insert_spot($data);
                 $this->session->set_flashdata('message', $this->successMessage() . 'Tourist Spot Added.</div>');
+              $this->registration->logs('Added Tourist Spot');  
             }
             else
             {
               $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
               'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
               $this->registration->update_spot($data);
-                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+              $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+              $this->registration->logs('Updated Tourist Spot');  
                 //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
             }
         }
@@ -136,6 +140,7 @@ class Tourist extends CI_Controller
               'address' => $address, 'filename' =>  $this->upload->data('file_name'));
               $this->registration->insert_hotel($data);
               $this->session->set_flashdata('message', $this->successMessage() . 'Hotel Added.</div>');
+              $this->registration->logs('Added Hotel');
             }
             else
             {
@@ -145,7 +150,7 @@ class Tourist extends CI_Controller
 
         $data = array('tabpane' => $this->input->post('tabpane'));
         $this->session->set_flashdata('data', $data);
-        redirect('/tourist/'.$this->input->post('spots'));
+        redirect('/tourist/'. $tourist);
     }
     function insert_tourist_info()
     {
@@ -154,6 +159,7 @@ class Tourist extends CI_Controller
         $address = $this->input->post('address');
         $city = $this->input->post('city');
         $info = $this->input->post('information');
+        $this->registration->logs('Updated Tourist Information');
     }
     function upload_pic()
     {
@@ -171,17 +177,20 @@ class Tourist extends CI_Controller
             $data = array('descr' => $this->input->post('descr'), 'spot' => $spot, 'filename' =>  $this->upload->data('file_name'));
             $this->registration->insert_gallery($data);
             $this->session->set_flashdata('message', $this->successMessage() . 'Picture Uploaded.</div>');
+            $this->registration->logs('Uploaded Picture');
         }
         redirect('/gallery');
     }
     function del_gal($id)
     {
         $this->registration->del_gal($id);
+        $this->registration->logs('Deleted Image');
         redirect('/gallery');
     }
     function post_announce()
     {
         $this->registration->post_announce($this->input->post('announce'));
+        $this->registration->logs('Announcement Posted');
         redirect('/home');
     }
     function upload_profile()
@@ -230,5 +239,10 @@ class Tourist extends CI_Controller
           $this->session->set_flashdata('message', $this->successMessage() . 'Password Updated.</div>');
         }
         redirect('/settings');
+    }
+    function del_tour($id, $par)
+    {
+        $this->registration->del_tour($id);
+        redirect('/citytourist/'. $par);
     }
 }

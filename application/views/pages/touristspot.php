@@ -44,12 +44,10 @@
                 <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $city ?></figcaption>
             </figure>
 
-
-
                 <?php if ($this->session->userdata('usertype') == "4"): ?>
                   <div class="btn-group" style="width:100%;margin:top:10px">
-                    <a class="btn btn-info col-md-6" href="/citytourist/<?php echo $id ?>"><?php echo $city; ?>&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></a>
-                    <a href="#" class="btn btn-danger col-md-6">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                    <a class="btn btn-info col-md-12" href="/citytourist/<?php echo $id ?>"><?php echo $city; ?>&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></a>
+                    <!-- <a href="/del_tour/<?php echo $id ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a> -->
                   </div>
                 <?php else: ?>
                       <a class="btn btn-info btn-block" href="/citytourist/<?php echo $id ?>"><?php echo $city ?></a>

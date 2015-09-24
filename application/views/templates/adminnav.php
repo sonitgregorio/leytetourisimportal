@@ -9,7 +9,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="/">LTP</a>
+  <a class="navbar-brand" href="/" style="color:white">LTP</a>
 
 </div>
 
@@ -38,12 +38,16 @@
 
    ?>
     <ul class="nav navbar-nav">
-      <li class="<?php echo $home ?>" ><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
-      <li class = <?php echo $touristmanagement; ?>><a href="/tourist-list"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Tourism Management</b></a></li> 
+      <li class="<?php echo $home ?>" ><a href="/home" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
+      <li class = <?php echo $touristmanagement; ?>><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Tourism Management</b></a></li> 
+      <li class = "<?php echo $param == "logs" ? 'active' : ''; ?>"><a href="/user_logs" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>User Logs</b></a></li> 
+    
     </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
+              <a class="btn btn-info loging" data-type="2" data-toggle="modal" data-target="#myModal">Sign Up</a>
+
               <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
           </div>
       </form>
@@ -53,3 +57,22 @@
 </div><!--.container-fluid -->
 </nav>
 </div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header backs">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title backs" id="myModalLabel" style="color:#FFFF00;"><strong>User Registration</strong></h4>
+      </div>
+          <div class="modal-body">
+              <div class="panel-body" id="user_reg">
+                <?php
+
+                  $this->load->view('templates/user_reg')
+                ?>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>

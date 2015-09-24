@@ -39,7 +39,7 @@
               }
               else
               {
-                $this->session->set_userdata(array('usertype' => $x['usertype'], 'uid' => $x['id']));
+                $this->session->set_userdata(array('usertype' => $x['usertype'], 'uid' => $x['id'], 'firstname' => ucwords($x['firstname'] . " " . $x['lastname'])));
                 echo '2';
               }
             }

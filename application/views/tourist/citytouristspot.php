@@ -9,13 +9,12 @@
 
           <div class="col-md-5" style="padding-left:30px">
             <?php echo $this->session->flashdata('message'); ?>
-                    <label>Tourist Spot</label>
+                    <label>Tourist Spot</label> 
                         <input type="text" class="form-control" name="touristspot" value="" >
                     <label>Contact</label>
                         <input type="text" class="form-control" name="contact" value=""  >
                     <label>Address</label>
                         <input type="text" class="form-control" name="address" value="" >
-
           </div>
           <div class="col-md-3">
             <label for="">Select Image</label>
@@ -50,7 +49,9 @@
                    <?php if ($this->session->userdata('usertype') == "4"): ?>
                      <div class="btn-group" style="width:100%;margin:top:10px">
                        <a class="btn btn-info col-md-6" href="/tourist/<?php echo $id ?>"><?php echo $tourist ?>&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></a>
-                       <a href="#" class="btn btn-danger col-md-6">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                       <a href="/del_tour/<?php echo $id .'/'. $destination ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                       
+                       <!-- <a href="#" class="btn btn-danger col-md-6">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a> -->
                      </div>
                    <?php else: ?>
                          <a class="btn btn-info btn-block" href="/tourist/<?php echo $owned ?>"><?php echo $tourist ?></a>

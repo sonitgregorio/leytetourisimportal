@@ -84,27 +84,35 @@
     }
     function view_room($id)
     {
-          $this->load->model('room');
-          $data['param'] = "tourist";
-          $pa['id'] = $id;
-          $this->load->view("templates/header");
-          $this->menus($data);
-          $this->load->view("hotel/view_room", $pa);
-          $this->load->view("templates/footer");
+        $this->load->model('room');
+        $data['param'] = "tourist";
+        $pa['id'] = $id;
+        $this->load->view("templates/header");
+        $this->menus($data);
+        $this->load->view("hotel/view_room", $pa);
+        $this->load->view("templates/footer");
     }
     function visit_trans($id)
     {
-          $this->load->model('room');
-          $data['param'] = "tourist";
-          $pa['id'] = $id;
-          $this->load->view("templates/header");
-          $this->menus($data);
-          $this->load->view("tourist/visit_transpo.php", $pa);
-          $this->load->view("templates/footer");
+        $this->load->model('room');
+        $data['param'] = "tourist";
+        $pa['id'] = $id;
+        $this->load->view("templates/header");
+        $this->menus($data);
+        $this->load->view("tourist/visit_transpo.php", $pa);
+        $this->load->view("templates/footer");
     }
     function guest()
     {
 
+    }
+    function user_logs()
+    {
+      $this->load->view('templates/header');
+      $data['param'] = 'logs';
+      $this->menus($data);
+      $this->load->view('admin/logs');
+      $this->load->view('templates/footer');   
     }
 
   }

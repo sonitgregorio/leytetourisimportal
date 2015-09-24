@@ -76,12 +76,18 @@
                   foreach ($this->registration->getAlltype() as $key => $value):
                   extract($value);
                 ?>
-                <?php if ($usertype == $id): ?>
+                <?php if ($this->session->userdata('usertype') == '4'): ?>
+                    <?php if ($usertype == $id): ?>
                     <option value="<?php echo $id ?>" selected><?php echo $description ?></option>
+                    <?php else: ?>
+                      <option value="<?php echo $id ?>"><?php echo $description ?></option>
+                    <?php endif; ?>
                 <?php else: ?>
-                  <option value="<?php echo $id ?>"><?php echo $description ?></option>
-                <?php endif; ?>
-
+                      <?php if ($id == 5): ?>
+                      <option value="<?php echo $id ?>" selected><?php echo $description ?></option>   
+                      <?php endif ?>
+                <?php endif ?>
+            
                 <?php endforeach; ?>
               </select>
             </div>

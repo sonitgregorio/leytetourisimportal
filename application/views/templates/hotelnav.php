@@ -25,7 +25,8 @@
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
-              <a class="label" type="submit"  href="/logout" style="color:gray;">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+              <a class="btn btn-success loging" data-type="1" data-toggle="modal" data-target="#login"><?php echo $this->session->userdata('firstname') ?></a> 
+              <a class="btn btn-success" type="submit"  href="/logout" style="color:white;">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
           </div>
       </form>
   </ul>

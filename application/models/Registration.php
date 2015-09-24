@@ -180,7 +180,7 @@
         $this->db->where('id', $id);
     }
     function get_trans_route($id)
-    {
+    {   
         return $this->db->query("SELECT * FROM tbl_transpo 
                                  WHERE tbl_transpo.owned = '$id'")->row_array();
     }
@@ -188,5 +188,18 @@
     {
         return $this->db->query("SELECT * FROM tbl_route 
                                  WHERE owned = '$id'")->result_array();
+    }
+    function logs($data)
+    {
+        $this->db->insert('tbl_logs', array('uid' => $this->session->userdata('uid'), 'description' => $data, 'date' => Date('Y-m-d')));
+    }
+    function get_logs()
+    {
+        return $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid")->result_array();
+    }
+    function del_tour($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_touristspot');
     }
   }
