@@ -30,20 +30,38 @@
           <div class="panel logins p-body" style="margin-top:0;box-shadow:none;background-color: #FFFFE0">
             <div class="panel-heading grad" style="box-shadow:none"><h4 style="color:#FFFF00;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Announcement</h4></div>
               <div class="panel-body">
+                    
                     <div class="col-md-12">
-                      <form class="form" action="/post_announce" method="post">
-                          <textarea name="announce" rows="5" cols="100" style="width:100%;resize:none;font-size:20px;" class="form-control" placeholder="Enter Your Announcement Here...."></textarea>
-                          <button class="btn btn-success pull-right" type="submit" style="margin-top:10px">Post</button>
+                        <?php echo $this->session->flashdata('message') ?>
+                    
+                      <form class="form" action="/post_announce" method="post" enctype="multipart/form-data">
+                          <textarea name="announce" rows="5" cols="100" style="resize:none;font-size:20px;" class="form-control col-md-8" placeholder="Enter Your Announcement Here...."></textarea>
+                          <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
+                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width:100%; height: 200px;">
+                            </div>
+                            <div>
+                              <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="pics"></span>
+                              <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                            </div>
+                        </div>
+                         <div class="pull-right">
+                          <button class="btn btn-success" type="submit" style="margin-top:10px">Post</button>
+                          
+                         </div>
                       </form>
-
                           <br /><br />
-                          <?php foreach ($this->registration->get_annou() as $key => $value): ?>
-                            <hr style="background: #8C4600;height:2px;">
+                          <?php foreach ($this->registration->get_annou('1') as $key => $value): ?>
+                            <hr style="background: #8C4600;height:2px;clear:left;">
                               <label for=""><strong>Name: <?php echo $value['firstname'] . " " . $value['lastname']?></strong></label>
                               <label for="" class="pull-right"> Date: <?php echo $value['dte'] . " | " . $value['tme'] ; ?></label>
                               <br /><br />
                               <p  style="width:95%;text-align:justify;margin-left:10px;text-indent:30px;">
                                   <?php echo $value['announcement'] ?>
+                                  <?php if ($value['filename'] != ""): ?>
+                                     
+                                  <br/>  <br/> 
+                                      <a  href="#" class="annou" data-toggle="modal" data-param="<?php echo $value['filename'] ?>" data-param1='<?php echo "" ?>'><img class="col-md-4 col-sm-offest-4 thumbnail"  style="clear:left"src="<?php echo '../assets/images/profpic/'.$value['filename'] ?>"></a>
+                                  <?php endif ?>
                               </p>
                           <?php endforeach; ?>
 

@@ -100,7 +100,7 @@
 	    	return $this->db->query("SELECT a.emailaddress, a.id, a.hid, a.no_days, a.datereserve, a.check_out, a.fullname, b.rate, b.roomno, d.hotel, d.address  
 									 FROM tbl_reserve a, tbl_hotel_room b, tbl_users c, tbl_hotel d
 									 WHERE a.hid = b.id 
-									 AND a.id = '11' 
+									 AND a.id = '$id' 
 									 AND b.uid = c.id
 									 AND c.id = d.owned")->row_array();
 	    }

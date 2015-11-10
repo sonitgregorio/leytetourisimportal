@@ -257,7 +257,7 @@
 	            $config['protocol'] = "smtp";
 	            $config['smtp_host'] = 'ssl://smtp.gmail.com';
 	            $config['smtp_port'] = '465';
-	            $config['smtp_user'] = 'sonitgregorio@gmail.com';
+	            $config['smtp_user'] = 'portalttourism143@gmail.com';
 	            $config['smtp_pass'] = 'posterpolang';
 	            $config['mailtype'] = 'html';
 	            $config['mailpath']	= '/usr/sbin/sendmail';

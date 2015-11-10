@@ -33,13 +33,13 @@
         }
     }
     function themain()
-      {
+    {
         $data['param'] = "home";
         $this->load->view("templates/header");
         $this->menus($data);
         $this->load->view("home/homepage");
         $this->load->view("templates/footer");
-      }
+    }
     function settings()
     {
         $data['param'] = "settings";
@@ -108,11 +108,44 @@
     }
     function user_logs()
     {
-      $this->load->view('templates/header');
-      $data['param'] = 'logs';
-      $this->menus($data);
-      $this->load->view('admin/logs');
-      $this->load->view('templates/footer');   
+        $this->load->view('templates/header');
+        $data['param'] = 'logs';
+        $this->menus($data);
+        $this->load->view('admin/logs');
+        $this->load->view('templates/footer');   
     }
+    function forgot_pass()
+    {
+        $this->load->view('templates/header');
+        $data['param'] = 'home';
+        $this->menus($data);
+        $this->load->view('pages/forgot_pass');
+        $this->load->view('templates/footer');   
+    }
+    function reset_pass()
+    {
+        echo 1;
+    }
+    function posting_request()
+    {
+        $this->load->view('templates/header');
+        $data['param'] = 'request';
+        $this->menus($data);
+        $this->load->view('pages/request_post');
+        $this->load->view('templates/footer');
+    }
+    function appr_ann($id)
+    {
+        $this->load->helper('date');
 
+        $this->registration->appr_ann($id);
+        $this->registration->logs('Approve Announcement');
+        redirect('/posting_request');
+    }
+    function delete_approve($id)
+    {
+        $this->registration->delete_approve();
+        $this->registration->logs('Approve Announcement');
+        redirect('/posting_request');
+    }
   }

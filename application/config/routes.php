@@ -114,3 +114,13 @@ $route['insert_trans']					 = 'transportation/insert_trans';
 $route['visit_trans/(:any)']			 = 'home/visit_trans/$1';
 $route['user_logs']						 = 'home/user_logs';
 $route['del_tour/(:any)/(:any)']		 = 'tourist/del_tour/$1/$2';
+
+//Forgot Password
+$route['forgot_pass']					 = 'home/forgot_pass';
+$route['reset_pass']					 = 'home/reset_pass';
+
+
+//Announcement
+$route['posting_request']				 = 'home/posting_request';
+$route['appr_ann/(:any)']				 = 'home/appr_ann/$1';
+$route['delete_approve/(:any)']			 = 'home/delete_approve/$1';

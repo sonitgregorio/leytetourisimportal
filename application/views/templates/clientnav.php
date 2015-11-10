@@ -30,9 +30,22 @@
   <ul class="nav navbar-nav">
     <li class="<?php echo $home ?>"><a href="/" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
     <li class = "<?php echo $tourist; ?>"><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <li>
+
+    </li>
+
+
     <!-- <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
     <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li> -->
   </ul>
+   <form class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+           <span class="input-group-btn">
+             <button type="submit" class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div>
+    </form>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">

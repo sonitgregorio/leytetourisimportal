@@ -67,6 +67,7 @@ class Tourist extends CI_Controller
                 $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
                 'city' => $city, 'information' => $desc);
                 $this->registration->update_spot($data);
+       
                 $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
                 $this->registration->logs('Added Tourist Spot');
               }
@@ -89,12 +90,18 @@ class Tourist extends CI_Controller
             }
             else
             {
-              $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
-              'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
-              $this->registration->update_spot($data);
-              $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
-              $this->registration->logs('Updated Tourist Spot');  
-                //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
+                if ($this->session->userdata('usertype') == '4') {
+                   $this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
+                } 
+                else
+                {
+                  $data = array('tourist' => $spot, 'contact' => $contact, 'address' => $address,
+                  'city' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
+                  $this->registration->update_spot($data);
+                  $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
+                  $this->registration->logs('Updated Tourist Spot');  
+                }
+                
             }
         }
 
@@ -147,10 +154,10 @@ class Tourist extends CI_Controller
               $this->session->set_flashdata('message', $this->faildemessage() . 'Hotel Already Exist.</div>');
             }
         }
-
+        echo $tourist;
         $data = array('tabpane' => $this->input->post('tabpane'));
         $this->session->set_flashdata('data', $data);
-        redirect('/tourist/'. $tourist);
+        redirect('/tourist/'. $this->input->post('spots'));
     }
     function insert_tourist_info()
     {
@@ -189,9 +196,40 @@ class Tourist extends CI_Controller
     }
     function post_announce()
     {
-        $this->registration->post_announce($this->input->post('announce'));
-        $this->registration->logs('Announcement Posted');
+
+        date_default_timezone_set('Asia/Manila');
+        $config['upload_path']          = './assets/images/profpic/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['encrypt_name']         = TRUE;
+        echo $this->input->post('pics');
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('pics'))
+        {
+           $data = array('uid' => $this->session->userdata('uid'),
+                      'announcement' => $this->input->post('announce'),
+                      'dte' => Date('Y-m-d'),
+                      'tme' => Date('h:i:s'),
+                      'filename' => $this->upload->data('file_name'));
+            $this->registration->post_announce($data);
+            $this->registration->logs('Announcement Posted');
+           // $this->session->set_flashdata('message', $this->successMessage() . $this->upload->display_errors());
+            echo $this->upload->display_errors();
+        }
+        else
+        {
+           $data = array('uid' => $this->session->userdata('uid'),
+                      'announcement' => $this->input->post('announce'),
+                      'dte' => Date('Y-m-d'),
+                      'tme' => Date('h:i:s'),
+                      'filename' => $this->upload->data('file_name'));
+            $this->registration->post_announce($data);
+            $this->registration->logs('Announcement Posted');
+            $this->session->set_flashdata('message', $this->successMessage() . 'Posted.</div>');
+        }
         redirect('/home');
+
+
+        
     }
     function upload_profile()
     {

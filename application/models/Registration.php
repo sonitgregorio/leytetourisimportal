@@ -116,18 +116,13 @@
         $this->db->where('id', $id);
         $this->db->delete('tbl_gallery');
     }
-    function post_announce($an)
+    function post_announce($data)
     {
-        date_default_timezone_set('Asia/Manila');
-        $data = array('uid' => $this->session->userdata('uid'),
-                      'announcement' => $an,
-                      'dte' => Date('Y-m-d'),
-                      'tme' => Date('h:i:s'));
         $this->db->insert('tbl_announcement', $data);
     }
-    function get_annou()
+    function get_annou($stats)
     {
-        return $this->db->query("SELECT a.*, b.firstname, b.lastname FROM tbl_announcement a, tbl_users b WHERE a.uid = b.id ORDER by id desc")->result_array();
+        return $this->db->query("SELECT a.*, b.firstname, b.lastname FROM tbl_announcement a, tbl_users b WHERE a.uid = b.id AND a.status = $stats ORDER by id desc")->result_array();
     }
     function get_info($id)
     {
@@ -191,7 +186,8 @@
     }
     function logs($data)
     {
-        $this->db->insert('tbl_logs', array('uid' => $this->session->userdata('uid'), 'description' => $data, 'date' => Date('Y-m-d')));
+        date_default_timezone_set('Asia/Manila');
+        $this->db->insert('tbl_logs', array('uid' => $this->session->userdata('uid'), 'description' => $data, 'date' => Date('Y-m-d'), 'tstamp' => Date('h:i:s')));
     }
     function get_logs()
     {
@@ -201,5 +197,15 @@
     {
         $this->db->where('id', $id);
         $this->db->delete('tbl_touristspot');
+    }
+    function appr_ann($id)
+    {
+        $this->db->query("UPDATE tbl_announcement SET status = 1 WHERE id = $id");
+    }
+    function delete_approve($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('tbl_announcement');
+
     }
   }

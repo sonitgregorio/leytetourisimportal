@@ -1,4 +1,4 @@
-<div class="col-md-12">
+  <div class="col-md-12">
   <?php
       //Get tourist spot data.
   echo $spots;
@@ -112,7 +112,8 @@
                               <div class="col-md-8">
                                   
                                         <label>Hotel Name</label>
-                                            <input type="hidden" name="spots" value="<?php echo $c ?>">
+
+                                            <input type="hidden" name="spots" value="<?php echo $spots ?>">
                                             <input type="hidden" name="tabpane" value="hotel">
                                             <input type="text" class="form-control" name="hotel" value="" required style="width:100%">
                                         <label>Contact</label>

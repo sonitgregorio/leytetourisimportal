@@ -37,7 +37,7 @@
                         <div class="btn-group" style="width:100%;">
                           <a href="/view_r/<?php echo $v['id'] ?>" class="btn btn-info" name="button" style="width:100%">View Room</a>
                         </div>
-                      </div>
+                      </div> 
                     <?php endforeach ?>
               </div>
             </div>
