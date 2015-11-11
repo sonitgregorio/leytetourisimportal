@@ -6,6 +6,14 @@
   class Home extends CI_Controller
   {
     //Load Main page..
+    function faildemessage()
+    {
+        return '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
+    }
+    function successMessage()
+    {
+      return'<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color:red"><span aria-hidden="true">&times;</span></button>';
+    }
     function menus($data)
     {
        if ($this->session->userdata('usertype') == '3')
@@ -119,13 +127,68 @@
         $this->load->view('templates/header');
         $data['param'] = 'home';
         $this->menus($data);
-        $this->load->view('pages/forgot_pass');
+        $datax['chk'] = 1;
+        $this->load->view('pages/forgot_pass', $datax);
         $this->load->view('templates/footer');   
     }
     function reset_pass()
     {
-        echo 1;
+        $this->load->helper('string');
+        $code =  strtoupper(random_string('alnum', 6));
+        $checking_email = $this->registration->check_email($this->input->post('email'));
+        if ($checking_email > 0) {
+            $this->send_email($this->input->post('email'), $code);
+            $this->load->view('templates/header');
+            $data['param'] = 'home';
+            $this->menus($data);
+            $datax['chk'] = 2;
+            $datax['em'] = $this->input->post('email');
+            $this->load->view('pages/forgot_pass', $datax);
+            $this->load->view('templates/footer');   
+        }else{
+            $this->session->set_flashdata('message', $this->faildemessage() . '<strong>Email does not exist.</strong></div>');
+            $this->forgot_pass();
+        }
+
+
+
     }
+    function send_email($email, $code)
+    {
+
+
+            $this->load->library('email');
+            $this->load->helper('email');
+            if (valid_email($email)) {
+                $config['protocol'] = "smtp";
+                $config['smtp_host'] = 'ssl://smtp.gmail.com';
+                $config['smtp_port'] = '465';
+                $config['smtp_user'] = 'portalttourism143@gmail.com';
+                $config['smtp_pass'] = 'posterpolang';
+                $config['mailtype'] = 'html';
+                $config['mailpath'] = '/usr/sbin/sendmail';
+                $config['charset'] = 'utf-8';
+                $config['newline'] = "\r\n";
+                $config['wordwrap'] = TRUE;
+
+                $this->email->initialize($config);
+
+                $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal', 'sonitgregorio@gmail.com');
+                $this->email->to($email);
+
+                $this->email->subject('Forgot Password');
+                $this->email->message('Your Confirmation Code: ' . $code . '.');
+                $this->email->send();
+                //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+            }else{
+                $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
+                
+            }
+
+
+            $this->db->where('email', $email);
+            $this->db->update('tbl_users', array('confirmcode' => $code));
+     }
     function posting_request()
     {
         $this->load->view('templates/header');

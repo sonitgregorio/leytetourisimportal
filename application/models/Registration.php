@@ -208,4 +208,9 @@
         $this->db->delete('tbl_announcement');
 
     }
+    function check_email($email)
+    {
+        $this->db->where('email', $email);
+        return $this->db->get('tbl_users')->num_rows();
+    }
   }
