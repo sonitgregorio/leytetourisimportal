@@ -42,7 +42,7 @@
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search">
            <span class="input-group-btn">
-             <button type="submit" class="btn btn-default" type="button">Go!</button>
+             <button type="submit" class="btn btn-success" type="button">Go!</button>
           </span>
         </div>
     </form>

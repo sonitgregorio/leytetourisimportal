@@ -213,4 +213,10 @@
         $this->db->where('email', $email);
         return $this->db->get('tbl_users')->num_rows();
     }
+    function check_code($em, $code)
+    {
+        $this->db->where('email', $em);
+        $this->db->where('confirmcode', $code);
+        return $this->db->get('tbl_users')->num_rows();
+    }
   }

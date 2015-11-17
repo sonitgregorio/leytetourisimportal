@@ -173,7 +173,7 @@
 
                 $this->email->initialize($config);
 
-                $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal', 'sonitgregorio@gmail.com');
+                $this->email->from('portalttourism143@gmail.com', 'Leyte Tourism Portal', 'portalttourism143@gmail.com');
                 $this->email->to($email);
 
                 $this->email->subject('Forgot Password');
@@ -181,14 +181,34 @@
                 $this->email->send();
                 //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
             }else{
-                $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
+                $this->session->set_flashdata('emai', $this->faildemessage() . 'Invalid Email.</div>');
                 
             }
 
 
             $this->db->where('email', $email);
             $this->db->update('tbl_users', array('confirmcode' => $code));
-     }
+    }
+    function submit_code()
+    {
+            $get_code = $this->registration->check_code($this->input->post('email'), $this->input->post('confirmcode'));
+            if ($get_code > 0) 
+            {
+               $datax['chk'] = 3;
+            }
+            else
+            {
+               $datax['chk'] = 2;
+               $this->session->set_flashdata('confirmcode', $this->faildemessage() . 'Invalid Confirmation Code. Please Check Your Email Address.</div>');
+            }
+
+            $this->load->view('templates/header');
+            $data['param'] = 'home';
+            $this->menus($data);
+            $datax['em'] = $this->input->post('email');
+            $this->load->view('pages/forgot_pass', $datax);
+            $this->load->view('templates/footer');   
+    }
     function posting_request()
     {
         $this->load->view('templates/header');
@@ -210,5 +230,31 @@
         $this->registration->delete_approve();
         $this->registration->logs('Approve Announcement');
         redirect('/posting_request');
+    }
+    function submit_password()
+    {
+        $password = $this->input->post('password');
+        $cpassword = $this->input->post('cpassword');
+        $email = $this->input->post('email');
+
+        if ($password != $cpassword) 
+        {
+            $datax['em'] = $email;
+            $datax['chk'] = 3;
+            $this->session->set_flashdata('password', $this->faildemessage() . 'Invalid Confirm Password.</div>');
+        }
+        else
+        {
+            $datax['chk'] = 4;
+            $this->db->where('email', $email);
+            $this->db->update('tbl_users', array('password' => $password));
+            $this->session->set_flashdata('password','<div class="alert alert-success">' . $this->successMessage() . 'Password Has Been Change you can now login. <a class="btn btn-success loging" data-type="1" data-toggle="modal" data-target="#login">Login</a></div>');
+        }
+        $this->load->view('templates/header');
+        $data['param'] = 'home';
+        $this->menus($data);
+        $datax['em'] = $this->input->post('email');
+        $this->load->view('pages/forgot_pass', $datax);
+        $this->load->view('templates/footer'); 
     }
   }

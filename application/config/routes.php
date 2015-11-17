@@ -118,7 +118,8 @@ $route['del_tour/(:any)/(:any)']		 = 'tourist/del_tour/$1/$2';
 //Forgot Password
 $route['forgot_pass']					 = 'home/forgot_pass';
 $route['reset_pass']					 = 'home/reset_pass';
-
+$route['submit_code']					 = 'home/submit_code';
+$route['submit_password']				 = 'home/submit_password';
 
 //Announcement
 $route['posting_request']				 = 'home/posting_request';
