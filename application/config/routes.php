@@ -125,3 +125,8 @@ $route['submit_password']				 = 'home/submit_password';
 $route['posting_request']				 = 'home/posting_request';
 $route['appr_ann/(:any)']				 = 'home/appr_ann/$1';
 $route['delete_approve/(:any)']			 = 'home/delete_approve/$1';
+
+
+
+//Student Discount 
+
