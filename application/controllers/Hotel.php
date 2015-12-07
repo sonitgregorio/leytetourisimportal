@@ -179,7 +179,8 @@
 		}
 		function ins_reservs()
 		{
-
+			$this->load->helper('string');
+			$trans = strtoupper(random_string('alnum', 6));
 			$this->load->model('room');
 			$data2 = array('hid' => $this->input->post('hid'),
 						  		  'fullname' => $this->input->post('fullname'),
@@ -187,7 +188,8 @@
 						  		  'contact' => $this->input->post('contact'),
 						  		  'datereserve' => $this->input->post('datereserve'),
 						  		  'check_out' => $this->input->post('check_out'),
-						  		  'no_days' => $this->input->post('no_days'));
+						  		  'no_days' => $this->input->post('no_days').
+						  		  'transcode' => $trans);
 			// $data2['hid'] = $this->input->post('hid');
 			// $data2['datereserve'] = $this->input->post('')
 			
@@ -214,7 +216,8 @@
 						  		  'datereserve' => $this->input->post('datereserve'),
 						  		  'check_out' => $this->input->post('check_out'),
 						  		  'no_days' => $this->input->post('no_days'),
-						  		  'stats' => 'Pending');
+						  		  'stats' => 'Pending',
+						  		  'transcode' => $trans);
 					$this->session->set_flashdata('messages', $this->successMessage() . '<strong>Reservation Request Send. Please Check Your Email Address Spam Folder</strong></div>');
 				   	$this->room->insert_r($data);
 				   	unset($data2['fullname']);
@@ -271,7 +274,7 @@
 	            $this->email->to($email);
 
 	            $this->email->subject($x['hotel']);
-	            $this->email->message('Your Reservatoin Request Has Been Confirm By' . $x['hotel'] . ', ' . $x['address'] .  'Your Check in Date is '. $x['datereserve'] . ' And your Check Out date' . $x['check_out'] . '. Estimated Amount is '. $x['rate'] * $x['no_days'] .'.');
+	            $this->email->message('Your Reservatoin Request Has Been Confirm By' . $x['hotel'] . ', ' . $x['address'] .  'Your Check in Date is '. $x['datereserve'] . ' And your Check Out date' . $x['check_out'] . '. Estimated Amount is '. $x['rate'] * $x['no_days'] .'. The transaction code is' . $x['transcode'] . '.');
 	            $this->email->send();
 	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
 	            $this->room->upd_room($id);

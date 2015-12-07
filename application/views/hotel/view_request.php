@@ -44,7 +44,8 @@
         				<td style="color:#FFFF00;">Contact</td>
                 <td style="color:#FFFF00;">Check In</td>
                 <td style="color:#FFFF00;">Check Out</td>
-        				<td style="color:#FFFF00;">Action</td>
+                <td style="color:#FFFF00;">Trans. Code</td>
+                <td style="color:#FFFF00;">Action</td>
         			</tr>
         		</thead>
         		<tbody>
@@ -54,6 +55,7 @@
 		    				<td><?php echo $value['emailaddress'] ?></td>
 		    				<td><?php echo $value['contact'] ?></td>
                 <td><?php echo $value['datereserve'] ?></td>
+                <td><?php echo $value['check_out'] ?></td>
                 <td><?php echo $value['check_out'] ?></td>
 		    				<td>
                   <a href="/confirm_reserv/<?php echo $value['id'] ?>" class="btn btn-info">Confirm
