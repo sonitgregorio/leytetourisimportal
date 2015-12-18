@@ -1,7 +1,5 @@
 
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-
 <?php if ($chk == 1): ?>
     <div class="col-md-4 col-md-offset-4">
       <div class="panel logins ">
@@ -59,15 +57,15 @@
                 <?php echo $this->session->flashdata('password') ?>
                 <div class="col-md-12">
                   <form class="form login_submit " action="/submit_password" method="post">
-                    <input type="text" name="email" value="<?php echo $em ?>">
+                    <input type="hidden" name="email" value="<?php echo $em ?>">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="">New Password</label>
-                        <input type="text" class="form-control" name="password" placeholder="New Password" required>
+                        <input type="password" class="form-control" name="password" placeholder="New Password" required>
                       </div>
                       <div class="form-group">
                         <label for="">Confirm Password Password</label>
-                        <input type="text" class="form-control" name="cpassword" placeholder="Confirm Password" required>
+                        <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" required>
                       </div>
                       <div class="col-md-12" style="padding:0">
                         <button type="submit" class="btn btn-success" type="submit">Submit</button>

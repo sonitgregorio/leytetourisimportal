@@ -97,7 +97,7 @@
 	    }
 	    function get_info_req($id)
 	    {
-	    	return $this->db->query("SELECT a.emailaddress, a.id, a.hid, a.no_days, a.datereserve, a.check_out, a.fullname, b.rate, b.roomno, d.hotel, d.address  
+	    	return $this->db->query("SELECT a.transcode, a.emailaddress, a.id, a.hid, a.no_days, a.datereserve, a.check_out, a.fullname, b.rate, b.roomno, d.hotel, d.address  
 									 FROM tbl_reserve a, tbl_hotel_room b, tbl_users c, tbl_hotel d
 									 WHERE a.hid = b.id 
 									 AND a.id = '$id' 

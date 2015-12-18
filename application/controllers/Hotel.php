@@ -188,7 +188,7 @@
 						  		  'contact' => $this->input->post('contact'),
 						  		  'datereserve' => $this->input->post('datereserve'),
 						  		  'check_out' => $this->input->post('check_out'),
-						  		  'no_days' => $this->input->post('no_days').
+						  		  'no_days' => $this->input->post('no_days'),
 						  		  'transcode' => $trans);
 			// $data2['hid'] = $this->input->post('hid');
 			// $data2['datereserve'] = $this->input->post('')
