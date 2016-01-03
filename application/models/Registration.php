@@ -191,7 +191,13 @@
     }
     function get_logs()
     {
-        return $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid")->result_array();
+        $uid = $this->session->userdata('uid');
+        if ($this->session->userdata('usertype') == 4) {
+            $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid")->result_array();
+        }else{
+            $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid")->result_array();
+        }
+        return $x;
     }
     function del_tour($id)
     {

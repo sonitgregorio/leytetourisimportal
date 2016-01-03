@@ -35,10 +35,12 @@
             <div class="col-md-12">
               <label>Room No.</label>
               <input type="text" name="roomno" class='form-control' <?php echo $uid == $x['uid'] ? '' : 'disabled' ?> placeholder="Room" value="<?php echo $x['roomno'] ?>" required>
-              <label>Description</label>
-              <input type="text" name="descr" class='form-control' <?php echo $uid == $x['uid'] ? '' : 'disabled' ?> placeholder="Description" value="<?php echo $x['description'] ?>" required>
+              
               <label>Room Rate</label>
               <input type="number" name="rate" class='form-control' <?php echo $uid == $x['uid'] ? '' : 'disabled' ?> placeholder="Rate" value="<?php echo $x['rate'] ?>" required>
+              <label>Description</label>
+              <textarea name="descr" class='form-control' <?php echo $uid == $x['uid'] ? '' : 'disabled' ?> placeholder="Description" value="<?php echo $x['description'] ?>" rows="8" style="resize:none" required><?php echo $x['description'] ?></textarea>
+              <!-- <input type="text" name="descr" class='form-control' <?php echo $uid == $x['uid'] ? '' : 'disabled' ?> placeholder="Description" value="<?php echo $x['description'] ?>" required> -->
               <?php if ($uid == $x['uid']): ?>
                  <button type="submit" class="btn btn-success pull-right" style="margin-top:5px">Save</button>
                <?php else: ?>
@@ -108,7 +110,8 @@
                         <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="pictures" required></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
-                      <input ctype="text" name="descr" placeholder="DESCRIPTION" class="form-control col-md-6" style="margin-top:10px" required>
+                      <textarea name="descr" placeholder="DESCRIPTION" class="form-control col-md-6" style="margin-top:10px;resize:none" rows="5" required></textarea>
+                      <!-- <input type="text" name="descr" placeholder="DESCRIPTION" class="form-control col-md-6" style="margin-top:10px" required> -->
               </div>            </center>
          </div>
          <div class="modal-footer">

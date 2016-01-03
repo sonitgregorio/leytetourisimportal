@@ -54,7 +54,7 @@
         $this->load->view('templates/header');
         $this->menus($data);
         $this->load->view('home/settings');
-        $this->load->view('templates/footer.php');
+        $this->load->view('templates/footer');
     }
     function gallery()
     {
@@ -62,7 +62,7 @@
         $this->load->view('templates/header');
         $this->load->view('templates/usernav', $data);
         $this->load->view('home/gallery');
-        $this->load->view('templates/footer.php');
+        $this->load->view('templates/footer');
     }
     function admin()
     {
@@ -78,7 +78,7 @@
         $this->load->view('templates/header');
         $this->load->view('templates/usernav', $data);
         $this->load->view('tourist/manage_tourist');
-        $this->load->view('templates/footer.php');
+        $this->load->view('templates/footer');
     }
     function visit_hotel($id)
     {
@@ -88,7 +88,7 @@
         $this->load->view('templates/header');
         $this->menus($data);
         $this->load->view('hotel/visit_hotel', $data2);
-        $this->load->view('templates/footer.php');
+        $this->load->view('templates/footer');
     }
     function view_room($id)
     {
@@ -117,8 +117,9 @@
     function user_logs()
     {
         $this->load->view('templates/header');
-        $data['param'] = 'logs';
+        $data['param'] = 'user_logs';
         $this->menus($data);
+        // $this->load->view('hotel/hotel_log');
         $this->load->view('admin/logs');
         $this->load->view('templates/footer');   
     }

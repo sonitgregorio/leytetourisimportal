@@ -19,11 +19,13 @@
 		 		<div class="col-md-12">
 		 			<label>Room No.</label>
 			 		<input type="text" name="roomno" class='form-control' placeholder="Room" required>
-			 		<label>Description</label>
-			 		<input type="text" name="descr" class='form-control' placeholder="Description" required>
+			 		
 			 		<label>Room Rate</label>
 			 		<input type="number" name="rate" class='form-control' placeholder="Rate" required>
-			 		<button type="submit" class="btn btn-success pull-right" style="margin-top:5px">Save</button>
+			 		<label>Description</label>
+          <textarea name="descr" class='form-control' placeholder="Description" cols="8" rows="8" required style="resize:none;"></textarea>
+          <!-- <input type="text" name="descr" class='form-control' placeholder="Description" required> -->
+          <button type="submit" class="btn btn-success pull-right" style="margin-top:5px">Save</button>
 		 		</div>
 	      	</form>
       	</div>

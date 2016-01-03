@@ -21,6 +21,7 @@
       <li class = "<?php echo $param == 'manage_rooms' ?  'active' : '' ?>"><a href="/manage_rooms"  style="color:white"><i ></i>&nbsp;<b>Manage Rooms</b></a></li> 
       <li class = "<?php echo $param == 'hotel_settings' ? 'active' : '' ?>"><a href="/hotel_settings"  style="color:white"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Hotel Information</b></a></li> 
       <li class = "<?php echo $param == 'reservation_list' ? 'active' : '' ?>"><a href="/reservation_list"  style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Reservation</b></a></li> 
+      <li class = "<?php echo $param == 'user_logs' ? 'active' : '' ?>"><a href="/user_logs"  style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Logs</b></a></li> 
     </ul>
   <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">

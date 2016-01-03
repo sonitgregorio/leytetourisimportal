@@ -13,6 +13,7 @@
 				 <div class="modal-body">
 					 <img src="" id="img" alt="" width="100%"/>
 				 </div>
+				 
 				 <div class="modal-footer">
 					  <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
 				 </div>
