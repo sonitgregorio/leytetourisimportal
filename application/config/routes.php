@@ -126,6 +126,8 @@ $route['posting_request']				 = 'home/posting_request';
 $route['appr_ann/(:any)']				 = 'home/appr_ann/$1';
 $route['delete_approve/(:any)']			 = 'home/delete_approve/$1';
 
+$route['search_item']					 = 'home/search_item'; 
+
 
 
 //Student Discount 

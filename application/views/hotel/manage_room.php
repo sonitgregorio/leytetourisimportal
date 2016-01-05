@@ -40,7 +40,7 @@
 		 	<?php foreach ($this->room->get_room($this->session->userdata('uid')) as $key => $v): ?>
 		 		<div class="col-md-4" style="text-align:center;margin-bottom:20px">
 					<figure class="uk-overlay uk-overlay-hover thumbnail">
-							<a href="/view_room/<?php echo $v['id'] ?>"><img src="<?php echo "../assets/images/rooms/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
+							<a href="/view_room/<?php echo $v['id'] ?>"><img src="<?php echo "../assets/images/rooms/".$v['filename']?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
 							<figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['roomno'] ?></figcaption>
 					</figure>
 				</div>

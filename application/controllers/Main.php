@@ -8,8 +8,8 @@
     //Load Main page..
     function index()
     {
-    
-      if(empty($this->session->userdata('username')))
+      $x = $this->session->userdata('username');
+      if(empty($x))
        {
         $data['param'] = "home";
         $this->load->view('templates/header');

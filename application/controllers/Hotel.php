@@ -148,6 +148,7 @@
 	                $data = array('hotel' => $hotel, 'contact' => $contact, 'address' => $address,
 	                'tourist' => $city, 'information' => $desc);
 	                $this->room->update_hotel($data);
+	                $this->registration->logs('Hotel Updated');
 	                $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
 	              }
 	              else
@@ -164,6 +165,7 @@
 	                'tourist' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'),
 	                 'owned' => $this->session->userdata('uid'));
 	                $this->room->insert_hotel($data);
+	                $this->registration->logs('Hotel Inserted');
 	                $this->session->set_flashdata('message', $this->successMessage() . 'Save!!.</div>');
 	            }
 	            else
@@ -171,6 +173,7 @@
 	              $data = array('hotel' => $hotel, 'contact' => $contact, 'address' => $address,
 	              'tourist' => $city, 'information' => $desc, 'filename' =>  $this->upload->data('file_name'));
 	               $this->room->update_hotel($data);
+	               $this->registration->logs('Information Updated');
 	               $this->session->set_flashdata('message', $this->successMessage() . 'Updated.</div>');
 	                //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
 	            }
@@ -278,6 +281,7 @@
 	            $this->email->send();
 	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
 	            $this->room->upd_room($id);
+	            $this->registration->logs('Confirmed Reservation');
 	        }else{
 	            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
 	       		
@@ -314,6 +318,7 @@
 	            $this->email->send();
 	            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
 	            $this->room->del_re($id);
+	            $this->registration->logs('Canceled Reservation');
 	        }else{
 	            $this->session->set_flashdata('message', $this->faildemessage() . 'Invalid Email.</div>');
 	       		

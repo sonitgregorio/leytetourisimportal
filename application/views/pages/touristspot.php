@@ -40,7 +40,7 @@
           ?>
           <div class="col-md-4" style="text-align:center;margin-bottom:20px">
             <figure class="uk-overlay uk-overlay-hover thumbnail">
-                <a href="/citytourist/<?php echo $id ?>"><img src="<?php echo "../assets/images/touristdestination/".$filename ?> ?>" class="touris-image" style="height:300px"/></a>
+                <a href="/citytourist/<?php echo $id ?>"><img src="<?php echo "../assets/images/touristdestination/".$filename ?>" class="touris-image" style="height:300px"/></a>
                 <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $city ?></figcaption>
             </figure>
 

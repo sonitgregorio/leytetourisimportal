@@ -225,4 +225,12 @@
         $this->db->where('confirmcode', $code);
         return $this->db->get('tbl_users')->num_rows();
     }
+    function search_hotel($search)
+    {
+        return $this->db->query("SELECT * FROM tbl_hotel WHERE hotel LIKE '%$search%' OR address LIKE '%search%'")->result_array();
+    }
+    function search_tourist($search)
+    {
+        return $this->db->query("SELECT * FROM tbl_touristspot WHERE tourist LIKE '%$search%' OR address LIKE '%search%'")->result_array();
+    }
   }

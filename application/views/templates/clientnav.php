@@ -38,9 +38,9 @@
     <!-- <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
     <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li> -->
   </ul>
-   <form class="navbar-form navbar-left" role="search">
+   <form class="navbar-form navbar-left" role="search" action="/search_item" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" name="search">
            <span class="input-group-btn">
              <button type="submit" class="btn btn-success" type="button">Go!</button>
           </span>

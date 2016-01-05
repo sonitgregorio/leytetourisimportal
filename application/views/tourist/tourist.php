@@ -4,7 +4,8 @@
   echo $spots;
       $touristspotdata = $this->registration->get_tourist_data($spots);
       extract($touristspotdata);
-      if (empty($this->session->flashdata('data')))
+      $vars = $this->session->flashdata('data');
+      if (empty($vars))
       {
         $tabpane = 'information';
       }

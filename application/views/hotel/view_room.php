@@ -20,7 +20,7 @@
               <?php if ($uid == $x['uid']): ?>
                      <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                            <img src="../assets/images/rooms/<?php echo $x['filename'] ?>" class="img">
+                            <img src="../assets/images/rooms/<?php echo $x['filename']?>" class="img">
                         </div>
                         <div>
                           <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture"></span>
@@ -28,7 +28,7 @@
                         </div>
                       </div>
               <?php else: ?>
-                       <img src="../assets/images/rooms/<?php echo $x['filename'] ?>" class="img thumbnail" style="width: 100%; height: 10%x;">
+                       <img src="../assets/images/rooms/<?php echo $x['filename']?>" class="img thumbnail" style="width: 100%; height: 10%x;">
               <?php endif ?>
                      
             </div>
@@ -71,15 +71,15 @@
               foreach ($this->room->get_room_gal($uid == $x['uid'] ? $uid : $x['uid'], $roomid) as $key => $v): ?>
         <div class="col-md-4" style="text-align:center;margin-bottom:20px">
           <figure class="uk-overlay uk-overlay-hover thumbnail">
-              <a href="#"  class="room" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['description'] ?>'><img src="<?php echo "../assets/images/roomsgal/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
+              <a href="#"  class="room" data-param='<?php echo $v['filename']?>' data-param1 = '<?php echo $v['description'] ?>'><img src="<?php echo "../assets/images/roomsgal/".$v['filename']?>" class="touris-image" style="padding:0;width:100%; height:200px;"/></a>
               <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['description'] ?></figcaption>
           </figure>
            <div class="btn-group" style="width:100%;margin:top:10px">
                         <?php if ($uid == $x['uid']): ?>
-                          <button class="btn btn-info col-md-6 room" href="#" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['description'] ?>'>View&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></button>
+                          <button class="btn btn-info col-md-6 room" href="#" data-param='<?php echo $v['filename']?>' data-param1 = '<?php echo $v['description'] ?>'>View&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></button>
                        <a href="/del_room_gal/<?php echo $v['id'] . '/' . $id ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
                       <?php else: ?>
-                       <button class="btn btn-info col-md-12 room" href="#" data-param='<?php echo $v['filename'] ?>' data-param1 = '<?php echo $v['description'] ?>'>View&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></button>
+                       <button class="btn btn-info col-md-12 room" href="#" data-param='<?php echo $v['filename']?>' data-param1 = '<?php echo $v['description'] ?>'>View&nbsp;&nbsp;<span class="glyphicon glyphicon-open"></span></button>
                       <?php endif ?>
              </div>
         </div>

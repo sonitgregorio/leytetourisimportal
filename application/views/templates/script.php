@@ -49,7 +49,7 @@
        $('.res').click(function(e){
          $img = $(this).data('param');
          $descr = $(this).data('param1');
-         $path = '/assets/images/transpo/' + $img;
+         $path = '/assets/images/gallery/' + $img;
          $('#img').attr('src', $path);
          $('.descr').html($descr);
          $('#resizeimage').modal('show');
@@ -77,7 +77,6 @@
          e.preventDefault();
        });
 
-
         $('#example').DataTable();
 
        $('.checkin').change(function(e){
@@ -93,7 +92,5 @@
         }
         e.preventDefault();
        }); 
-    
-
   });
 </script>

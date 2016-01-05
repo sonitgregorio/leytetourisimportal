@@ -43,7 +43,7 @@
        ?>
              <div class="col-md-4" style="text-align:center;margin-bottom:20px">
                <figure class="uk-overlay uk-overlay-hover thumbnail">
-                   <a href="/tourist/<?php echo $id ?>"><img src="<?php echo "../assets/images/touristspot/".$filename ?> ?>" class="touris-image" style="height:300px"/></a>
+                   <a href="/tourist/<?php echo $id ?>"><img src="<?php echo "../assets/images/touristspot/".$filename ?>" class="touris-image" style="height:300px"/></a>
                    <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $tourist ?></figcaption>
                </figure>
                    <?php if ($this->session->userdata('usertype') == "4"): ?>

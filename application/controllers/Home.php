@@ -258,4 +258,16 @@
         $this->load->view('pages/forgot_pass', $datax);
         $this->load->view('templates/footer'); 
     }
+    function search_item()
+    {
+        $datax['search'] =  $this->input->post('search');
+        $data['param'] = "home";
+        $this->load->view("templates/header");
+        $this->menus($data);
+        $this->load->view("home/search", $datax);
+        $this->load->view("templates/footer");
+
+
+
+    }
   }
