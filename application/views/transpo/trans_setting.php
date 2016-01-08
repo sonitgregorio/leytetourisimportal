@@ -27,7 +27,7 @@
 			        </div>
 			  </div>
 			  <div class="col-md-12">
-			    <label for="">Hotel Name</label>
+			    <label for="">Transportation Name</label>
 			    <input type="text" class="form-control" name="transpo" value="<?php echo $data['transpo'] ?>">
 			    <label for="">City</label>
 			    <select class="form-control" name="city">

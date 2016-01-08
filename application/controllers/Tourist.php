@@ -213,7 +213,7 @@ class Tourist extends CI_Controller
             $this->registration->post_announce($data);
             $this->registration->logs('Announcement Posted');
            // $this->session->set_flashdata('message', $this->successMessage() . $this->upload->display_errors());
-            echo $this->upload->display_errors();
+        //    echo $this->upload->display_errors();
         }
         else
         {

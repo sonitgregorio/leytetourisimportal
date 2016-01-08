@@ -59,13 +59,13 @@
           <div class="form-group">
           <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>
             <div class="col-sm-8">
-                <input type="password" class="form-control input-background" name="password" placeholder="Password" required>
+                <input type="password" class="form-control input-background" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
             </div>
           </div>
           <div class="form-group">
             <label for="" class="col-sm-4 control-label">Confirm Password</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control input-background" name="confirmpassword" placeholder="Confirm Password">
+                <input type="hidden" class="form-control input-background" name="confirmpassword" placeholder="Confirm Password">
               </div>
           </div>
           <div class="form-group">

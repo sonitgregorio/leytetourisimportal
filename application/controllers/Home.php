@@ -228,7 +228,7 @@
     }
     function delete_approve($id)
     {
-        $this->registration->delete_approve();
+        $this->registration->delete_approve($id);
         $this->registration->logs('Approve Announcement');
         redirect('/posting_request');
     }
@@ -266,8 +266,13 @@
         $this->menus($data);
         $this->load->view("home/search", $datax);
         $this->load->view("templates/footer");
-
-
-
+    }
+    function get_filter_logs()
+    {
+        $froms = $this->input->post('froms');
+        $tos = $this->input->post('tos');
+        $shows = $this->input->post('shows');
+        $data = array('froms' => $froms, 'tos' => $tos, 'shows' => $shows);
+        $this->load->view('admin/filter_logs', $data);
     }
   }

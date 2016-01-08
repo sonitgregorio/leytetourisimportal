@@ -8,7 +8,7 @@
             ?>
             	<div class="col-md-4">
 		          <figure class="uk-overlay uk-overlay-hover thumbnail">
-		              <a href="/view_req/<?php echo $v['id'] ?>" ><img src="<?php echo "../assets/images/rooms/".$v['filename'] ?> ?>" class="touris-image" style="padding:0;width:100%;"/></a>
+		              <a href="/view_req/<?php echo $v['id'] ?>" ><img src="<?php echo "../assets/images/rooms/".$v['filename'] ?>" class="touris-image" style="padding:0;width:100%;"/></a>
 		              <center><figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom">
 		              	<?php echo $v['roomno'] ?></figcaption></center>
 		          </figure>

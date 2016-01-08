@@ -189,14 +189,25 @@
         date_default_timezone_set('Asia/Manila');
         $this->db->insert('tbl_logs', array('uid' => $this->session->userdata('uid'), 'description' => $data, 'date' => Date('Y-m-d'), 'tstamp' => Date('h:i:s')));
     }
-    function get_logs()
+    function get_logs($froms, $tos, $shows)
     {
-        $uid = $this->session->userdata('uid');
-        if ($this->session->userdata('usertype') == 4) {
-            $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid")->result_array();
-        }else{
-            $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid")->result_array();
+
+        if ($froms == '0' AND $tos == 0) {
+            $uid = $this->session->userdata('uid');
+            if ($this->session->userdata('usertype') == 4) {
+                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid ORDER BY tbl_logs.id DESC")->result_array();
+            }else{
+                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid ORDER BY tbl_logs.id")->result_array();
+            }
         }
+        else{
+            if ($this->session->userdata('usertype') == 4) {
+                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id DESC")->result_array();
+            }else{
+                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id")->result_array();
+            }
+        }
+       
         return $x;
     }
     function del_tour($id)

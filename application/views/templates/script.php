@@ -91,6 +91,39 @@
            $('input[name=no_days]').val(days);
         }
         e.preventDefault();
-       }); 
+       });
+
+       $('#tos').change(function(){
+          tos = $('#tos').val();
+          froms = $('#froms').val();
+          shows = $('#shows').val();
+          if (froms == '') {
+            froms = $('#nowdate').val();
+          };
+           $.post("/home/get_filter_logs", {froms, tos, shows}, function(data){
+            $('.filt').html(data);
+          });
+
+       });
+
+       $('#froms').change(function(){
+          tos = $('#tos').val();
+          froms = $('#froms').val();
+          shows = $('#shows').val();
+          if (tos == '') {
+            tos = $('#nowdate').val();
+          };
+
+          $.post("/home/get_filter_logs", {froms, tos, shows}, function(data){
+            $('.filt').html(data);
+          });
+
+
+         
+
+       });
+
+
+
   });
 </script>

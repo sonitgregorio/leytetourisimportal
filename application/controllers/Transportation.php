@@ -128,7 +128,6 @@
 			        	}
 		        	  
 
-
 			            // $checkexist = $this->registration->check_spot($spot, $address);
 			            // if ($checkexist <= 0)
 			            // {
@@ -147,6 +146,7 @@
 			            //     //$this->session->set_flashdata('message', $this->faildemessage() . 'Tourist Spot Already Exist.</div>');
 			            // }
 			        }
+			        redirect('/transpo_settings');
 			}
 			
 	}
