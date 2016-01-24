@@ -9,6 +9,7 @@
                 <tr>
                   <th>Name</th>
                   <th>Post</th>
+                  <th>Image</th>
                   <th style="width:15%">Action</th>
                 </tr>
                 <tbody>
@@ -16,6 +17,12 @@
                     <tr>
                       <td><?php echo $value['firstname'] . " " . $value['lastname'] ?></td>
                       <td><?php echo $value['announcement'] ?></td>
+                      <td>
+                        <?php if ($value['filename'] != ''): ?>
+                          <a  href="#" class="annou" data-toggle="modal" data-param="<?php echo $value['filename'] ?>" data-param1='<?php echo "" ?>'><img class="thumbnail" width="30" height="30" style="clear:left"src="<?php echo '../assets/images/profpic/'.$value['filename'] ?>"> Click To View Image</a>
+                        <?php endif ?>
+                       
+                      </td>
                       <td>
                         <a href="/appr_ann/<?php echo $value['id'] ?>" class="btn btn-success">Approve</a>
                         <a href="/delete_approve/<?php echo $value['id'] ?>" class="btn btn-danger">Cancel</a>

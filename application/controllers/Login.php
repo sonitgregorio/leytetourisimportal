@@ -69,18 +69,20 @@
         $email = $this->input->post('email');
         if (valid_email($email)) {
             $config['protocol'] = "smtp";
-            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+            $config['smtp_host'] = 'ssl://box997.bluehost.com';
             $config['smtp_port'] = '465';
-            $config['smtp_user'] = 'sonitgregorio@gmail.com';
-            $config['smtp_pass'] = 'posterpolang';
+            $config['smtp_user'] = 'leytetourismportal@bsit2015.com';
+            $config['smtp_pass'] = '(O=_Yk8k|&A(rsr';
             $config['mailtype'] = 'html';
+            $config['mailpath'] = '/usr/sbin/sendmail';
             $config['charset'] = 'utf-8';
             $config['newline'] = "\r\n";
             $config['wordwrap'] = TRUE;
 
             $this->email->initialize($config);
 
-            $this->email->from('sonitgregorio@gmail.com', 'Leyte Tourism Portal');
+            $this->email->from('leytetourismportal@bsit2015.com', 'Leyte Tourism Portal', 'leytetourismportal@bsit2015.com');
+            
             $this->email->to($email);
 
             $this->email->subject('Email Test');

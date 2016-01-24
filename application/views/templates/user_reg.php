@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="form_submits" method="post" onsubmit="return false">
+      <form class="" lass="form-horizontal" id="form_submits" method="post" onsubmit="return false">
         <?php
            echo $this->session->flashdata('message');
            if (empty($firstname))
@@ -59,13 +59,13 @@
           <div class="form-group">
           <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>
             <div class="col-sm-8">
-                <input type="password" class="form-control input-background" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
+                <input type="password" class="form-control input-background" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password" required>
             </div>
           </div>
           <div class="form-group">
             <label for="" class="col-sm-4 control-label">Confirm Password</label>
               <div class="col-sm-8">
-                <input type="hidden" class="form-control input-background" name="confirmpassword" placeholder="Confirm Password">
+                <input type="password" class="form-control input-background" name="confirmpassword" placeholder="Confirm Password">
               </div>
           </div>
           <div class="form-group">
@@ -92,7 +92,6 @@
               </select>
             </div>
           </div>
-
         <br />
         <div class="pull-right">
             <button type="submit" class="btn btn-primary" name="button">Submit</button>

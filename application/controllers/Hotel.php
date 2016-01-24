@@ -257,16 +257,15 @@
 			try {
 				$this->load->model('room');
 				$x = $this->room->get_info_req($id);
-				print_r($x);
 				$this->load->library('email');
 		        $this->load->helper('email');
 		        $email = $x['emailaddress'];
 		        if (valid_email($email)) {
 		            $config['protocol'] = "smtp";
-		            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+		            $config['smtp_host'] = 'ssl://box997.bluehost.com';
 		            $config['smtp_port'] = '465';
-		            $config['smtp_user'] = 'portalttourism143@gmail.com';
-		            $config['smtp_pass'] = 'posterpolang';
+		            $config['smtp_user'] = 'leytetourismportal@bsit2015.com';
+		            $config['smtp_pass'] = '(O=_Yk8k|&A(rsr';
 		            $config['mailtype'] = 'html';
 		            $config['mailpath']	= '/usr/sbin/sendmail';
 		            $config['charset'] = 'utf-8';
@@ -275,13 +274,13 @@
 
 		            $this->email->initialize($config);
 
-		            $this->email->from('portalttourism143@gmail.com', 'Leyte Tourism Portal', 'portalttourism143@gmail.com');
+		            $this->email->from('leytetourismportal@bsit2015.com', 'Leyte Tourism Portal', 'leytetourismportal@bsit2015.com');
 		            $this->email->to($email);
 
 		            $this->email->subject($x['hotel']);
 		            $this->email->message('Your Reservatoin Request Has Been Confirm By' . $x['hotel'] . ', ' . $x['address'] .  'Your Check in Date is '. $x['datereserve'] . ' And your Check Out date' . $x['check_out'] . '. Estimated Amount is '. $x['rate'] * $x['no_days'] .'. The transaction code is' . $x['transcode'] . '.');
 		            $this->email->send();
-		            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+		            $this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');
 		            $this->room->upd_room($id);
 		            $this->registration->logs('Confirmed Reservation');
 		        }else{
@@ -290,7 +289,6 @@
 		        }	
 			} catch (Exception $e) {
 		            $this->session->set_flashdata('message', $this->faildemessage() . 'Connection Timeout.</div>');
-				
 			}
 			
            redirect('/view_req/'. $x['hid']);
@@ -306,10 +304,10 @@
 		        $email = $x['emailaddress'];
 		        if (valid_email($email)) {
 		            $config['protocol'] = "smtp";
-		            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+		            $config['smtp_host'] = 'ssl://box997.bluehost.com';
 		            $config['smtp_port'] = '465';
-		            $config['smtp_user'] = 'sonitgregorio@gmail.com';
-		            $config['smtp_pass'] = 'posterpolang';
+		            $config['smtp_user'] = 'leytetourismportal@bsit2015.com';
+		            $config['smtp_pass'] = '(O=_Yk8k|&A(rsr';
 		            $config['mailtype'] = 'html';
 		            $config['mailpath']	= '/usr/sbin/sendmail';
 		            $config['charset'] = 'utf-8';
@@ -318,13 +316,13 @@
 
 		            $this->email->initialize($config);
 
-		            $this->email->from('portalttourism143@gmail.com', 'Leyte Tourism Portal', 'portalttourism143@gmail.com');
+		            $this->email->from('leytetourismportal@bsit2015.com', 'Leyte Tourism Portal', 'leytetourismportal@bsit2015.com');
 		            $this->email->to($email);
 
 		            $this->email->subject($x['hotel']);
 		            $this->email->message('Your Reservatoin Request Has Been Canceled ' . $x['hotel'] . ', ' . $x['address'] . '.Because This room is not available');
 		            $this->email->send();
-		            //$this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+		            $this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
 		            $this->room->del_re($id);
 		            $this->registration->logs('Canceled Reservation');
 		        }else{
