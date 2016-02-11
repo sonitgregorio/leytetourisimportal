@@ -7,7 +7,7 @@
               <input type="hidden" id="nowdate" value="<?php echo Date('Y-m-d') ?>">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Show:</label>
+                  <label class="col-sm-3 control-label">&nbsp;</label>
                   <div class="col-sm-5">
                     <input type='hidden' value="10" id = "shows">
                     <!-- <select class="form-control" id="shows">

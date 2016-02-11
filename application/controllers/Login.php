@@ -39,7 +39,9 @@
               }
               else
               {
+
                 $this->session->set_userdata(array('usertype' => $x['usertype'], 'uid' => $x['id'], 'firstname' => ucwords($x['firstname'] . " " . $x['lastname'])));
+                $this->registration->logs('User Login');
                 echo '2';
               }
             }
@@ -170,6 +172,7 @@
       }
       function logout()
       {
+        $this->registration->logs('User Logout');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('password');
         $this->session->unset_userdata('usertype');

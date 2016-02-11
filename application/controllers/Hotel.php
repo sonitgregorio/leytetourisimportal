@@ -322,7 +322,7 @@
 		            $this->email->subject($x['hotel']);
 		            $this->email->message('Your Reservatoin Request Has Been Canceled ' . $x['hotel'] . ', ' . $x['address'] . '.Because This room is not available');
 		            $this->email->send();
-		            $this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');.
+		            $this->session->set_flashdata('message', $alerta . ' Your Reservation Has been Confirmed' . $email . '</div>');
 		            $this->room->del_re($id);
 		            $this->registration->logs('Canceled Reservation');
 		        }else{
