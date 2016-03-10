@@ -126,9 +126,17 @@ $route['posting_request']				 = 'home/posting_request';
 $route['appr_ann/(:any)']				 = 'home/appr_ann/$1';
 $route['delete_approve/(:any)']			 = 'home/delete_approve/$1';
 
-$route['search_item']					 = 'home/search_item'; 
+$route['search_item']					 = 'home/search_item';
 
 
+$route['faq']							 = 'home/faq'; 
+$route['feed_back']						 = 'home/feed_back';
+$route['sub_faq']						 = 'home/sub_faq';
+$route['sub_ans']						 = 'home/sub_ans';
+$route['promotions']					 = 'home/promotions';
+$route['insert_promotions']				 = 'home/insert_promotions';
+$route['about']							 = 'home/about';
+	
 
 //Student Discount 
 

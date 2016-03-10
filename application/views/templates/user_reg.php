@@ -1,4 +1,4 @@
-      <form class="" lass="form-horizontal" id="form_submits" method="post" onsubmit="return false">
+      <form class="form-horizontal" id="form_submits" method="post" onsubmit="return false">
         <?php
            echo $this->session->flashdata('message');
            if (empty($firstname))
@@ -13,27 +13,30 @@
               $contact = "";
             }
          ?>
+         <div class="alert alert-info">
+           <p>All Fields Required!</p>
+         </div>
          <div class="form-group">
-            <label for="touristspotname" class="col-sm-4 control-label">First Name <small style="color:red">*</small></label>
+            <label for="touristspotname" class="col-sm-4 control-label">First Name</label>
             <div class="col-sm-8">
                 <input type="text" value="<?php echo $firstname ?>" class="form-control input-background" name="fname" placeholder="Juan" required>
             </div>
           </div>
         <div class="form-group">
-             <label for="touristspotname" class="col-sm-4 control-label">Middle Name <small style="color:red">*</small></label>
+             <label for="touristspotname" class="col-sm-4 control-label">Middle Name</label>
              <div class="col-sm-8">
                 <input type="text" value="<?php echo $middlename ?>" class="form-control input-background" name="mname" placeholder="Lango" required>
              </div>
         </div>
          <div class="form-group">
-          <label for="touristspotname" class="col-sm-4 control-label">Last Name <small style="color:red">*</small></label>
+          <label for="touristspotname" class="col-sm-4 control-label">Last Name</label>
           <div class="col-sm-8">
                 <input type="text" value="<?php echo $lastname ?>" class="form-control input-background" name="lname" placeholder="Tamad">
           </div>
          </div>
 
           <div class="form-group">
-          <label for="touristspotname" class="col-sm-4 control-label">E-mail <small style="color:red">*</small></label>
+          <label for="touristspotname" class="col-sm-4 control-label">E-mail</label>
           <div class="col-sm-8">
                 <input type="email" value="<?php echo $email ?>" class="form-control input-background" name="email" placeholder="example@yahoo.com" required>
             </div>
@@ -41,7 +44,7 @@
 
 
           <div class="form-group">
-          <label for="touristspotname" class="col-sm-4 control-label">Contact <small style="color:red">*</small></label>
+          <label for="touristspotname" class="col-sm-4 control-label">Contact</label>
             <div class="col-sm-8">
                 <input type="text" value="<?php echo $contact ?>" class="form-control input-background" name="contact" placeholder="09*********" required>
             </div>
@@ -49,7 +52,7 @@
 
 
           <div class="form-group">
-          <label for="touristspotname" class="col-sm-4 control-label">Username <small style="color:red">*</small></label>
+          <label for="touristspotname" class="col-sm-4 control-label">Username</label>
             <div class="col-sm-8">
                 <input type="text" value="<?php echo $username ?>" class="form-control input-background" name="username" placeholder="Username" required>
             </div>
@@ -57,7 +60,7 @@
 
 
           <div class="form-group">
-          <label for="touristspotname" class="col-sm-4 control-label">Password <small style="color:red">*</small></label>
+          <label for="touristspotname" class="col-sm-4 control-label">Password</label>
             <div class="col-sm-8">
                 <input type="password" class="form-control input-background" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password" required>
             </div>
@@ -69,7 +72,7 @@
               </div>
           </div>
           <div class="form-group">
-            <label for="" class="col-sm-4 control-label">Type <small style="color:red">*</small></label>
+            <label for="" class="col-sm-4 control-label">Type</label>
             <div class="col-sm-8">
               <select class="form-control" name="usertype">
                 <?php

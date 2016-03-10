@@ -17,12 +17,21 @@
   <?php
       $tourist = "";
       $home = "";
+      $faq = "";
+      $feed = "";
+      $about = "";
       if ($param) {
         if ($param == "tourist") {
           $tourist = "active";
 
-        }elseif ($param = "home") {
+        }elseif ($param == "home") {
             $home = "active";
+        }
+        elseif ($param == "faq") {
+            $faq = "active";
+        }
+         elseif ($param == "feed") {
+            $about = "active";
         }
       }
 
@@ -30,25 +39,30 @@
   <ul class="nav navbar-nav">
     <li class="<?php echo $home ?>"><a href="/" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
     <li class = "<?php echo $tourist; ?>"><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <li class = "<?php echo $faq; ?>"><a href="/faq" style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
+    <li class = "<?php echo $about; ?>"><a href="/about" style="color:white"><span class="glyphicon glyphicon-exclamation"></span>&nbsp;<b>About</b></a></li>
+    
     <li>
 
     </li>
 
 
     <!-- <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
-    <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li> -->
+    <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>`</b></a></li> -->
   </ul>
-   <form class="navbar-form navbar-left" role="search" action="/search_item" method="POST">
+   
+  <ul class="nav navbar-nav navbar-right">
+  <form class="navbar-form navbar-left" role="search" action="/search_item" method="POST" style="padding:0px">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
            <span class="input-group-btn">
-             <button type="submit" class="btn btn-success" type="button">Go!</button>
+             <button type="submit" class="btn btn-primary" type="button">Go!</button>
           </span>
         </div>
     </form>
-  <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" action="/verify_login" method="post">
           <div class="col-md-12">
+          
               <!-- <button class="btn btn-success" type="submit" class="btn btn-default">Login</button> -->
               <a class="btn btn-success loging" data-type="1" data-toggle="modal" data-target="#login">Login</a>
               <a class="btn btn-info loging" data-type="2" data-toggle="modal" data-target="#myModal">Sign Up</a>

@@ -195,16 +195,16 @@
         if ($froms == '0' AND $tos == 0) {
             $uid = $this->session->userdata('uid');
             if ($this->session->userdata('usertype') == 4) {
-                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid ORDER BY tbl_logs.id DESC")->result_array();
+                $x = $this->db->query("SELECT *, tbl_usertype.description as types  FROM tbl_logs, tbl_users, tbl_usertype WHERE tbl_usertype.id = tbl_users.usertype AND tbl_users.id = tbl_logs.uid ORDER BY tbl_logs.id DESC")->result_array();
             }else{
-                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid ORDER BY tbl_logs.id")->result_array();
+                $x = $this->db->query("SELECT *, tbl_usertype.description as types  FROM tbl_logs, tbl_users, tbl_usertype WHERE tbl_usertype.id = tbl_users.usertype AND tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid ORDER BY tbl_logs.id")->result_array();
             }
         }
         else{
             if ($this->session->userdata('usertype') == 4) {
-                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id DESC")->result_array();
-            }else{
-                $x = $this->db->query("SELECT * FROM tbl_logs, tbl_users WHERE tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id")->result_array();
+                $x = $this->db->query("SELECT *, tbl_usertype.description as types  FROM tbl_logs, tbl_users, tbl_usertype WHERE tbl_usertype.id = tbl_users.usertype AND tbl_users.id = tbl_logs.uid AND `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id DESC")->result_array();
+            }else{ 
+                $x = $this->db->query("SELECT *, tbl_usertype.description as types  FROM tbl_logs, tbl_users, tbl_usertype WHERE tbl_usertype.id = tbl_users.usertype AND tbl_users.id = tbl_logs.uid AND tbl_logs.uid = $uid `date` BETWEEN '$froms' AND '$tos' ORDER BY tbl_logs.id")->result_array();
             }
         }
        
@@ -244,4 +244,5 @@
     {
         return $this->db->query("SELECT * FROM tbl_touristspot WHERE tourist LIKE '%$search%' OR address LIKE '%search%'")->result_array();
     }
+    
   }

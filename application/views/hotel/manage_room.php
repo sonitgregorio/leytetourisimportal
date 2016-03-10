@@ -6,25 +6,25 @@
       		<?php 
       			echo $this->session->flashdata('message');
       		 ?>
-		 	<form class = "form" method="post" action="/insert_room" enctype="multipart/form-data">
+           <!-- action="/insert_room" -->
+		 	<form class = "form" name='pform' id = "fcks" method="post" action="/insert_room" enctype="multipart/form-data" onsubmit="checkdata()">
 		 		<div class="col-md-12">
                   <div class="fileinput fileinput-new" data-provides="fileinput">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                     <div>
-                      <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture" required></span>
+                      <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="picture" value="<?php echo set_value('picture') ?>" required></span>
                       <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                     </div>
                   </div>
 		 		</div>
 		 		<div class="col-md-12">
 		 			<label>Room No.</label>
-			 		<input type="text" name="roomno" class='form-control' placeholder="Room" required>
+			 		<input type="text" name="roomno" id="ers" class='form-control' placeholder="Room" value="<?php echo set_value('roomno') ?>"required>
 			 		
 			 		<label>Room Rate</label>
-			 		<input type="number" name="rate" class='form-control' placeholder="Rate" required>
+			 		<input type="number" value="<?php echo set_value('rate') ?>" name="rate" class='form-control' placeholder="Rate" required>
 			 		<label>Description</label>
-          <textarea name="descr" class='form-control' placeholder="Description" cols="8" rows="8" required style="resize:none;"></textarea>
-          <!-- <input type="text" name="descr" class='form-control' placeholder="Description" required> -->
+          <textarea name="descr" class='form-control' placeholder="Description" cols="8" rows="8" required style="resize:none;"><?php echo set_value('descr') ?></textarea>
           <button type="submit" class="btn btn-success pull-right" style="margin-top:5px">Save</button>
 		 		</div>
 	      	</form>

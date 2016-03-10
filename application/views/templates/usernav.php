@@ -43,7 +43,8 @@
     <li class = "<?php echo $settings; ?>"><a href="/settings" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Settings</b></a></li>
     <li class="<?php echo $gallery ?>"><a href="/gallery" style="color:white"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Photo Gallery</b></a></li>
     <li class="<?php echo $manage_tourist ?>"><a href="/manage_tourist" style="color:white"><span class="glyphicon glyphicon-picture"></span>&nbsp;<b>Manage Tourist Spot</b></a></li>
-
+      <li class = "<?= $param == 'faq' ? 'active' : ''; ?>"><a href="/faq" style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
+    
 
   </ul>
   <ul class="nav navbar-nav navbar-right">

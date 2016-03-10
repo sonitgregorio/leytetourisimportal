@@ -52,7 +52,8 @@
   <div class="panel logins p-body">
       <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Announcements</strong></h3></div>
       <div class="panel-body">
-            <div class="col-md-12">
+            <div class="col-md-12" style="height:500px;overflow:scroll">
+            
                           <?php foreach ($this->registration->get_annou(1) as $key => $value): ?>
                             <hr style="background: #8C4600;height:2px;clear:left;">
                               <label for=""><strong>Name: <?php echo $value['firstname'] . " " . $value['lastname']?></strong></label>
@@ -67,9 +68,36 @@
                                   <?php endif ?>
                               </p>
                           <?php endforeach; ?>
-
             </div>
-            
+      </div>
+  </div>
+</div>
+<div class="col-md-12" style="margin-top:-10%">
+  <div class="panel logins p-body">
+      <div class="panel-heading grad"><h3 style="color:#FFFF00;"><strong>Promotions</strong></h3></div>
+      <div class="panel-body">
+            <div class="col-md-12">
+            <div class="col-md-12">
+                          
+                          <hr style="background: #8C4600;height:2px;">
+                          <?php foreach ($this->db->query("SELECT * FROM tbl_promotion")->result_array() as $v): ?>
+                            <div class="col-md-4" style="text-align:center;margin-bottom:20px">
+                              <figure class="uk-overlay uk-overlay-hover thumbnail">
+                                  <a href="#" class="rester" data-param='<?php echo $v['pic'] ?>' data-param1 = '<?php echo $v['description'] ?>'><img src="<?php echo "../assets/images/".$v['pic'] ?>" class="touris-image" style="height:300px"/></a>
+                                  <figcaption class="uk-overlay-panel uk-overlay-bottom uk-overlay-background uk-overlay-slide-bottom"><?php echo $v['description'] ?></figcaption>
+                              </figure>
+                               <!--  <div class="btn-group" style="width:100%;margin:top:10px">
+                                  <a class="btn btn-info col-md-6 res" href="#" data-param='<?php echo $v[''] ?>'>View&nbsp;<span class="glyphicon glyphicon-open"></span></a>
+                                  <a href="/del_gal/<?php echo $v['id'] ?>" class="btn btn-danger col-md-6" onclick="return confirm('Are You Sure?')">Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+                                </div> -->
+                            </div>
+                        <?php endforeach; ?>
+
+                                               
+                          <hr style="background: #8C4600;height:2px;width:100%">
+
+                      </div>
+            </div>
       </div>
   </div>
 </div>

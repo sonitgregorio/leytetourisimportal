@@ -20,6 +20,8 @@
       $home = "";
       $settings = "";
       $gallery = "";
+      $faq = "";
+      $prom = "";
       $touristmanagement = "";
       if ($param) {
         if ($param == "settings") {
@@ -33,14 +35,32 @@
         }
         elseif ($param == "touristmanagement") {
             $touristmanagement = "active";
+        }elseif ($faq == "touristmanagement") {
+            $faq = "active";
+        }
+        elseif ($param == "prom") {
+            $prom = "active";
         }
       }
 
    ?>
+   <?php 
+    $x = $this->db->query('SELECT * FROM tbl_announcement WHERE status = 0')->num_rows();
+    $y = $this->db->query('SELECT * FROM tbl_feedback WHERE stats = 0')->num_rows();
+   ?>
     <ul class="nav navbar-nav">
       <li class="<?php echo $home ?>" ><a href="/home" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
       <li class = "<?php echo $touristmanagement; ?>"><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Tourism Management</b></a></li> 
-      <li class = "<?php echo $param == 'request' ? 'active' : ''; ?>"><a href="/posting_request" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Posting Request</b></a></li> 
+      <li class = "<?php echo $param == 'request' ? 'active' : ''; ?>"><a href="/posting_request" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>Posting Request</b> <span class="badge"><?= $x ?></span></a></li> 
+      <li class = "<?php echo $faq; ?>"><a href="/faq" style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b>&nbsp;&nbsp;
+
+
+      <?php if ($this->session->userdata('usertype') == 4): ?>
+            <span class="badge"><?= $y ?></span>
+          <?php endif ?></a></li>
+      <li class = "<?php echo $prom; ?>"><a href="/promotions" style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>Promotions</b>&nbsp;&nbsp;
+
+      
       <li class = "<?php echo $param == "logs" ? 'active' : ''; ?>"><a href="/user_logs" style="color:white"><span class="glyphicon glyphicon-cog"></span>&nbsp;<b>User Logs</b></a></li> 
     
     </ul>
@@ -51,6 +71,7 @@
 
               <a class="btn btn-success" type="submit" class="btn btn-default" href="/logout">Logout&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
           </div>
+
       </form>
   </ul>
 

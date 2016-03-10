@@ -40,8 +40,8 @@
                             <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width:100%; height: 200px;">
                             </div>
                             <div>
-                              <span class="btn btn-info btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="pics"></span>
-                              <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                              <span class="btn btn-info btn-file buts"><span class="fileinput-new">Select image</span><input type="file" name="pics"></span>
+                              <a href="#" class="btn btn-default fileinput-exists bets" data-dismiss="fileinput">Change/Remove</a>
                             </div>
                         </div>
                          <div class="pull-right">

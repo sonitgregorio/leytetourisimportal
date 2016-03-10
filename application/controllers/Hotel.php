@@ -20,6 +20,7 @@
 		}
 		function insert_room()
 		{
+			$this->load->helper('form');
 			$this->load->model('room');
 			$config['upload_path']          = './assets/images/rooms/';
 	        $config['allowed_types']        = 'gif|jpg|png';
@@ -41,14 +42,15 @@
 						  'filename' 		=>  $this->upload->data('file_name'));
 	                $this->room->insert_room($data);
 	                $this->session->set_flashdata('message', $this->successMessage() . 'Room Added.</div>');
+	        		redirect('/manage_rooms');
+	           	
 	            }
 	            else
 	            {
 	                $this->session->set_flashdata('message', $this->faildemessage() . 'Room Number Already Exist.</div>');
+	            	$this->manage_rooms();
 	            }
-
 	        }
-	        redirect('/manage_rooms');
 		}
 		function view_room($id)
 		{

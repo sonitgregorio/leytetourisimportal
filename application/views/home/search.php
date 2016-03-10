@@ -13,7 +13,7 @@
                   <a href="/visit_hotel/<?php echo $value['id'] ?>" target="_blank" class="btn btn-info" name="button" style="width:50%">Visit</a>
            
             </form>
-          </div>
+          </div> 
       <?php endforeach ?>
       
       <?php foreach ($this->registration->search_tourist($search) as $key => $value): ?>

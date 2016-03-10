@@ -57,6 +57,18 @@
        });
 
 
+
+       $('.rester').click(function(e){
+         $img = $(this).data('param');
+         $descr = $(this).data('param1');
+         $path = '/assets/images/' + $img;
+         $('#img').attr('src', $path);
+         $('.descr').html($descr);
+         $('#resizeimage').modal('show');
+         e.preventDefault();
+       });
+
+
         $('.room').click(function(e){
          $img = $(this).data('param');
          $descr = $(this).data('param1');
@@ -123,7 +135,16 @@
 
        });
 
+       $('.buts').click(function(){
+          $('.buts').hide();
+       });
+       $('.bets').click(function(){
+          $('.buts').show();
 
+       });
+
+
+      
 
   });
 </script>

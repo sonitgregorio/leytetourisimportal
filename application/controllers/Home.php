@@ -162,10 +162,10 @@
             $this->load->helper('email');
             if (valid_email($email)) {
                 $config['protocol'] = "smtp";
-                $config['smtp_host'] = 'ssl://smtp.gmail.com';
+                $config['smtp_host'] = 'ssl://box997.bluehost.com';
                 $config['smtp_port'] = '465';
-                $config['smtp_user'] = 'portalttourism143@gmail.com';
-                $config['smtp_pass'] = 'posterpolang';
+                $config['smtp_user'] = 'leytetourismportal@bsit2015.com';
+                $config['smtp_pass'] = '(O=_Yk8k|&A(rsr';
                 $config['mailtype'] = 'html';
                 $config['mailpath'] = '/usr/sbin/sendmail';
                 $config['charset'] = 'utf-8';
@@ -274,5 +274,91 @@
         $shows = $this->input->post('shows');
         $data = array('froms' => $froms, 'tos' => $tos, 'shows' => $shows);
         $this->load->view('admin/filter_logs', $data);
+    }
+    function faq()
+    {   
+        $this->db->where('stats', 0);
+
+        $this->db->update('tbl_feedback', array('stats' => 1));
+        $this->load->view('templates/header');
+        $data['param'] = "faq";
+        $this->menus($data);
+        $this->load->view('tourist/faq');
+        $this->load->view('templates/footer');
+    }
+    function feed_back()
+    {
+        $this->load->view('templates/header');
+        $data['param'] = "feed";
+        $this->menus($data);
+        $this->load->view('tourist/feed');
+        $this->load->view('templates/footer');
+    }
+    function sub_faq()
+    {
+        $name = $this->input->post('names');
+        $email = $this->input->post('email');
+        $feed = $this->input->post('feed');
+        $date = Date('Y-m-d');
+
+        $this->session->set_flashdata('message','<div class="alert alert-success">' . $this->successMessage() . 'Your Feedback Has been submitted</div>');
+
+        $data = ['name' => $name, 'email' => $email, 'feedback' => $feed, 'date' => $date];
+        $this->db->insert('tbl_feedback', $data);
+        redirect('/faq');
+
+    }
+    function sub_ans()
+    {
+        $feedid = $this->input->post('feedid');
+        $ans = $this->input->post('ans');
+
+        $data = ['feedid' => $feedid, 'answer' => $ans];
+
+
+        $this->db->insert('tbl_feedans', $data);
+        redirect('/faq');
+    }
+    function check_ex(){
+        $this->db->where('roomno', $this->input->post('roomno'));
+        $x = $this->db->get('tbl_hotel_room')->num_rows();
+        echo $x;
+    }
+    function promotions()
+    {
+        $this->load->view('templates/header');
+        $data['param'] = "prom";
+        $this->menus($data);
+        $this->load->view('pages/promotions');
+        $this->load->view('templates/footer');
+    }
+    function insert_promotions()
+    {
+            $config['upload_path']          = './assets/images/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['encrypt_name']         = TRUE;
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('picture'))
+            {
+                $this->session->set_flashdata('message', $this->faildemessage() . $this->upload->display_errors().'</div>');
+            }
+            else
+            {
+               
+                    $data = array('description' => $this->input->post('descr'),
+                                  'pic'    => $this->upload->data('file_name'));
+                    $this->db->insert('tbl_promotion', $data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success">' . $this->successMessage() . 'Room Added.</div>');
+
+            }
+            redirect('/promotions');
+    }
+    function about()
+    {
+        $this->load->view('templates/header');
+        $data['param'] = "about";
+        $this->menus($data);
+        $this->load->view('pages/about');
+        $this->load->view('templates/footer');
     }
   }

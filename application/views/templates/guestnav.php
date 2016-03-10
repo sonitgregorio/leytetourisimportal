@@ -30,6 +30,8 @@
   <ul class="nav navbar-nav">
     <li class="<?php echo $home ?>"><a href="/home" style="color:white"><span class="glyphicon glyphicon-home"></span>&nbsp;<b>Home</b> <span class="sr-only">(current)</span></a></li>
     <li class = "<?php echo $tourist; ?>"><a href="/tourist-list" style="color:white"><span class="glyphicon glyphicon-road"></span>&nbsp;<b>Tourist Destination</b></a></li>
+    <li class = "<?= $param == 'faq' ? 'active' : ''; ?>"><a href="/faq" style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li>
+    
     <!-- <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-menu-hamburger" class="colors"></span>&nbsp;<b>About</b></a></li>
     <li><a href="/tourist"  style="color:white"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;<b>FAQ</b></a></li> -->
   </ul>
